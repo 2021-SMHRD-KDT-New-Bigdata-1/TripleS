@@ -1,0 +1,9 @@
+package com.smhrd;
+
+public class Test3 {
+
+	public static void main(String[] args) {
+		System.out.println("««∞Ô«œ¥Ÿ ««∞Ô«ÿ");
+	}
+
+}

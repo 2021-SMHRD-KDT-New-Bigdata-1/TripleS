@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Triple_S</title>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+<meta name='content-language' content='ko'>
+
+<link rel='stylesheet' href="CSS/main/reset.css">
+<link rel='stylesheet' href="CSS/main/common.css">
+<link rel='stylesheet' href="CSS/main/layout.css">
+<link rel='stylesheet' href="CSS/main/hf.css">
+
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript' src='/child/js/jquery/jquery-ui.min.js'></script>
+
+<script>jQuery.ajaxSetup({cache:false});</script>
+<script>
+Number.prototype.format = function(n, x) {
+var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
+return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');};
+</script>
+</head>
+<body>
+	<div data-include-path="header.html"></div>
+
+
+	<div class="m_gnb">
+		<div id="menu-container">
+
+				<li class="toggle accordion-toggle"><span class="icon-plus"></span>
+					<a class="menu-link">클래스</a></li>
+				<ul class="menu-submenu accordion-content">
+					<li><a href="/child/sub/course/entrance.php">리뷰게시판</a></li>
+					<li><a href="/child/sub/course/audition.php">자유게시판</a></li>
+					<li><a href="/child/sub/course/hobby.php">이벤트게시판</a></li>
+				</ul>
+
+				<li class="toggle accordion-toggle"><span class="icon-plus"></span>
+					<a class="menu-link">커뮤니티</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="popup">
+
+		<!--                ### 팝업 시작 ###            -->
+		<script language="javascript">
+
+function readCookie(cookiename)
+{
+ var Found = false;
+
+ cookiedata = document.cookie;
+ if ( cookiedata.indexOf(cookiename) >= 0 ){
+   Found = true;
+ }
+
+ return Found;
+}
+
+function setCookie( name, value, expiredays )
+{
+var todayDate = new Date();
+todayDate.setDate( todayDate.getDate() + expiredays );
+document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+}
+
+
+//-->
+</script>
+		<!--                ### 팝업 끝 ###            -->
+	</div>
+	<div id="wrap">
+		<input type="button" id="btn1" class="btn pre" value="<"
+			onclick="pre()"> <input type="button" id="btn2"
+			class="btn next" value=">" onclick="next()">
+		<div class="visual fade">
+			<div class="visual-slide">
+				<div>
+					<div class="_v" id="im">
+						<!-- <a href=""> -->
+						<div class="v-bg v1" id="img"></div>
+						<div class="v-bg v2" id="img2"></div>
+						<div class="v-bg v3" id="img3"></div>
+						<div class="centre">
+							<div class="inner">
+								<div class="container">
+									<div class="text-wrap"></div>
+								</div>
+							</div>
+						</div>
+						<!-- </a> -->
+					</div>
+				</div>
+
+				<script>
+        
+var div_tag = document.getElementById("img")
+var div_tag2 = document.getElementById("img2")
+var div_tag3 = document.getElementById("img3")
+var temp = 1;
+var sub = 2;
+var i = 3;
+// setInterval(실행할 함수, 밀리초); : 일정 시간이 지나면 실행하는 함수
+
+
+
+setInterval(function(){
+	next();
+},3500);
+
+
+function pre() {
+	if (i>1) {
+		temp = sub
+		sub = i
+		--i
+	}else {
+		
+		i=3;
+	}
+	div_tag.style.backgroundImage = 'url(img/main/visual/'+(temp)+'.png)'
+	div_tag2.style.backgroundImage = 'url(img/main/visual/'+(sub)+'.png)'
+	div_tag3.style.backgroundImage = 'url(img/main/visual/'+(i)+'.png)'
+}
+// 다음 이미지로 이동하는 함수
+function next() {
+	if (i<3) {
+		temp = sub
+		sub = i
+		i++
+	}else {
+        temp = sub
+		sub = i
+		i=1;	
+	}
+	div_tag.style.backgroundImage = 'url(img/main/visual/'+(temp)+'.png)'
+	div_tag2.style.backgroundImage = 'url(img/main/visual/'+(sub)+'.png)'
+	div_tag3.style.backgroundImage = 'url(img/main/visual/'+(i)+'.png)'
+}
+    </script>
+				<!-- //v1 -->
+
+				<!-- //v4 -->
+
+			</div>
+		</div>
+		<!-- visual end -->
+
+		<section class="section1">
+			<div class="media-section">
+
+				<div class="media-top">
+					<div class="icon">
+						<img src="img/main/icon.png" alt="">
+					</div>
+					<br>
+					<h2 class="media-title">점심값으로 넷플릭스부터 TVING까지 다 볼수 있다면?</h2>
+					<p>다른 유저들과 함께 구독하면 비용을 절감할 수 있습니다, Triple S가 안전은 보장해드려요!</p>
+					<a href="#" class="yt-link" target="_blank">매칭 바로가기</a>
+				</div>
+			</div>
+	</div>
+	</section>
+	<!-- section end -->
+
+	<section class="section2">
+		<div class="divide">
+			<ul class="divide-ul">
+				<li class="_div1">
+
+					<div class="_div-box-wrap">
+						<div class="front">
+							<h2>리뷰게시판</h2>
+						</div>
+						<button class="board">
+							자세히보기
+							<div class="div-text"></div>
+					</div>
+				</li>
+				<li class="_div2">
+					<div class="_div-box-wrap">
+						<div class="front">
+							<h2>자유게시판</h2>
+						</div>
+						<button class="board">
+							자세히보기
+							<div class="div-text">
+
+								<em href="#">자세히보기</em>
+							</div>
+					</div>
+				</li>
+				<li class="_div3">
+					<div class="_div-box-wrap">
+						<div class="front">
+							<h2>이벤트게시판</h2>
+						</div>
+						<button class="board">
+							자세히보기
+							<div class="div-text">
+
+								<em href="#">자세히보기</em>
+							</div>
+					</div>
+				</li>
+				<li class="_div4">
+					<div class="_div-box-wrap">
+						<div class="front">
+							<h2>문의사항</h2>
+						</div>
+						<button class="board">
+							자세히보기
+							<div class="div-text">
+								"?" <em href="#">자세히보기</em>
+							</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+
+	<section class="section3">
+		<div class="brand">
+			<div class="brand-wrap">
+				<div class="brand-btn-wrap"></div>
+				<div class="brand-slide"></div>
+			</div>
+		</div>
+	</section>
+
+
+
+	</div>
+
+
+
+	<script>
+// Visual
+$(".visual-slide")
+.on('init',function(slick){
+    $('.visual-slide [data-slick-index="0"] ._v').addClass('on');
+})
+.on('beforeChange',function(event, slick, currentSlide, nextSlide){
+    $('.visual-slide ._v').removeClass('bg-on');
+    if(currentSlide == 0){
+        $('.visual-slide [data-slick-index="1"] ._v').addClass('bg-on');
+    } else if (currentSlide == 1){
+        $('.visual-slide [data-slick-index="2"] ._v').addClass('bg-on');
+    } else if (currentSlide == 2){
+        $('.visual-slide [data-slick-index="3"] ._v').addClass('bg-on');
+    } else if (currentSlide == 3){
+        $('.visual-slide [data-slick-index="4"] ._v').addClass('bg-on');
+    } else if (currentSlide == 4){
+        $('.visual-slide [data-slick-index="0"] ._v').addClass('bg-on');
+    }
+})
+.on('afterChange',function(event, slick, currentSlide, nextSlide){
+    $('.visual-slide ._v').removeClass('on');
+    if(currentSlide == 0){
+        $('.visual-slide [data-slick-index="0"] ._v').addClass('on');
+    } else if (currentSlide == 1){
+        $('.visual-slide [data-slick-index="1"] ._v').addClass('on');
+    } else if (currentSlide == 2){
+        $('.visual-slide [data-slick-index="2"] ._v').addClass('on');
+    } else if (currentSlide == 3){
+        $('.visual-slide [data-slick-index="3"] ._v').addClass('on');
+    } else if (currentSlide == 4){
+        $('.visual-slide [data-slick-index="4"] ._v').addClass('on');
+    }
+})
+.slick({
+    fade: true,
+    draggable: true,
+    cssEase: 'ease-in-out',
+    arrows: false,
+    dots: false,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 3500,
+    speed: 1500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    pauseOnFocus: false,
+    pauseOnHover: false
+});
+
+
+// Brand Gallery
+$(".brand-slide").slick({
+    draggable: false,
+    cssEase: 'ease-in-out',
+    arrows: true,
+    dots: false,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    speed: 1000,
+    slidesToShow: 8,
+    slidesToScroll: 1,
+    pauseOnFocus: false,
+    pauseOnHover: false,
+    prevArrow: $('.brand-prev'),
+    nextArrow: $('.brand-next'),
+    responsive: [
+        {
+            breakpoint: 1680,
+            settings: {
+                slidesToShow: 5,
+                autoplay: true,
+                dots: true
+            }
+        },
+        {
+            breakpoint: 1401,
+            settings: {
+                slidesToShow: 4,
+                autoplay: true,
+                dots: true
+            }
+        },
+        {
+            breakpoint: 1025,
+            settings: {
+                slidesToShow: 3,
+                autoplay: true,
+                dots: true
+            }
+        },
+        {
+            breakpoint: 769,
+            settings: {
+                slidesToShow: 2,
+                autoplay: true,
+                dots: true
+            }
+        }
+    ]
+});
+$(document).on('click','.brand-play-stop', function(){
+    if( $(this).attr('aria-pressed') == 'false' ){
+        $(this).attr('aria-pressed', 'true');
+        $('.brand-slide').slick('slickPause');
+    } else {
+        $(this).attr('aria-pressed', 'false');
+        $('.brand-slide').slick('slickPlay');
+    }
+});
+
+
+</script>
+	<div data-include-path="footer.html"></div>
+
+	<script>
+
+    window.addEventListener('load', function() {
+        var allElements = document.getElementsByTagName('*');
+        Array.prototype.forEach.call(allElements, function(el) {
+            var includePath = el.dataset.includePath;
+            if (includePath) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        el.outerHTML = this.responseText;
+                    }
+                };
+                xhttp.open('GET', includePath, true);
+                xhttp.send();
+            }
+        });
+    });
+
+</script>
+</body>
+</html>

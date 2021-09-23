@@ -16,60 +16,35 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type='text/javascript' src='/child/js/jquery/jquery-ui.min.js'></script>
 
-<script>jQuery.ajaxSetup({cache:false});</script>
-<script>
-Number.prototype.format = function(n, x) {
-var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
-return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');};
-</script>
+
 </head>
-<body>
+<body class="main_b">
 	<div data-include-path="header.html"></div>
+	<script>
 
+    window.addEventListener('load', function() {
+        var allElements = document.getElementsByTagName('*');
+        Array.prototype.forEach.call(allElements, function(el) {
+            var includePath = el.dataset.includePath;
+            if (includePath) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        el.outerHTML = this.responseText;
+                    }
+                };
+                xhttp.open('GET', includePath, true);
+                xhttp.send();
+            }
+        });
+    });
 
-	<div class="m_gnb">
-		<div id="menu-container">
+</script>
 
-				<li class="toggle accordion-toggle"><span class="icon-plus"></span>
-					<a class="menu-link">클래스</a></li>
-				<ul class="menu-submenu accordion-content">
-					<li><a href="/child/sub/course/entrance.php">리뷰게시판</a></li>
-					<li><a href="/child/sub/course/audition.php">자유게시판</a></li>
-					<li><a href="/child/sub/course/hobby.php">이벤트게시판</a></li>
-				</ul>
-
-				<li class="toggle accordion-toggle"><span class="icon-plus"></span>
-					<a class="menu-link">커뮤니티</a></li>
-			</ul>
-		</div>
-	</div>
 	<div id="popup">
 
 		<!--                ### 팝업 시작 ###            -->
-		<script language="javascript">
-
-function readCookie(cookiename)
-{
- var Found = false;
-
- cookiedata = document.cookie;
- if ( cookiedata.indexOf(cookiename) >= 0 ){
-   Found = true;
- }
-
- return Found;
-}
-
-function setCookie( name, value, expiredays )
-{
-var todayDate = new Date();
-todayDate.setDate( todayDate.getDate() + expiredays );
-document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
-}
-
-
-//-->
-</script>
+		
 		<!--                ### 팝업 끝 ###            -->
 	</div>
 	<div id="wrap">
@@ -232,126 +207,6 @@ function next() {
 		</div>
 	</section>
 
-
-
-	</div>
-
-
-
-	<script>
-// Visual
-$(".visual-slide")
-.on('init',function(slick){
-    $('.visual-slide [data-slick-index="0"] ._v').addClass('on');
-})
-.on('beforeChange',function(event, slick, currentSlide, nextSlide){
-    $('.visual-slide ._v').removeClass('bg-on');
-    if(currentSlide == 0){
-        $('.visual-slide [data-slick-index="1"] ._v').addClass('bg-on');
-    } else if (currentSlide == 1){
-        $('.visual-slide [data-slick-index="2"] ._v').addClass('bg-on');
-    } else if (currentSlide == 2){
-        $('.visual-slide [data-slick-index="3"] ._v').addClass('bg-on');
-    } else if (currentSlide == 3){
-        $('.visual-slide [data-slick-index="4"] ._v').addClass('bg-on');
-    } else if (currentSlide == 4){
-        $('.visual-slide [data-slick-index="0"] ._v').addClass('bg-on');
-    }
-})
-.on('afterChange',function(event, slick, currentSlide, nextSlide){
-    $('.visual-slide ._v').removeClass('on');
-    if(currentSlide == 0){
-        $('.visual-slide [data-slick-index="0"] ._v').addClass('on');
-    } else if (currentSlide == 1){
-        $('.visual-slide [data-slick-index="1"] ._v').addClass('on');
-    } else if (currentSlide == 2){
-        $('.visual-slide [data-slick-index="2"] ._v').addClass('on');
-    } else if (currentSlide == 3){
-        $('.visual-slide [data-slick-index="3"] ._v').addClass('on');
-    } else if (currentSlide == 4){
-        $('.visual-slide [data-slick-index="4"] ._v').addClass('on');
-    }
-})
-.slick({
-    fade: true,
-    draggable: true,
-    cssEase: 'ease-in-out',
-    arrows: false,
-    dots: false,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 3500,
-    speed: 1500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    pauseOnFocus: false,
-    pauseOnHover: false
-});
-
-
-// Brand Gallery
-$(".brand-slide").slick({
-    draggable: false,
-    cssEase: 'ease-in-out',
-    arrows: true,
-    dots: false,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 1500,
-    speed: 1000,
-    slidesToShow: 8,
-    slidesToScroll: 1,
-    pauseOnFocus: false,
-    pauseOnHover: false,
-    prevArrow: $('.brand-prev'),
-    nextArrow: $('.brand-next'),
-    responsive: [
-        {
-            breakpoint: 1680,
-            settings: {
-                slidesToShow: 5,
-                autoplay: true,
-                dots: true
-            }
-        },
-        {
-            breakpoint: 1401,
-            settings: {
-                slidesToShow: 4,
-                autoplay: true,
-                dots: true
-            }
-        },
-        {
-            breakpoint: 1025,
-            settings: {
-                slidesToShow: 3,
-                autoplay: true,
-                dots: true
-            }
-        },
-        {
-            breakpoint: 769,
-            settings: {
-                slidesToShow: 2,
-                autoplay: true,
-                dots: true
-            }
-        }
-    ]
-});
-$(document).on('click','.brand-play-stop', function(){
-    if( $(this).attr('aria-pressed') == 'false' ){
-        $(this).attr('aria-pressed', 'true');
-        $('.brand-slide').slick('slickPause');
-    } else {
-        $(this).attr('aria-pressed', 'false');
-        $('.brand-slide').slick('slickPlay');
-    }
-});
-
-
-</script>
 	<div data-include-path="footer.html"></div>
 
 	<script>

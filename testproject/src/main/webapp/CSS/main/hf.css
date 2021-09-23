@@ -2,6 +2,38 @@
 /* ======= Header ======= */
 
 /* Main Type */
+.button,.burger-menu,.board{font-family: inherit; background: none; border: none; cursor: pointer; outline: none;}
+a>h2,.media-title,.front>h2,li>h6{font-weight: 500;}
+a:link, a:hover, a:visited, a:active { color: inherit; text-decoration: none; }
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body.main_b {
+  background-color: #ffffff;
+  font-family: NotoKR, "Apple SD Gothic Neo", Helvetica, sans-serif, Arial;
+  color: #333;
+  letter-spacing: -0.04em;
+  word-break:keep-all;
+  white-space:-moz-pre-wrap;
+  white-space:-pre-wrap;
+  white-space:-o-pre-wrap;
+  word-wrap:break-word;
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: none;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+
+.divide-ul,.gnb list,.gnb-menu,.sub-gnb,.sns-ul,.menu-list,.menu-submenu,.pt-list,.branch-ul,.gnb{ list-style:none; text-decoration: none;}
 #all_header{opacity: 50%;}
 header {  background-color: black; position: absolute; top: 0; left: 0; width: 100%; z-index: 10000; }
 .customer-menu { padding-top: 40px; float: right; }
@@ -65,30 +97,7 @@ button.button{ color: #ffffff; font-size: larger; margin-top: 3.5px;}
 .sub-gnb li a:hover { background: #fafafa; }
 
 
-#shopping { position: absolute; right: 0; top: 0; line-height: 80px; width: 173px; text-align: center; }
-#shopping:after { content: ''; position: absolute; top: 0; left: 0; bottom: 0; margin: auto;
-    width: 1px; height: 16px; background: #e5e5e5; }
-#shopping a { display: block; color: #6b8e4a; font-weight: bold; }
-#shopping a i { display: inline-block; vertical-align: -4px; margin-right: 10px; width: 27px; height: 22px; background: url('/child/img/icon/shopping.png'); }
-
 .menu { z-index: 11; display: none; position: absolute; top: 5px; left: 5px; width: 50px; height: 50px; }
-.cart { display: block; position: absolute; top: 5px; right: 5px; width: 50px; height: 50px; background: url('/child/m_img/icon/icon_cart.png') no-repeat center / 30px 25px; }
-.cart a { display: block; width: 100%; height: 100%; }
-
-.burger-menu { position: relative; padding: 17px 15px; width: 100%; height: 100%; }
-.burger-wrap { position: relative; width: 100%; height: 100%; }
-.burger-wrap span { position: absolute; width: 100%; height: 2px;
-    background: #fff;
-    -webkit-transition: ease-out .3s;
-    -o-transition: ease-out .3s;
-    transition: ease-out .3s;
-}
-.burger-menu[aria-pressed="false"] .burger-top { top: 0; right: 0; }
-.burger-menu[aria-pressed="false"] .burger-middle { top: 0; right: 0; bottom: 0; margin: auto; }
-.burger-menu[aria-pressed="false"] .burger-bottom { bottom: 0; right: 0; }
-.burger-menu[aria-pressed="true"] .burger-top { top: 7px; right: 0; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
-.burger-menu[aria-pressed="true"] .burger-middle { top: 0; right: 0; bottom: 0; margin: auto; opacity: 0; visibility: hidden; }
-.burger-menu[aria-pressed="true"] .burger-bottom { bottom: 7px; right: 0; -webkit-transform: rotate(-45deg); -ms-transform: rotate(-45deg); transform: rotate(-45deg); }
 
 .m-search { display: none; position: absolute; top: 0; bottom: 0; right: 0; }
 .m-search button { width: 50px; height: 50px; background: url('/child/img/search.png') no-repeat center / auto 23px; }
@@ -115,16 +124,6 @@ button.button{ color: #ffffff; font-size: larger; margin-top: 3.5px;}
 }
 .m_gnb #menu-container { padding-bottom: 50px; background: #fff; }
 .mo_gnb_on { -webkit-transform: translateX(0); transform: translateX(0); }
-.menu-login { margin: 7px 0; }
-.menu-login li { position: relative; background: #fff; }
-.menu-login li a { display: block; padding: 16px 15px 14px 60px; width: 100%; font-size: 13px; }
-.login_icon { display: inline-block; vertical-align: middle; position: absolute; top: 9px; left: 15px; width: 30px; height: 30px; background: url('/child/img/icon/icon_profile.png') no-repeat center / 30px; }
-.my-page { background: #fff; }
-.my-page li { font-size: 14px !important; border-bottom: 1px solid #e5e5e5; }
-.my-page li a { display: block; padding: 15px; font-size: 14px; color: #333; font-weight: 500; }
-.active-tab .menu-link { color: #fff; background: #333; }
-.my-page .menu-submenu li { background: #f7f7f7; }
-.my-page .menu-submenu li a { padding: 12px 30px; font-size: 13px; font-weight: 400; }
 
 .m-menu-li { border-bottom: 1px solid #e5e5e5; }
 
@@ -228,6 +227,7 @@ footer .container { margin: auto; max-width: 1920px; padding-right: 100px; paddi
 /* .pt-list li:after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; margin: auto; width: 1px; height: 15px; background: rgba(0,0,0,.1); } */
 .pt-list li:last-child:after { content: none; }
 .pt-list li a { font-size: 16px; font-weight: 500; color: #555555; }
+.pt-list{list-style: none;}
 
 .footer-bottom { }
 .footer-bottom .container { position: relative; }
@@ -250,16 +250,6 @@ footer .container { margin: auto; max-width: 1920px; padding-right: 100px; paddi
 .dl dd { display: inline-block; vertical-align: top; margin: 2px 9px; font-size: 14px; color: #666666; }
 
 .copyright { margin: 10px 9px 36px; font-size: 14px; color: #999999; }
-.f-sns-ul { position: absolute; top: -2px; right: 100px; }
-.f-sns { float: left; margin-right: 10px; }
-.f-sns:last-child { margin-right: 0; }
-.f-sns a { display: block; }
-.f-sns a i { display: block; width: 31px; height: 31px; }
-.f-s1 { background-image: url('/child/img/icon/f-s1.png'); background-repeat: no-repeat; background-position: center; }
-.f-s2 { background-image: url('/child/img/icon/f-s2.png'); background-repeat: no-repeat; background-position: center; }
-.f-s3 { background-image: url('/child/img/icon/f-s3.png'); background-repeat: no-repeat; background-position: center; }
-.f-s4 { background-image: url('/child/img/icon/f-s4.png'); background-repeat: no-repeat; background-position: center; }
-.f-s5 { background-image: url('/child/img/icon/f-s5.png'); background-repeat: no-repeat; background-position: center; }
 
 @media (max-width: 1024px){
 .footer-bottom .container { padding: 0; }

@@ -1,5 +1,5 @@
-@charset "EUC-KR";
-/* ·¹ÀÌ¾Æ¿ô Æ² */
+@charset "utf-8";
+/* ë ˆì´ì•„ì›ƒ í‹€ */
 
 
 html {
@@ -10,7 +10,6 @@ body {
     margin: 0;
     height: 100%;
     background: #ffffff;
-    font-family: Dotum,'µ¸¿ò',Helvetica,sans-serif;
 }
 .top_title{
     position: relative;
@@ -45,7 +44,7 @@ footer{
 
 
 
-/* ÀÔ·ÂÆû */
+/* ì…ë ¥í¼ */
 
 
 h3 {
@@ -77,7 +76,7 @@ h3 {
 }
 
 input {
-    font-family: Dotum,'µ¸¿ò',Helvetica,sans-serif;    
+    font-family: Dotum,'ë‹ì›€',Helvetica,sans-serif;    
 }
 
 .box.int_id {
@@ -149,10 +148,10 @@ select {
     text-align: start;
     border: none;
     cursor: default;
-    font-family: Dotum,'µ¸¿ò',Helvetica,sans-serif;
+    font-family: Dotum,'ë‹ì›€',Helvetica,sans-serif;
 }
 
-/* ¿¡·¯¸Ş¼¼Áö */
+/* ì—ëŸ¬ë©”ì„¸ì§€ */
 
 .error_next_box {
     margin-top: 9px;
@@ -170,7 +169,7 @@ select {
     display: none;
 }
 
-/* ¹öÆ° */
+/* ë²„íŠ¼ */
 
 .btn_area {
     margin: 30px 0 91px;
@@ -185,7 +184,7 @@ select {
     background-color: #5e6d75;
     font-size: 20px;
     font-weight: 400;
-    font-family: Dotum,'µ¸¿ò',Helvetica,sans-serif;
+    font-family: Dotum,'ë‹ì›€',Helvetica,sans-serif;
 }
 
 #btnJoin:hover{

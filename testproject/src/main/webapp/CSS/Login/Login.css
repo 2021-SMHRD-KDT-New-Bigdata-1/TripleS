@@ -1,4 +1,4 @@
-@charset "EUC-KR";
+@charset "utf-8";
 /* login */
 .k_login>img{
     margin-left: 8px;
@@ -691,7 +691,7 @@
         font-weight: 400;
     }
     /*
-        ÈŞ¸ÕÈ¸¿ø
+        íœ´ë¨¼íšŒì›
     */
     .wake_base_box{
         text-align:Center;

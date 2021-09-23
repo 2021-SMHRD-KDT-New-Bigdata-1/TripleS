@@ -1,6 +1,5 @@
-@charset "EUC-KR";
+@charset "utf-8";
 /* COMMON */
-
 /* Visual */
 
 .visual-slide .slick-dots li { margin: 0 3px; width: 50px; height: 3px; background: rgba(255,255,255,.5); }
@@ -37,9 +36,9 @@
     margin-top: 180px;
     display:inline-block;
     }
-.v1{background-image: url('/img/main/visual/1.png'); }
-.v2{background-image: url('/img/main/visual/2.png'); }
-.v3{background-image: url('/img/main/visual/3.png'); }
+.v1{background-image: url('../../img/main/visual/1.png'); }
+.v2{background-image: url('../../img/main/visual/2.png'); }
+.v3{background-image: url('../../img/main/visual/3.png'); }
 
 #img2{
     margin-left: 40px;

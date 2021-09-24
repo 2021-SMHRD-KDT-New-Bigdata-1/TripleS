@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<script src="https://kit.fontawesome.com/19aa9ed23d.js" crossorigin="anonymous"></script>
+<head>
+<meta charset="EUC-KR">
+<title>Write</title>
+ <link rel="stylesheet" href=" CSS/Board/css.css">
+</head>
+<body>
+<div data-include-path="header.html"></div>
+<body>
+<section class="section1">
+    <div class="board_wrap">
+        <div class="board_title">
+            <strong>게시글 작성</strong>
+            <p># 자유게시판 글 작성</p>
+        </div>
+        <div class="board_write_wrap">
+            <div class="board_write">
+                <div class="title">
+                    <dl>
+                        <dt>제목</dt>
+                        <dd><input type="text" placeholder="제목 입력" value="글 제목이 들어갑니다"></dd>
+                    </dl>
+                </div>
+                <div class="info">
+                    <dl>
+                        <dt>닉네임</dt>
+                        <dd><input type="text" placeholder="#자동으로 떠야됨" value="#자동으로 "></dd>
+                    </dl>
+                    <dl>
+                        <dt>비밀번호</dt>
+                        <dd><input type="password" placeholder="비밀번호 입력" value="1234"></dd>
+                    </dl>
+                </div>
+                <div class="cont">
+                    <textarea placeholder="내용 입력">
+글 내용이 들어갑니다.
+글 내용이 들어갑니다.
+글 내용이 들어갑니다.
+글 내용이 들어갑니다.
+글 내용이 들어갑니다.
+글 내용이 들어갑니다.
+글 내용이 들어갑니다.
+글 내용이 들어갑니다.</textarea>
+                   
+                </tbody>
+                </div>
+            </div>
+            <div class="file">
+            <tbody >
+                <div class="file1">
+                <tr>
+                    <th scope="row">첨부파일1<i class="far fa-file"></i></th>
+                    <td><input name="attach_file[]"  type="file">
+                    </td>
+                </tr>
+            </div>
+            <div class="file2">
+                <tr>
+                    <th scope="row">첨부파일2<i class="far fa-file"></i></th>     
+                    <td><input name="attach_file[]" type="file">
+                    </td>
+                </tr>
+            </div>
+            <div class="file3">
+                <tr>
+                    <th scope="row">첨부파일3<i class="far fa-file"></i></th>
+                    <td><input name="attach_file[]" type="file">
+                    </td>
+                </tr>
+            </div>
+            </tbody>
+        </div>
+            <div class="bt_wrap" id="bt_wrap">
+                <a href="view.html" class="on" id="on">등록</a>
+                <a href="reviewB.html">취소</a>
+            </div>
+        </div>
+      </section>
+
+
+<script>
+
+        window.addEventListener('load', function() {
+            var allElements = document.getElementsByTagName('*');
+            Array.prototype.forEach.call(allElements, function(el) {
+                var includePath = el.dataset.includePath;
+                if (includePath) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            el.outerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open('GET', includePath, true);
+                    xhttp.send();
+                }
+            });
+        });
+    
+    </script>
+	  <div data-include-path="footer.html"></div>
+</body>
+</html>

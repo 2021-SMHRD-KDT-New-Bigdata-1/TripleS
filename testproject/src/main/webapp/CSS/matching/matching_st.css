@@ -1,0 +1,263 @@
+@charset "utf-8";
+
+#root{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+.start{
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    background-color: lightgray;
+    font-size: 35px;
+    border-radius: 12px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+h3{
+    display: block;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 28px;
+    margin: 0px;
+}
+
+.back{
+    width: 100%;
+    height: 28px;
+    background-color: white;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+.info{
+    padding: 16px 24px 0px;
+    width: 40%;
+    margin-top: 100px;
+}
+
+.OTT{
+    display: flex;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+
+
+.OTT_img{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-left: 19px;
+    margin-top: 19px;
+}
+
+.OTT_platform{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-radius: 10px;
+    background-color: var(--primary-100);
+    border: 1px solid #f1f3f7;
+    cursor: pointer;
+    
+}
+
+.OTT_title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+
+
+.paltform{
+    width: 40px;
+    height: 40px;
+}
+
+.party{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 26px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+
+
+.party_01{
+    display: flex;
+    width: 48%;
+    height: 100px;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: black;
+    border-radius: 8px;
+    background-color: white;
+    border: 1px solid lightgray;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.party_02{
+    display: flex;
+    width: 48%;
+    height: 100px;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: black;
+    border-radius: 8px;
+    background-color: white;
+    border: 1px solid lightgray;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.price{
+    display: block;
+    position: relative;
+    height: 120px;
+    transition: height 0.4s ease 0s;
+    padding-right: 16px;
+    padding-left: 16px;
+    overflow: hidden;
+    background-color: #dddddd;
+    border-radius: 8px;
+    border: 1px solid lightgray;
+    
+}
+
+.price_box{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 120px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.price_contenet_01{
+    display: flex;
+    margin-top: 18px;
+    height: 48px;
+    -webkit-box-align: center;
+    align-items: center;
+    color: black;
+    font-size: 23px;
+    margin-top: 40px;
+    margin-left: 30px;
+}
+
+.price_contenet_02{
+    height: 80px;
+    margin-top: 15px;
+}
+
+.back1{
+    width: 100%;
+    height: 18px;
+}
+
+.rate{
+    display: flex;
+    flex-direction: row;
+}
+
+.ori_price{
+    display: flex;
+    color: var(--gray-400);
+    font-size: 25px;
+    line-height: 24px;
+    text-decoration: line-through;
+}
+
+.ratio{
+    margin-left: 4px;
+    color: red;
+    font-size: 20px;
+    line-height: 24px;
+    text-decoration: none;
+    padding-top: 1px;
+}
+
+.pay{
+    font-weight: bold;
+    color: var(--gray-900);
+    font-size: 30px;
+    margin-top: 5px;
+}
+
+
+.matching{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 65px;
+    width: 100%;
+    border: 0px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color:skyblue;
+    color: white;
+    padding-top: 4px;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.guide_info{
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+
+.guide{
+    background-color: #E8F0F6;
+    border-radius: 12px;
+    padding: 32px 24px 20px;
+    margin-bottom: 24px;
+    border: 1px solid lightgray;
+}
+
+.guide_cnt{
+    margin-left: 15px;
+}
+
+.OTT_cnt{
+    font-size: 17px;
+    margin-left: 20px;
+}

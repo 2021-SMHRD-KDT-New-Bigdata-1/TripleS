@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+
+	<link rel="stylesheet" href="CSS/matching/matching_st.css">
+    <link rel="stylesheet" href="CSS/matching/button.css">
+
+</head>
+<body>
+	
+	<div id="root">
+        <div data-include-path="header.html"></div>
+
+
+        <div class="info">
+            <div class="start">안전하고 간편하게 파티원매칭</div>
+            <div class="back">&nbsp;</div>
+            <h3><strong style="font-weight: bold;">빠른 매칭 시작하기</strong></h3>
+            <div class="back">&nbsp;</div>
+            <div class="container">
+                <form class="form cf" style="display: flex; flex-direction:column">
+                    <section class="OTT-type">
+                        
+                        <input type="radio" name="OTT" id="credit" value="netflex">
+                        <label class="credit-label four col" for="credit"><img class="OTT_img" src="img/OTT/넷플릭스2.png"></label>
+                        
+
+                        <input type="radio" name="OTT" id="debit" value="watcha">
+                        <label class="debit-label four col" for="debit"><img class="OTT_img" src="img/OTT/왓챠2.png"></label>
+                        
+                        <input type="radio" name="OTT" id="paypal" value="wavve" checked>
+                        <label class="paypal-label four col" for="paypal"><img class="OTT_img" src="img/OTT/웨이브2.png"></label>
+                        
+                        <input type="radio" name="OTT" id="paypa2" value="tiving" checked>
+                        <label class="paypa2-label four col" for="paypa2"><img class="OTT_img" src="img/OTT/티빙2.png"></label>
+                    </section>
+
+
+                    <div class="OTT_title">
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;넷플릭스</div>
+                        <div>왓챠</div>
+                        <div>웨이브</div>
+                        <div style="margin-right: 32px;">티빙</div>
+                    </div>
+
+                    <div class="back">&nbsp;</div>
+
+
+                    <section class="maching-plan">
+                        <input type="radio" name="matching" id="monthly" value="member" checked>
+                        <label class="monthly-label four coll" for="monthly" id="p_member">파티원</label>
+                        
+                        <input type="radio" name="matching" id="yearly" value="host">
+                        <label class="yearly-label four coll" for="yearly" id="p_host">파티장</label>
+                    </section>
+                </form>
+            </div>
+
+
+            <div class="back">&nbsp;</div>
+
+            <div class="price">
+                <div class="price_box">
+                    <div class="price_contenet_01">최고화질<br>&nbsp;4인파티</div>
+                    
+                    <div class="price_contenet_02">
+                        <div class="back1"></div>
+                        <div class="rate">
+                            <div class="ori_price">14,500</div>
+                            <sub class="ratio">&nbsp;&nbsp;69%</sub>
+                        </div>
+                        <div class="pay">매 월 4,500원</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="back">&nbsp;</div>
+
+            <div class="guide">
+                <ul class="guide_info">
+                    <li class="guid_cnt"><div class="OTT_cnt">1개 OTT이용시 &nbsp;&nbsp;&nbsp; <strong>4,500원</strong></div></li>
+                    <li class="guid_cnt"><div class="OTT_cnt">2개 OTT이용시 &nbsp;&nbsp;&nbsp; <strong>4,500원</strong></div></li>
+                    <li class="guid_cnt"><div class="OTT_cnt">3개 OTT이용시 &nbsp;&nbsp;&nbsp; <strong>4,500원</strong></div></li>
+                    <li class="guid_cnt"><div class="OTT_cnt">4개 OTT이용시 &nbsp;&nbsp;&nbsp; <strong>4,500원</strong></div></li>
+                    
+                    
+                </ul>
+            </div>
+            
+            <div class="back">&nbsp;</div>
+
+        <input type="submit" class="matching" value="빠른매칭 시작하기">
+        </div>
+
+        
+    </div>
+	<div data-include-path="footer.html"></div>
+    <script>
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[1];
+            file = elmnt.getAttribute("include-html");
+            if(file) {
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+                        elmnt.innerHTML = this.responseText;
+                        elmnt.removeAttribute("include-html");
+                        includeHTML();
+                }
+            }
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            return;
+            }
+        }
+    }
+    
+    includeHTML();
+    
+    </script>
+
+<script>
+
+    window.addEventListener('load', function() {
+        var allElements = document.getElementsByTagName('*');
+        Array.prototype.forEach.call(allElements, function(el) {
+            var includePath = el.dataset.includePath;
+            if (includePath) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        el.outerHTML = this.responseText;
+                    }
+                };
+                xhttp.open('GET', includePath, true);
+                xhttp.send();
+            }
+        });
+    });
+
+</script>
+	
+	
+</body>
+</html>

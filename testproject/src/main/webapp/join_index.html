@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>Triple_S</title>
 <link rel="stylesheet" href="CSS/Login/Join.css">
+<script src="js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 	<div data-include-path="header.html"></div>
@@ -31,8 +32,8 @@
 	<div id="wrapper">
 
 		<!-- content-->
-		<div id="content">
-			<form action="JoinService">
+		<div id="content" >
+			<form action="JoinService" method="post">
 				<div class="top_title">
 					<h1>회원가입</h1>
 				</div>
@@ -40,11 +41,13 @@
 				<!-- EMAIL -->
 				<div>
 					<h3 class="join_title">
-						<label for="email">본인확인 이메일<span class="optional">(선택)</span></label>
+						<label for="email">이메일<span class="optional"></span></label>
 					</h3>
 					<span class="box int_email"> <input name="memberId" type="text" id="email"
-						class="int" maxlength="100" placeholder="선택입력">
-					</span> <span class="error_next_box">이메일 주소를 다시 확인해주세요.</span>
+						class="int" maxlength="100">
+						<input type="button" value="이메일중복체크" onclick="emailCheck()"><br>
+						<span id="sp" ></span>
+					</span> 
 				</div>
 
 				<!-- PW1 -->
@@ -53,9 +56,8 @@
 						<label for="pswd1">비밀번호</label>
 					</h3>
 					<span class="box int_pass"> <input name="password" type="password"
-						id="pswd1" class="int" maxlength="20"> <span id="alertTxt">사용불가</span>
-						<img src="img/login/m_icon_check_disable.png" id="pswd1_img1"
-						class="pswdImg">
+						id="pswd1" class="int" maxlength="20">
+						
 					</span> <span class="error_next_box"></span>
 				</div>
 
@@ -67,6 +69,8 @@
 					</h3>
 					<span class="box int_name"> <input name="nickname" type="text" id="name"
 						class="int" maxlength="20">
+						<input type="button" value="닉네임 중복체크" onclick="nicknameCheck()"><br>
+						<span id="nick" ></span>
 					</span> <span class="error_next_box"></span>
 				</div>
 
@@ -121,5 +125,67 @@
 		});
 	});
 </script>
+<script >
+function emailCheck(){
+			
+			var input = document.getElementById("email");
+
+			/* 이메일 */
+			$.ajax({
+				// type : 데이터 전송 방식
+				// data : 서버에 보낼 데이터{키:값}
+				// url : 데이터를 보낼 서버페이지
+				// dataType : 응답받을 데이터 타입
+				type : "post", 
+				data : {email:input.value},
+				url : "EmailCheckCon",
+				dataType : "text",
+				success : function(data){
+					var sp = document.getElementById("sp");
+					
+					if (data=="true") {
+						sp.innerHTML = "사용할 수 없는 이메일입니다"
+					}else{
+						sp.innerHTML = "사용 가능한 이메일입니다"
+					}
+				},
+				error : function(){
+					alert("통신실패");
+				}
+			})
+		}
+
+function nicknameCheck(){
+
+	var input = document.getElementById("name");
+
+	/* 닉네임 */
+	$.ajax({
+		// type : 데이터 전송 방식
+		// data : 서버에 보낼 데이터{키:값}
+		// url : 데이터를 보낼 서버페이지
+		// dataType : 응답받을 데이터 타입
+		type : "post", 
+		data : {nickname:input.value},
+		url : "NickNameCheckCon",
+		dataType : "text",
+		success : function(data){
+			var sp = document.getElementById("nick");
+			
+			if (data=="true") {
+				sp.innerHTML = "사용할 수 없는 닉네임입니다"
+			}else{
+				sp.innerHTML = "사용 가능한 닉네임입니다"
+			}
+		},
+		error : function(){
+			alert("통신실패");
+		}
+	})
+}
+		
+
+	
+	</script>
 </body>
 </html>

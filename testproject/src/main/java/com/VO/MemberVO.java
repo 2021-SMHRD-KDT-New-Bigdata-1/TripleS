@@ -8,20 +8,18 @@ public class MemberVO {
 	private Date entryDate;
 	private String password;
 	private String phone;
-	private String accountNumber;
 	private String memberId;
 	private int mileage;
 	private String adminYN;
 	private String payYN;
 	
-	public MemberVO(String nickname, Date entryDate, String password, String phone, String accountNumber,
-			String memberId, int mileage, String adminYN, String payYN) {
+	public MemberVO(String nickname, Date entryDate, String password, String phone, String memberId, int mileage,
+			String adminYN, String payYN) {
 		super();
 		this.nickname = nickname;
 		this.entryDate = entryDate;
 		this.password = password;
 		this.phone = phone;
-		this.accountNumber = accountNumber;
 		this.memberId = memberId;
 		this.mileage = mileage;
 		this.adminYN = adminYN;
@@ -60,14 +58,6 @@ public class MemberVO {
 		this.phone = phone;
 	}
 
-	public String getAccountNumber() {
-		return accountNumber;
-	}
-
-	public void setAccountNumber(String accountNumber) {
-		this.accountNumber = accountNumber;
-	}
-
 	public String getMemberId() {
 		return memberId;
 	}
@@ -99,6 +89,8 @@ public class MemberVO {
 	public void setPayYN(String payYN) {
 		this.payYN = payYN;
 	}
+	
+	
 	
 	
 	

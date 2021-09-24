@@ -1,14 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>header</title>
-<link rel='stylesheet' href="CSS/main/common.css">
-<link rel='stylesheet' href="CSS/main/reset.css">
-<link rel='stylesheet' href="CSS/main/layout.css">
+<title>Insert title here</title>
 </head>
 <body>
-	<header id="all_header">
+<header id="all_header">
 		<div class="header-wrap">
 			<div class="container">
 				<ul class="gnb list">
@@ -31,6 +30,7 @@
 					<li class="gnb-menu"><a href="/child/sub/inquiry/"><h2>문의사항</h2></a>
 					</li>
 				</ul>
+				
 
 				<ul class="sns-ul">
 				<button class="button">

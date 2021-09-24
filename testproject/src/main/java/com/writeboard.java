@@ -1,13 +1,14 @@
 package com;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.DAO.MemberDAO;
+import com.DAO.WriteDAO;
 
 @WebServlet("/writeboard")
 public class writeboard extends HttpServlet {
@@ -18,27 +19,20 @@ public class writeboard extends HttpServlet {
 
 		request.setCharacterEncoding("euc-kr");
 		
+		String subject = request.getParameter("subject");
+		String content= request.getParameter("content");
+		String img_pic1= request.getParameter("img_pic1");
+		String img_pic2= request.getParameter("img_pic2");
+		String img_pic3= request.getParameter("img_pic3");
+
 		
+
+		WriteDAO dao = new WriteDAO();
 		
-		
-		String memberId = request.getParameter("memberId");
-		String password = request.getParameter("password");
-		String nickname = request.getParameter("nickname");
-		String phone = request.getParameter("phone");
-		String adminYN = null;
-		
-		if (nickname.equals("admin")) {
-			adminYN = "Y";
-		}else {
-			adminYN = "N";
-		}
-		
-		MemberDAO dao = new MemberDAO();
-		
-		int cnt = dao.join(nickname, password, phone, memberId, adminYN);
+		int cnt = dao.write(subject, content, img_pic1, img_pic2, img_pic3);
 		
 		if (cnt>0) {
-			response.sendRedirect("login_index.html");
+			System.out.println("글 작성 성공");;
 		}
 	
 		

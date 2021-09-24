@@ -4,10 +4,10 @@
 <head>
 <meta charset="EUC-KR">
 <title>Write</title>
- <link rel="stylesheet" href="CSS/Board/css.css">
+ <link rel="stylesheet" href=" CSS/Board/css.css">
 </head>
 <body>
-<div data-include-path="header.html"></div>
+<div data-include-path="header.jsp"></div>
 <body>
 <form action="writeboard">
 <section class="section1">
@@ -21,29 +21,12 @@
                 <div class="title">
                     <dl>
                         <dt>제목</dt>
-                        <dd><input type="text" placeholder="제목 입력" value="글 제목이 들어갑니다" name="SUBJECT" ></dd>
+                        <dd><input type="text" placeholder="제목 입력" name="subject"></dd>
                     </dl>
                 </div>
-                <div class="info">
-                    <dl>
-                        <dt>회원아이디</dt>
-                        <dd><input type="text" ></dd>
-                    </dl>
-                    <dl>
-                        <dt>날짜</dt>
-                        <dd><input type="text" ></dd>
-                    </dl>
-                </div>
+            
                 <div class="cont">
-                    <textarea placeholder="내용 입력">
-						글 내용이 들어갑니다.
-						글 내용이 들어갑니다.
-						글 내용이 들어갑니다.
-						글 내용이 들어갑니다.
-						글 내용이 들어갑니다.
-						글 내용이 들어갑니다.
-						글 내용이 들어갑니다.
-						글 내용이 들어갑니다.</textarea>
+                    <textarea placeholder="내용 입력" name="content"></textarea>
                    
                 </tbody>
                 </div>
@@ -53,29 +36,29 @@
                 <div class="file1">
                 <tr>
                     <th scope="row">첨부파일1<i class="far fa-file"></i></th>
-                    <td><input name="attach_file[]"  type="file">
+                    <td><input name="img_pic1"  type="file">
                     </td>
                 </tr>
             </div>
             <div class="file2">
                 <tr>
                     <th scope="row">첨부파일2<i class="far fa-file"></i></th>     
-                    <td><input name="attach_file[]" type="file">
+                    <td><input name="img_pic2" type="file">
                     </td>
                 </tr>
             </div>
             <div class="file3">
                 <tr>
                     <th scope="row">첨부파일3<i class="far fa-file"></i></th>
-                    <td><input name="attach_file[]" type="file">
+                    <td><input name="img_pic3" type="file">
                     </td>
                 </tr>
             </div>
             </tbody>
         </div>
             <div class="bt_wrap" id="bt_wrap">
-                <a href="view.html" class="on" id="on">등록</a>
-                <a href="reviewB.html">취소</a>
+                <a href="review_board.html" class="on" id="on">등록</a>
+                <a href= "review_board.html">취소</a>
             </div>
         </div>
       </section>

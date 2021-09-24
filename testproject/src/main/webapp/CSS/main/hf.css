@@ -247,7 +247,7 @@ footer .container { margin: auto; max-width: 1920px; padding-right: 100px; paddi
 .branch-ul > li:nth-child(2) { width: 35.34884%; }
 .branch-ul > li:last-child { border-right: none; }
 .dl { font-size: 0; width: 100%;}
-.dl dd {width:100%; display: inline-block; vertical-align: top; margin: 2px 9px; font-size: 14px; color: #666666; }
+.dl dd {width:100vh; display: inline-block; vertical-align: top; margin: 2px 9px; font-size: 14px; color: #666666; }
 
 .copyright { margin: 10px 9px 36px; font-size: 14px; color: #999999; }
 

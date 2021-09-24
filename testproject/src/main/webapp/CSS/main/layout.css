@@ -10,7 +10,7 @@
 #sub-wrap { padding: 0 0; }
 .container {
     margin: auto;
-    max-width: 1050px;
+    max-width: 180vh;
 }
 .container-20 {
     margin: auto;

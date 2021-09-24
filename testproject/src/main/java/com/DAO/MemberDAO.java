@@ -62,5 +62,67 @@ public class MemberDAO {
 		}
 		return cnt;
 	}
+	
+	public boolean emailCheck(String memberId) {
+		// 사용자가 입력한 이메일이 테이블에 존재하는지 확인 유무
+		boolean check = false;
+		try {
+			conn();
+
+			String sql = "select memberId from members where memberId=?";
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, memberId);
+
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				// 사용자가 입력한 이메일이 테이블에 존재하는 경우
+				check = true;
+			} else {
+				// 사용자가 입력한 이메일이 테이블에 존재하지 않는 경우
+				check = false;
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return check;
+	}
+	
+	public boolean nicknameCheck(String nickname) {
+		// 사용자가 입력한 이메일이 테이블에 존재하는지 확인 유무
+		boolean check = false;
+		try {
+			conn();
+
+			String sql = "select nickname from members where nickname=?";
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, nickname);
+
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				// 사용자가 입력한 이메일이 테이블에 존재하는 경우
+				check = true;
+			} else {
+				// 사용자가 입력한 이메일이 테이블에 존재하지 않는 경우
+				check = false;
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return check;
+	}
 
 }
+
+

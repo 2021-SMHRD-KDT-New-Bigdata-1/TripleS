@@ -1,9 +1,12 @@
 package com.DAO;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import com.VO.MemberVO;
 
 public class MemberDAO {
 	Connection conn = null;
@@ -44,7 +47,7 @@ public class MemberDAO {
 		int cnt = 0;
 		try {
 			conn();
-			String sql = "insert into members values(?, sysdate, ?, ? , NULL, ?, 0, ?,'N')";
+			String sql = "insert into members values(?, sysdate, ?, ? , ?, 0, ?,'N')";
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, nickname);
@@ -62,7 +65,7 @@ public class MemberDAO {
 		}
 		return cnt;
 	}
-	
+
 	public boolean emailCheck(String memberId) {
 		// 사용자가 입력한 이메일이 테이블에 존재하는지 확인 유무
 		boolean check = false;
@@ -92,7 +95,7 @@ public class MemberDAO {
 		}
 		return check;
 	}
-	
+
 	public boolean nicknameCheck(String nickname) {
 		// 사용자가 입력한 이메일이 테이블에 존재하는지 확인 유무
 		boolean check = false;
@@ -123,6 +126,38 @@ public class MemberDAO {
 		return check;
 	}
 
+	public MemberVO login(String memberId, String password) {
+		MemberVO vo = null;
+		try {
+			conn();
+
+			String sql = "select * from members where memberId=? and password=?";
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, memberId);
+			psmt.setString(2, password);
+
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+
+				String nickname = rs.getString(1);
+				Date entryDate = rs.getDate(2);
+				String phone = rs.getString(4);
+				int mileage = rs.getInt(6);
+				String adminYN = rs.getString(7);
+				String payYN = rs.getString(8);
+
+				vo = new MemberVO(nickname, entryDate, password, phone, memberId, mileage, adminYN, payYN);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return vo;
+	}
+
 }
-
-

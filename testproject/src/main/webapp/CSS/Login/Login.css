@@ -24,7 +24,7 @@
         margin:0 0 30px;
     }
 #contents{
-    height: 680px;
+    height: 520px;
 }
 .sub_content{
     position: absolute;
@@ -33,7 +33,7 @@
     width: 460px;
     padding: 40px;
     background-color: #f8f8f8;
-    height: 600px;
+    height: 450px;
 }
     .body-member .sub_content .content_box .member_tit h2, .body-proc .sub_content .content_box .member_tit h2{
         displaY:inline-block;

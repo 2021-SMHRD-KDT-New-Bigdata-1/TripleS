@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link rel="stylesheet" href="CSS/matching/host_matching.css">
+</head>
+<body>
+
+	<div data-include-path="header.html"></div>
+
+    <div id="root">
+        <div class="info">
+            <h6 style="font-size: 25px; height: 15px;"><strong style="font-weight: bolder;">프리미엄 요금제</strong>&nbsp;구독후<strong style="font-weight: bold;"><br>공유계정</strong>을 등록해주세요</h6>
+            
+            <div class="back">&nbsp;</div>
+            <div class="back">&nbsp;</div>
+
+            <div style="font-size: 20px;">보안상 평소 자주 사용하는 계정정보는 피해주세요</div>
+            <div class="location"><a href="https://www.wavve.com/" target="blank" >웨이브 구독하고 오기<img class="direction" src="img/OTT/direction.png" style="width: 15px; height: 15px;"></a>
+                
+            </div>
+            <div class="back">&nbsp;</div>
+
+            <div class="info_box">
+                <sub class="OTT_name">웨이브 프리미업 구독료 13,900원은<br>한달간 파티원과 공유 완료시 정산해드려요</sub>
+            </div>
+
+            <div class="back">&nbsp;</div>
+
+            <div class="id_box">
+                <input class="input_id" type="text" placeholder="공유할 웨이브 ID입력">
+                <label class="label_id">아이디</label>
+            </div>
+
+            <div class="back">&nbsp;</div>
+
+            <div class="pw_box">
+                <input class="input_pw" type="password" placeholder="공유할 웨이브 PW입력">
+                <label class="label_pw">비밀번호</label>
+            </div>
+
+            <div class="back">&nbsp;</div>
+
+            <div class="account_box">
+                <div> <select class="back">
+                    <option value="은행선택">은행선택</option>
+                    <option value="국민은행">국민은행</option>
+                    <option value="신한은행">신한은행</option>
+                    <option value="광주은행">광주은행</option>
+                    <option value="카카오뱅크">카카오뱅크</option>
+                </select>
+            </div>
+            
+                <input class="input_account" type="text" placeholder="정산받을 계좌 입력">
+                <input class="input_name" type="text" placeholder="예금주명 입력">
+                <label class="label_id">정산 계좌 정보</label>
+            </div>
+
+            <div class="back">&nbsp;</div>
+
+            <div class="cp">구독/등록 완료</div>
+
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div data-include-path="footer.html"></div>
+    </div>
+
+    <script>
+
+        window.addEventListener('load', function() {
+            var allElements = document.getElementsByTagName('*');
+            Array.prototype.forEach.call(allElements, function(el) {
+                var includePath = el.dataset.includePath;
+                if (includePath) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            el.outerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open('GET', includePath, true);
+                    xhttp.send();
+                }
+            });
+        });
+    
+    </script>
+
+</body>
+</html>

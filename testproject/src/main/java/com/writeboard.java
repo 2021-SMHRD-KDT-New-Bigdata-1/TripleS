@@ -34,7 +34,7 @@ public class writeboard extends HttpServlet {
 		if (cnt>0) {
 			System.out.println("글 작성 성공");;
 		}
-	
+		
 		
 		
 	}

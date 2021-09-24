@@ -4,11 +4,12 @@
 <head>
 <meta charset="EUC-KR">
 <title>Write</title>
- <link rel="stylesheet" href=" CSS/Board/css.css">
+ <link rel="stylesheet" href="CSS/Board/css.css">
 </head>
 <body>
 <div data-include-path="header.html"></div>
 <body>
+<form action="writeboard">
 <section class="section1">
     <div class="board_wrap">
         <div class="board_title">
@@ -20,29 +21,29 @@
                 <div class="title">
                     <dl>
                         <dt>제목</dt>
-                        <dd><input type="text" placeholder="제목 입력" value="글 제목이 들어갑니다"></dd>
+                        <dd><input type="text" placeholder="제목 입력" value="글 제목이 들어갑니다" name="SUBJECT" ></dd>
                     </dl>
                 </div>
                 <div class="info">
                     <dl>
-                        <dt>닉네임</dt>
-                        <dd><input type="text" placeholder="#자동으로 떠야됨" value="#자동으로 "></dd>
+                        <dt>회원아이디</dt>
+                        <dd><input type="text" ></dd>
                     </dl>
                     <dl>
-                        <dt>비밀번호</dt>
-                        <dd><input type="password" placeholder="비밀번호 입력" value="1234"></dd>
+                        <dt>날짜</dt>
+                        <dd><input type="text" ></dd>
                     </dl>
                 </div>
                 <div class="cont">
                     <textarea placeholder="내용 입력">
-글 내용이 들어갑니다.
-글 내용이 들어갑니다.
-글 내용이 들어갑니다.
-글 내용이 들어갑니다.
-글 내용이 들어갑니다.
-글 내용이 들어갑니다.
-글 내용이 들어갑니다.
-글 내용이 들어갑니다.</textarea>
+						글 내용이 들어갑니다.
+						글 내용이 들어갑니다.
+						글 내용이 들어갑니다.
+						글 내용이 들어갑니다.
+						글 내용이 들어갑니다.
+						글 내용이 들어갑니다.
+						글 내용이 들어갑니다.
+						글 내용이 들어갑니다.</textarea>
                    
                 </tbody>
                 </div>
@@ -78,7 +79,7 @@
             </div>
         </div>
       </section>
-
+</form>
 
 <script>
 

@@ -48,7 +48,7 @@
 					out.print("<a href='myPage_index.html'>마이페이지 |</a>");
 					out.print("</button>");
 					out.print("<button class='button'>");
-					out.print("<a href='main_index.html'>로그아웃</a>");
+					out.print("<a href='LogOutService'>로그아웃</a>");
 					out.print("</button>");
 				}
 

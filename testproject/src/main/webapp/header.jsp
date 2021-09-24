@@ -1,3 +1,4 @@
+<%@page import="com.VO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -31,14 +32,34 @@
 					</li>
 				</ul>
 				
-
+				<%MemberVO vo = (MemberVO) session.getAttribute("vo");%>
+				
 				<ul class="sns-ul">
-				<button class="button">
+				<%if(vo==null){
+					out.print("<button class='button'>");
+					out.print("<a href='login_index.html'>로그인 |</a>");
+					out.print("</button>");
+					out.print("<button class='button'>");
+					out.print("<a href='join_index.html'>회원가입</a>");
+					out.print("</button>");
+				}else{
+					out.print("<button class='button'>");
+					out.print("<h1>"+vo.getNickname()+"님</h1>");
+					out.print("<a href='myPage_index.html'>마이페이지 |</a>");
+					out.print("</button>");
+					out.print("<button class='button'>");
+					out.print("<a href='main_index.html'>로그아웃</a>");
+					out.print("</button>");
+				}
+
+				%>
+				
+				<!-- <button class="button">
 					<a href="login_index.html">로그인 |</a>
 				</button>
 				<button class="button">
 					<a href="join_index.html">회원가입</a>
-				</button>
+				</button> -->
 				</ul>
 			</div>
 		</div>

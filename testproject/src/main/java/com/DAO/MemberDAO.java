@@ -72,7 +72,7 @@ public class MemberDAO {
 		try {
 			conn();
 
-			String sql = "select memberId from members where memberId=?";
+			String sql = "select member_Id from members where member_Id=?";
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, memberId);
@@ -131,7 +131,7 @@ public class MemberDAO {
 		try {
 			conn();
 
-			String sql = "select * from members where memberId=? and password=?";
+			String sql = "select * from members where member_Id=? and password=?";  //다시한번해보세요!
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, memberId);

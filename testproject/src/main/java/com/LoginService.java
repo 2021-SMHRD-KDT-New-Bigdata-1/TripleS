@@ -11,8 +11,8 @@ import javax.servlet.http.HttpSession;
 import com.DAO.MemberDAO;
 import com.VO.MemberVO;
 
-@WebServlet("/LoignService")
-public class LoignService extends HttpServlet {
+@WebServlet("/LoginService")
+public class LoginService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -30,6 +30,7 @@ public class LoignService extends HttpServlet {
 		if (vo != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("vo", vo);
+			System.out.println("로그인 성공!");
 			response.sendRedirect("main_index.html");
 		}else {
 			System.out.println("로그인 실패!");

@@ -12,7 +12,7 @@
 		<div class="header-wrap">
 			<div class="container">
 				<ul class="gnb list">
-					<li class="gnb-menu"><a href="/child/sub/about/"><h2>영화검색</h2></a>
+					<li class="gnb-menu"><a href="movie.jsp"><h2>영화검색</h2></a>
 					</li>
 					<li class="gnb-menu"><a href="matching_start.html"><h2>파티매칭</h2></a>
 					</li>

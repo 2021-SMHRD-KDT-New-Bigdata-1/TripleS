@@ -160,4 +160,35 @@ public class MemberDAO {
 		return vo;
 	}
 
+	public MemberVO share(String memberId) {
+		MemberVO vo = null;
+		try {
+			conn();
+
+			String sql = "select * from members where member_Id=? and password=?";  //다시한번해보세요!
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, memberId);
+
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+
+				String nickname = rs.getString(1);
+				Date entryDate = rs.getDate(2);
+				String phone = rs.getString(4);
+				int mileage = rs.getInt(6);
+				String adminYN = rs.getString(7);
+				String payYN = rs.getString(8);
+
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return vo;
+	}
 }

@@ -66,7 +66,7 @@
 									class="link_set link_profile">
 									<div class="info_kaccount">
 										<div class="thumb_profile">
-										<%MemberVO vo = (MemberVO) session.getAttribute("vo");%>
+										
 											<img src="img/login/icon-N.png" class="img_profile"
 												alt="프로필사진"> <span class="img_frame"></span>
 										</div>

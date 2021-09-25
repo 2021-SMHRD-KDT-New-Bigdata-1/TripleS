@@ -14,7 +14,7 @@
 				<ul class="gnb list">
 					<li class="gnb-menu"><a href="/child/sub/about/"><h2>영화검색</h2></a>
 					</li>
-					<li class="gnb-menu"><a href="/child/sub/course/entrance.php"><h2>파티매칭</h2></a>
+					<li class="gnb-menu"><a href="matching_start.html"><h2>파티매칭</h2></a>
 					</li>
 					<li class="gnb-menu">
 						<h1 class="logo">
@@ -22,7 +22,7 @@
 						</h1>
 					</li>
 
-					<li class="gnb-menu"><a href="/child/sub/bbs/notice.php"><h2>게시판</h2></a>
+					<li class="gnb-menu"><a href="matching_start.html"><h2>게시판</h2></a>
 						<ul class="sub-gnb">
 							<li><a href="/child/sub/bbs/notice.php">리뷰게시판</a></li>
 							<li><a href="/child/sub/bbs/entrance.php">자유게시판</a></li>

@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/netflex_info")
 public class netflex_info extends HttpServlet {
@@ -25,6 +26,8 @@ public class netflex_info extends HttpServlet {
 		} else if(ott.equals("tiving") && hs.equals("host")) {
 			response.sendRedirect("host_tiving.html");
 		} else {
+			HttpSession session = request.getSession();
+			session.setAttribute("ott", ott);
 			response.sendRedirect("pay.html");
 		}
 		

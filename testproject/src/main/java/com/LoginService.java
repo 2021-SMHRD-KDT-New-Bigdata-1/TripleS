@@ -31,6 +31,7 @@ public class LoginService extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("vo", vo);
 			System.out.println("로그인 성공!");
+			
 			response.sendRedirect("main_index.html");
 		}else {
 			System.out.println("로그인 실패!");

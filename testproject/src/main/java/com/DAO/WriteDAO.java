@@ -40,12 +40,12 @@ public class WriteDAO {
 		}
 	}
 
-	public int write(String subject, String content, String img_pic1, String img_pic2, String img_pic3) {
+	public int write(String subject, String content, String img_pic1, String img_pic2, String img_pic3, String memberId) {
 
 		int cnt = 0;
 		try {
 			conn();
-			String sql = "insert into articles values(?,?,?,?,?)";
+			String sql = "insert into articles values(articles_seq.nextval,?,?,?,?,?,?,sysdate,0,0)";
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, subject);
@@ -53,6 +53,8 @@ public class WriteDAO {
 			psmt.setString(3, img_pic1);
 			psmt.setString(4, img_pic2);
 			psmt.setString(5, img_pic3);
+			psmt.setString(6, memberId);
+			
 
 			cnt = psmt.executeUpdate();
 

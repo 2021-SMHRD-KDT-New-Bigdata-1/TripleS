@@ -65,7 +65,9 @@
 										MemberDAO dao = new MemberDAO();
 										MemberVO vo = (MemberVO) session.getAttribute("vo");
 										String memberId = vo.getMemberId();
-										ArrayList<PartiesVO> al = dao.share(memberId); %>
+										ArrayList<PartiesVO> al = dao.share(memberId); 
+										System.out.println(al.size());%>
+										
 										
 										<%for(PartiesVO share:al){ %>
 						<div class="wrap_kaccount">
@@ -77,12 +79,18 @@
 									<div class="info_kaccount">
 										<div class="thumb_profile">
 										
-											<img src="img/login/icon-<%=share.getPlatform() %>.png" class="img_profile"
+											<img src="img/login/icon-<%=share.getOtt() %>.png" class="img_profile"
 												alt="프로필사진"> <span class="img_frame"></span>
 										</div>
 										<span class="info_accounts"> <strong class="screen_out">이용
-												중인 계정</strong> <span class="txt_accounts"><%=share.getPlatform() %></span> <span
-											class="txt_set_2" style="margin-top: 10px;"><%=share.getMember1() %>/<%=share.getMember2() %>/<%=share.getMember3() %></span>
+												중인 계정</strong> <span class="txt_accounts"><%=share.getOtt() %></span> <span
+											class="txt_set_2" style="margin-top: 10px;">
+
+											<%=share.getMemberId() %>
+											<%if(share.getMember1()!=null){ %>/<%=share.getMember1()%>/<%} %>
+											<%if(share.getMember2()!=null){ %><%=share.getMember2()%>/<%} %>
+											<%if(share.getMember3()!=null){ %><%=share.getMember3()%>/<%} %>
+											</span>
 										</span>
 									</div>
 									<span class="ico_account ico_arr"></span>
@@ -91,10 +99,10 @@
 							<div class="box_set">
 								<strong class="tit_manage">계정 정보</strong>
 								<p class="desc_comm desc_manage">계정 정보입니다.</p>
-								<strong class="tit_set">아이디</strong> <span class="txt_set_2"><%=share.getOTTid()%></span>
+								<strong class="tit_set">아이디</strong> <span class="txt_set_2"><%=share.getOttId()%></span>
 							</div>
 							<div class="box_set">
-								<strong class="tit_set">비밀번호</strong> <span class="txt_set_2"><%=share.getOTTpw() %></span>
+								<strong class="tit_set">비밀번호</strong> <span class="txt_set_2"><%=share.getOttPw()%></span>
 							</div>
 
 						</div>

@@ -177,21 +177,22 @@ public class MemberDAO {
 
 			rs = psmt.executeQuery();
 
-			if (rs.next()) {
+			while (rs.next()) {
 				
-				String partyseq = rs.getString(1);
+				int partyseq = rs.getInt(1);
 				Date onpenday = rs.getDate(2);
-				String member_cnt = rs.getString("member_id");
 				String member_Id = rs.getString(3);
-				String matchingday = rs.getString("member_id");
-				String platform = rs.getString(4);
-				String pay_yn = rs.getString("member_2");
+				String ott = rs.getString(4);
 				String member1 = rs.getString(5);
 				String member2 = rs.getString(6);
 				String member3 = rs.getString(7);
 				String oTTid = rs.getString(8);
 				String oTTpw = rs.getString(9);
+				String account = rs.getString(10);
+				String account_name = rs.getString(11);
+				String bank = rs.getString(12);
 				
+				PartiesVO vo = new PartiesVO(partyseq, onpenday, memberId, ott, member1, member2, member3, oTTid, oTTpw, account, account_name, bank);
 				al.add(vo);
 			}
 

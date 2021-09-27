@@ -1,13 +1,26 @@
+<%@page import="java.util.Vector"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.DAO.WriteDAO"%>
+<%@page import="com.VO.WriteVO"%>
+<%@page import="com.VO.MemberVO"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <script src="https://kit.fontawesome.com/19aa9ed23d.js" crossorigin="anonymous"></script>
 <head>
 <meta charset="EUC-KR">
 <title>리뷰게시판</title>
- <link rel="stylesheet" href=" CSS/Board/css.css">
+ <link rel="stylesheet" href="CSS/Board/css.css">
 </head>
 <body>
 <div data-include-path="header.jsp"></div>
+	<%
+		//vo 가져옴
+	MemberVO vo = (MemberVO)session.getAttribute("vo");
+	WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
+	
+	%>
 <section class="section1">
         <div class="board_wrap">
             <div class="board_title">
@@ -17,31 +30,63 @@
             <div class="board_list_wrap">
               <div class="board_list">
                 <div class="top">
-                  <div class="num">번호</div>
+                      <div class="num">번호</div>
                   <div class="title">제목</div>
                   <div class="writer">글쓴이</div>
                   <div class="date">작성일</div>
                   <div class="good">추천수</div>
                   <div class="count">조회수</div>
+                    </div>
+           
+            	
+             <%
+             WriteDAO dao = new WriteDAO();
+             int count = dao.selectCnt();
+             String tempStart = request.getParameter("page");
+             int startPage = 1;
+             int onePageCnt = 5;
+             
+             count = (int)Math.ceil((double)count/(double)onePageCnt);
+             
+             System.out.print(count);
+             
+             if(tempStart!=null){
+            	 startPage = (Integer.parseInt(tempStart)-1)*onePageCnt+1;
+            	 onePageCnt = (Integer.parseInt(tempStart)-1)*onePageCnt+onePageCnt;
+       
+             }
+             ArrayList<WriteVO> v = dao.selectPage((startPage*2),onePageCnt*2);
              
 
-                </div>
-              
+             
+             
+             %>
+            		<%for(WriteVO list:v){ %>
+      			
                 <div>
-                  <div class="num">1</div>
-                  <div class="title"><a href="view.html">제목</a></div>
-                  <div class="writer">글쓴이</div>
-                  <div class="date">작성일</div>
-                  <div class="good">10</div>
-                  <div class="count">34</div>
-
+                  <div class="num"><%=list.getArticles_seq() %></div>
+                  <div class="title"><a href="<%=list.getSubject()%>"><%=list.getSubject()%></a></div>
+                  <div class="writer"><%=list.getMemberId()%></div>
+                  <div class="date"><%=list.getReg_date() %></div>
+                  <div class="good"><%=list.getRec_cnt() %></div>
+                  <div class="count"><%=list.getCnt()%></div>
+					
                 </div>
+                   <%} %>
+          
               </div>
+              
+              
               <div class="board_page">
                 <a href="#" class="bt first"><<</a>
                 <a href="#" class="bt prev"><</a>
-                <a href="#" class="num on">1</a>
-      
+                <%
+            
+                   for(int j=1; j<=count; j++){%>
+                   <a href="review_board.jsp?page=<%=j %>" class="num on"><%=j %></a>
+                  
+             <%}%>
+     
                 <a href="#" class="bt">></a>
                 <a href="#" class="bt">>></a>
               </div>
@@ -54,7 +99,8 @@
                 </div>
                 <div class="search1">
                  <input  type="text" placeholder="Search">
-                 <i class="fas fa-search"></i>
+                
+                 <i class="fas fa-search" ><input type="submit" style= "opacity: 0%  color = white"></i>
                </div>
              </div>
               <div class="bt_wrap">

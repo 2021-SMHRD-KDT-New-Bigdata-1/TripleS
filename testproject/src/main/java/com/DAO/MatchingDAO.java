@@ -61,5 +61,32 @@ public class MatchingDAO {
 		return cnt;
 	}
 	
+public int parties(String memberId, String OTT, String OTTID, String OTTPW, String Account, String AccountName, String Bank) {
+		
+		int cnt = 0;
+		try {
+			conn();
+			String sql = "insert into parties values(PARTIES_SEQ.NEXTVAL,sysdate,?,?,null,null,null,?,?,?,?,?)";
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, memberId);
+			psmt.setString(2, OTT);
+			psmt.setString(3, OTTID);
+			psmt.setString(4, OTTPW);
+			psmt.setString(5, Account);
+			psmt.setString(6, AccountName);
+			psmt.setString(7, Bank);
+
+			cnt = psmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+
+	
 	
 }

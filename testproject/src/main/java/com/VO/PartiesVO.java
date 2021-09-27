@@ -4,65 +4,56 @@ import java.sql.Date;
 
 public class PartiesVO {
 
-	private int partyseq;
-	private Date onpenday;
-	private int member_cnt;
+
+	private int party_seq;
+	private Date open_date;
 	private String memberId;
-	private Date matchingday;
-	private String platform;
-	private String pay_yn;
+	private String ott;
 	private String member1;
 	private String member2;
 	private String member3;
-	private String OTTid;
-	private String OTTpw;
+	private String ottId;
+	private String ottPw;
+	private String account;
+	private String account_name;
+	private String bank;
 	
 	
-	public PartiesVO(int partyseq, Date onpenday, int member_cnt, String memberId, Date matchingday, String platform,
-			String pay_yn, String member1, String member2, String member3, String oTTid, String oTTpw) {
+	public PartiesVO(int party_seq, Date open_date, String memberId, String ott, String member1, String member2,
+			String member3, String ottId, String ottPw, String account, String account_name, String bank) {
 		super();
-		this.partyseq = partyseq;
-		this.onpenday = onpenday;
-		this.member_cnt = member_cnt;
+		this.party_seq = party_seq;
+		this.open_date = open_date;
 		this.memberId = memberId;
-		this.matchingday = matchingday;
-		this.platform = platform;
-		this.pay_yn = pay_yn;
+		this.ott = ott;
 		this.member1 = member1;
 		this.member2 = member2;
 		this.member3 = member3;
-		OTTid = oTTid;
-		OTTpw = oTTpw;
+		this.ottId = ottId;
+		this.ottPw = ottPw;
+		this.account = account;
+		this.account_name = account_name;
+		this.bank = bank;
 	}
 
 
-	public int getPartyseq() {
-		return partyseq;
+	public int getParty_seq() {
+		return party_seq;
 	}
 
 
-	public void setPartyseq(int partyseq) {
-		this.partyseq = partyseq;
+	public void setParty_seq(int party_seq) {
+		this.party_seq = party_seq;
 	}
 
 
-	public Date getOnpenday() {
-		return onpenday;
+	public Date getOpen_date() {
+		return open_date;
 	}
 
 
-	public void setOnpenday(Date onpenday) {
-		this.onpenday = onpenday;
-	}
-
-
-	public int getMember_cnt() {
-		return member_cnt;
-	}
-
-
-	public void setMember_cnt(int member_cnt) {
-		this.member_cnt = member_cnt;
+	public void setOpen_date(Date open_date) {
+		this.open_date = open_date;
 	}
 
 
@@ -76,33 +67,13 @@ public class PartiesVO {
 	}
 
 
-	public Date getMatchingday() {
-		return matchingday;
+	public String getOtt() {
+		return ott;
 	}
 
 
-	public void setMatchingday(Date matchingday) {
-		this.matchingday = matchingday;
-	}
-
-
-	public String getPlatform() {
-		return platform;
-	}
-
-
-	public void setPlatform(String platform) {
-		this.platform = platform;
-	}
-
-
-	public String getPay_yn() {
-		return pay_yn;
-	}
-
-
-	public void setPay_yn(String pay_yn) {
-		this.pay_yn = pay_yn;
+	public void setOtt(String ott) {
+		this.ott = ott;
 	}
 
 
@@ -136,23 +107,53 @@ public class PartiesVO {
 	}
 
 
-	public String getOTTid() {
-		return OTTid;
+	public String getOttId() {
+		return ottId;
 	}
 
 
-	public void setOTTid(String oTTid) {
-		OTTid = oTTid;
+	public void setOttId(String ottId) {
+		this.ottId = ottId;
 	}
 
 
-	public String getOTTpw() {
-		return OTTpw;
+	public String getOttPw() {
+		return ottPw;
 	}
 
 
-	public void setOTTpw(String oTTpw) {
-		OTTpw = oTTpw;
+	public void setOttPw(String ottPw) {
+		this.ottPw = ottPw;
+	}
+
+
+	public String getAccount() {
+		return account;
+	}
+
+
+	public void setAccount(String account) {
+		this.account = account;
+	}
+
+
+	public String getAccount_name() {
+		return account_name;
+	}
+
+
+	public void setAccount_name(String account_name) {
+		this.account_name = account_name;
+	}
+
+
+	public String getBank() {
+		return bank;
+	}
+
+
+	public void setBank(String bank) {
+		this.bank = bank;
 	}
 	
 	

@@ -1,3 +1,6 @@
+<%@page import="com.VO.PartiesVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.DAO.MemberDAO"%>
 <%@page import="com.VO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
@@ -58,6 +61,13 @@
 						class="km-page-active">
 						<h2 id="kakaoBody" class="screen_out">카카오계정 본문</h2>
 						<h3 id="tit_s">공유 계정</h3>
+										<%		
+										MemberDAO dao = new MemberDAO();
+										MemberVO vo = (MemberVO) session.getAttribute("vo");
+										String memberId = vo.getMemberId();
+										ArrayList<PartiesVO> al = dao.share(memberId); %>
+										
+										<%for(PartiesVO share:al){ %>
 						<div class="wrap_kaccount">
 							<div class="box_manage">
 								<strong class="tit_manage">공유 계정</strong>
@@ -67,12 +77,12 @@
 									<div class="info_kaccount">
 										<div class="thumb_profile">
 										
-											<img src="img/login/icon-N.png" class="img_profile"
+											<img src="img/login/icon-<%=share.getPlatform() %>.png" class="img_profile"
 												alt="프로필사진"> <span class="img_frame"></span>
 										</div>
 										<span class="info_accounts"> <strong class="screen_out">이용
-												중인 계정</strong> <span class="txt_accounts">넷플릭스</span> <span
-											class="txt_set_2" style="margin-top: 10px;">회원1/회원2/회원3</span>
+												중인 계정</strong> <span class="txt_accounts"><%=share.getPlatform() %></span> <span
+											class="txt_set_2" style="margin-top: 10px;"><%=share.getMember1() %>/<%=share.getMember2() %>/<%=share.getMember3() %></span>
 										</span>
 									</div>
 									<span class="ico_account ico_arr"></span>
@@ -81,13 +91,14 @@
 							<div class="box_set">
 								<strong class="tit_manage">계정 정보</strong>
 								<p class="desc_comm desc_manage">계정 정보입니다.</p>
-								<strong class="tit_set">아이디</strong> <span class="txt_set_2">wltnthddl6095@daum.net</span>
+								<strong class="tit_set">아이디</strong> <span class="txt_set_2"><%=share.getOTTid()%></span>
 							</div>
 							<div class="box_set">
-								<strong class="tit_set">비밀번호</strong> <span class="txt_set_2">12341234</span>
+								<strong class="tit_set">비밀번호</strong> <span class="txt_set_2"><%=share.getOTTpw() %></span>
 							</div>
 
 						</div>
+						<%} %>
 					</div>
 
 				</div>
@@ -114,5 +125,6 @@
 				});
 			});
 		</script>
+
 </body>
 </html>

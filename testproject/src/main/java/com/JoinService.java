@@ -37,7 +37,7 @@ public class JoinService extends HttpServlet {
 		int cnt = dao.join(nickname, password, phone, memberId, adminYN);
 		
 		if (cnt>0) {
-			response.sendRedirect("login_index.html");
+			response.sendRedirect("login.jsp");
 		}
 	}
 

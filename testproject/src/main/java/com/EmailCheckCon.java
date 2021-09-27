@@ -18,8 +18,8 @@ public class EmailCheckCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-String data = request.getParameter("memberId");
-		
+String data = request.getParameter("email");
+		System.out.println(data);
 		MemberDAO dao = new MemberDAO();
 		boolean check = dao.emailCheck(data);
 

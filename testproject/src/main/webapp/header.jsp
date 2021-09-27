@@ -37,10 +37,10 @@
 				<ul class="sns-ul">
 				<%if(vo==null){
 					out.print("<button class='button'>");
-					out.print("<a href='login_index.html'>로그인 | </a>");
+					out.print("<a href='login.jsp'>로그인 | </a>");
 					out.print("</button>");
 					out.print("<button class='button'>");
-					out.print("<a href='join_index.html'>회원가입</a>");
+					out.print("<a href='login.jsp'>회원가입</a>");
 					out.print("</button>");
 				}else{
 					out.print("<button class='button'>");

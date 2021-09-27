@@ -22,7 +22,7 @@ String data = request.getParameter("nickname");
 		
 		MemberDAO dao = new MemberDAO();
 		boolean check = dao.nicknameCheck(data);
-
+		System.out.println(data);
 		PrintWriter out= response.getWriter();
 		
 		out.print(check);

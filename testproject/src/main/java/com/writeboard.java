@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.DAO.WriteDAO;
 import com.VO.MemberVO;
+import com.VO.WriteVO;
 
 @WebServlet("/writeboard")
 public class writeboard extends HttpServlet {
@@ -40,9 +41,18 @@ public class writeboard extends HttpServlet {
 		
 		if (cnt>0) {
 			
-			response.sendRedirect("view_board.html");
+			WriteVO vo2 = dao.view(subject);
 			
-			System.out.println("글 작성 성공");;
+			if(vo!=null) {
+			
+				session.setAttribute("vo2", vo2);
+				response.sendRedirect("view_board.jsp");
+				System.out.println("글 작성 성공");;
+				
+			}
+			
+			
+	
 		}
 		
 		

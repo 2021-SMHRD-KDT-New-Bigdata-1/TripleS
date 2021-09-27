@@ -1,9 +1,13 @@
 package com.DAO;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import com.VO.MemberVO;
+import com.VO.WriteVO;
 
 public class WriteDAO {
 
@@ -65,10 +69,52 @@ public class WriteDAO {
 		}
 		return cnt;
 	}
+	public WriteVO view(String subject) {
+		WriteVO vo2 = null;
+		try {
+			conn();
+
+			String sql = "select * from articles where subject=?";  //다시한번해보세요!
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, subject);
+		
+
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+
+				
+				
+				int article_seq = rs.getInt(1);
+			
+				String content = rs.getString(3);
+				String img_1 = rs.getString(4);
+				String img_2 = rs.getString(5);
+				String img_3 = rs.getString(6);
+				String memberId = rs.getString(7); 
+				Date reg_date = rs.getDate(8);
+				int cnt= rs.getInt(9);
+				int rec_cnt= rs.getInt(10);
+				
+				
+				
+				vo2 = new WriteVO(article_seq, reg_date, content, img_1,img_2,img_3,memberId,subject, cnt, rec_cnt);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return vo2;
+	}
 	
 
 	
-
+	
+	
 
 
 }

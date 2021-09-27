@@ -5,8 +5,10 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import com.VO.MemberVO;
+import com.VO.PartiesVO;
 
 public class MemberDAO {
 	Connection conn = null;
@@ -160,28 +162,38 @@ public class MemberDAO {
 		return vo;
 	}
 
-	public MemberVO share(String memberId) {
-		MemberVO vo = null;
+	public ArrayList<PartiesVO> share(String memberId) {
+		ArrayList<PartiesVO> al = new ArrayList<PartiesVO>();
 		try {
 			conn();
 
-			String sql = "select * from members where member_Id=? and password=?";  //다시한번해보세요!
+			String sql = "select * from Parties where member_Id=? or member_1=? or member_2=? or member_3=?";  //다시한번해보세요!
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, memberId);
+			psmt.setString(2, memberId);
+			psmt.setString(3, memberId);
+			psmt.setString(4, memberId);
 
 			rs = psmt.executeQuery();
 
-			if (rs.next()) {
-
-				String nickname = rs.getString(1);
-				Date entryDate = rs.getDate(2);
-				String phone = rs.getString(4);
-				int mileage = rs.getInt(6);
-				String adminYN = rs.getString(7);
-				String payYN = rs.getString(8);
-
-
+			while (rs.next()) {
+				
+				int partyseq = rs.getInt(1);
+				Date onpenday = rs.getDate(2);
+				String member_Id = rs.getString(3);
+				String ott = rs.getString(4);
+				String member1 = rs.getString(5);
+				String member2 = rs.getString(6);
+				String member3 = rs.getString(7);
+				String oTTid = rs.getString(8);
+				String oTTpw = rs.getString(9);
+				String account = rs.getString(10);
+				String account_name = rs.getString(11);
+				String bank = rs.getString(12);
+				
+				PartiesVO vo = new PartiesVO(partyseq, onpenday, memberId, ott, member1, member2, member3, oTTid, oTTpw, account, account_name, bank);
+				al.add(vo);
 			}
 
 		} catch (Exception e) {
@@ -189,6 +201,6 @@ public class MemberDAO {
 		} finally {
 			close();
 		}
-		return vo;
+		return al;
 	}
 }

@@ -5,64 +5,31 @@ import java.sql.Date;
 public class WriteVO {
 
 	private int articles_seq;
-	private Date reg_date;
 	private String subject;
 	private String content;
 	private String img_pic1;
 	private String img_pic2;
 	private String img_pic3;
 	private String memberId;
+	private Date reg_date;
 	private int cnt;
 	private int rec_cnt;
-
-
-	public String getMemberId() {
-		return memberId;
-	}
-
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
-	}
-
-	public WriteVO(int articles_seq, Date reg_date, String subject, String content, String img_pic1, String img_pic2,
-			String img_pic3, String memberId, int cnt, int rec_cnt) {
+	
+	public WriteVO(int articles_seq, String subject, String content, String img_pic1, String img_pic2, String img_pic3,
+			String memberId, Date reg_date, int cnt, int rec_cnt) {
 		super();
 		this.articles_seq = articles_seq;
-		this.reg_date = reg_date;
 		this.subject = subject;
 		this.content = content;
 		this.img_pic1 = img_pic1;
 		this.img_pic2 = img_pic2;
 		this.img_pic3 = img_pic3;
 		this.memberId = memberId;
-		this.cnt = cnt;
-		this.rec_cnt = rec_cnt;
-	}
-
-	public int getCnt() {
-		return cnt;
-	}
-
-	public void setCnt(int cnt) {
-		this.cnt = cnt;
-	}
-
-	public int getRec_cnt() {
-		return rec_cnt;
-	}
-
-	public void setRec_cnt(int rec_cnt) {
-		this.rec_cnt = rec_cnt;
-	}
-
-	public Date getReg_date() {
-		return reg_date;
-	}
-
-	public void setReg_date(Date reg_date) {
 		this.reg_date = reg_date;
+		this.cnt = cnt;
+		this.rec_cnt = rec_cnt;
 	}
-
+	
 	public int getArticles_seq() {
 		return articles_seq;
 	}
@@ -110,5 +77,41 @@ public class WriteVO {
 	public void setImg_pic3(String img_pic3) {
 		this.img_pic3 = img_pic3;
 	}
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
+
+	public Date getReg_date() {
+		return reg_date;
+	}
+
+	public void setReg_date(Date reg_date) {
+		this.reg_date = reg_date;
+	}
+
+	public int getCnt() {
+		return cnt;
+	}
+
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
+
+	public int getRec_cnt() {
+		return rec_cnt;
+	}
+
+	public void setRec_cnt(int rec_cnt) {
+		this.rec_cnt = rec_cnt;
+	}
+
+
+	
+	
 
 }

@@ -5,9 +5,12 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Vector;
 
-import com.VO.MemberVO;
 import com.VO.WriteVO;
+
 
 public class WriteDAO {
 
@@ -85,9 +88,7 @@ public class WriteDAO {
 			if (rs.next()) {
 
 				
-				
 				int article_seq = rs.getInt(1);
-			
 				String content = rs.getString(3);
 				String img_1 = rs.getString(4);
 				String img_2 = rs.getString(5);
@@ -99,7 +100,7 @@ public class WriteDAO {
 				
 				
 				
-				vo2 = new WriteVO(article_seq, reg_date, content, img_1,img_2,img_3,memberId,subject, cnt, rec_cnt);
+				vo2 = new WriteVO(article_seq, subject, content, img_1,img_2,img_3,memberId,reg_date, cnt, rec_cnt);
 
 			}
 
@@ -110,8 +111,114 @@ public class WriteDAO {
 		}
 		return vo2;
 	}
+	public ArrayList<WriteVO> subjectList() {
+		
+		ArrayList<WriteVO> list = new ArrayList<WriteVO>();
+		
+		conn();
+		
+		/* String sql = "select * from articles "; */
+		String sql = "select* from articles where article_seq between ? and ?";
 	
+		try {
+		psmt = conn.prepareStatement(sql);
+		
+	
+		
+		rs = psmt.executeQuery();
+		
+		while(rs.next()) { // 나에게 온 메세지가 몇 개인지 모르기때문에 while문 사용
+			int article_seq = rs.getInt(1);
+			String subject = rs.getString(2);
+			String content = rs.getString(3);
+			String img_1 = rs.getString(4);
+			String img_2 = rs.getString(5);
+			String img_3 = rs.getString(6);
+			String memberId = rs.getString(7); 
+			Date reg_date = rs.getDate(8);
+			int cnt= rs.getInt(9);
+			int rec_cnt= rs.getInt(10);
+			
+			 list.add(new WriteVO(article_seq, subject, content ,img_1, img_2,img_3, memberId, reg_date,cnt,rec_cnt));
+			
+		}
+		
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return list;
+		
+	}
+	public ArrayList<WriteVO> selectPage(int start, int pageCnt) {
+		
+		ArrayList<WriteVO> list = new ArrayList<WriteVO>();
+		
+		conn();
+		
+		/* String sql = "select * from articles "; */
+		String sql = "select* from articles where article_seq between ? and ?";
+	
+		try {
+		psmt = conn.prepareStatement(sql);
+		
+		psmt.setInt(1, start);
+		psmt.setInt(2, pageCnt);
 
+		
+		rs = psmt.executeQuery();
+		
+		while(rs.next()) { // 나에게 온 메세지가 몇 개인지 모르기때문에 while문 사용
+			int article_seq = rs.getInt(1);
+			String subject = rs.getString(2);
+			String content = rs.getString(3);
+			String img_1 = rs.getString(4);
+			String img_2 = rs.getString(5);
+			String img_3 = rs.getString(6);
+			String memberId = rs.getString(7); 
+			Date reg_date = rs.getDate(8);
+			int cnt= rs.getInt(9);
+			int rec_cnt= rs.getInt(10);
+			
+			 list.add(new WriteVO(article_seq, subject, content ,img_1, img_2,img_3, memberId, reg_date,cnt,rec_cnt));
+			
+		}
+		
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return list;
+		
+	}
+	public int selectCnt() {
+		int result = 0;
+		conn();
+		
+		String sql = "select count(*) from articles ";
+	
+		try {
+		psmt = conn.prepareStatement(sql);
+
+		
+		rs = psmt.executeQuery();
+		
+		if(rs.next()) {
+			result=rs.getInt(1);
+		}
+		
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		System.out.println(result);
+		return result;
+	}
 	
 	
 	

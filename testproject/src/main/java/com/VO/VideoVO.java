@@ -7,6 +7,7 @@ public class VideoVO {
 	private String video_content;
 	private String video_filename;
 	private String upload_date;
+	private String running_time;
 	private String genre;
 	private String ott_platform;
 	private String member_id;
@@ -15,13 +16,14 @@ public class VideoVO {
 	
 	
 	public VideoVO(int video_seq, String video_title, String video_content, String video_filename, String upload_date,
-			String genre, String ott_platform, String member_id, String actor) {
+			String running_time, String genre, String ott_platform, String member_id, String actor) {
 		super();
 		this.video_seq = video_seq;
 		this.video_title = video_title;
 		this.video_content = video_content;
 		this.video_filename = video_filename;
 		this.upload_date = upload_date;
+		this.running_time = running_time;
 		this.genre = genre;
 		this.ott_platform = ott_platform;
 		this.member_id = member_id;
@@ -29,6 +31,16 @@ public class VideoVO {
 	}
 	
 	
+	public String getRunning_time() {
+		return running_time;
+	}
+
+
+	public void setRunning_time(String running_time) {
+		this.running_time = running_time;
+	}
+
+
 	public int getVideo_seq() {
 		return video_seq;
 	}

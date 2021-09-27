@@ -1,3 +1,4 @@
+
 <%@page import="com.VO.VideoVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.VideoDAO"%>
@@ -14,7 +15,6 @@
 <% 
 VideoDAO dao = new VideoDAO();
 ArrayList<VideoVO> al = dao.select();
-System.out.print(al.size());
 %>
 	<div data-include-path="header.jsp"></div>
 
@@ -59,12 +59,12 @@ System.out.print(al.size());
 			</ul>
 		</div>
 		<table class="movie_table">
-			<% 	int a = 1;
+			<% 	int a = 0;
 				int b = 8;
 				for (int i = 0; i< al.size()/8; i++) {
 				out.print("<tr>");
 				for (int e = a; e < b; e++) {
-					out.print("<td><a href='#'><img src='img/mini/"+al.get(e).getVideo_filename()+".jpg'></a></td>");
+					out.print("<td><a href='movieCon.do?filename="+al.get(e).getVideo_filename()+"'><img src='img/mini/"+al.get(e).getVideo_filename()+".jpg'></a></td>");
 				}
 				out.print("<tr>");
 				a += 8;

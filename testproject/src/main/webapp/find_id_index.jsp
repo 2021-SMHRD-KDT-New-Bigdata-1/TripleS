@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,10 +28,10 @@
 			});
 		});
 	</script>
-	<!-- 로그인 -->
+	<!-- �α��� -->
 	<div id="container" style="padding-top: 160px;">
 		<div id="contents">
-			<!-- 본문 시작 -->
+			<!-- ���� ���� -->
 
 
 
@@ -40,7 +42,7 @@
 				<div class="content_box">
 					<div class="bber_wrap">
 						<div class="member_tit">
-							<h1>로그인</h1>
+							<h1>���̵� ã��</h1>
 						</div>
 						<!-- //member_tit -->
 						<div class="member_cont">
@@ -59,39 +61,41 @@
 										<div class="member_login_box">
 											<div class="login_input_sec">
 												<div>
-													<input type="text" id="loginId" name="memberId" value=""
-														placeholder="아이디" required="true" aria-required="true">
+														
+													<input type="text" id="loginId" name="phone" value=""
+														placeholder="��ȭ��ȣ" required="true" aria-required="true">
 														
 													<input type="password" id="loginPwd" name="password"
-														value="" placeholder="비밀번호" required="true"
+														value="" placeholder="��й�ȣ" required="true"
 														aria-required="true">
 														
+														
 													<button type="submit"
-														style="position: absolute; z-index: -9999999; opacity: 0; top: -5555px; left: -55555px;">로그인</button>
+														style="position: absolute; z-index: -9999999; opacity: 0; top: -5555px; left: -55555px;">ã��</button>
 												</div>
 
 
 												<div class="member_link_wrap">
 													<div class="id_chk">
 
-														<p class="dn js_caution_msg1">아이디, 비밀번호가 일치하지 않습니다. 다시
-															입력해 주세요.</p>
+														<p class="dn js_caution_msg1">���̵�, ��й�ȣ�� ��ġ���� �ʽ��ϴ�. �ٽ�
+															�Է��� �ּ���.</p>
 													</div>
 
 													<div class="btn_login_box">
 														<ul>
 															<li><button id="btnJoinMember"
-																	class="btn_member_join"> <a href="join_index.html">회원가입</a> </button></li>
-															<li><button id="btnFindId" class="btn_member_white">아이디
-																	찾기</button></li>
-															<li><button id="btnFindPwd" class="btn_member_white">비밀번호
-																	찾기</button></li>
+																	class="btn_member_join"> <a href="join_index.html">ȸ������</a> </button></li>
+															<li><button id="btnFindId" class="btn_member_white"><a href="#">���̵�</a>
+																	ã��</button></li>
+															<li><button id="btnFindPwd" class="btn_member_white"><a href="#">��й�ȣ ã��</a>
+																	</button></li>
 														</ul>
 													</div>
 													<!-- //btn_login_box -->
 												</div>
 
-												<button type="submit">로그인</button>
+												<button type="submit">���̵� ã��</button>
 											</div>
 										</div>
 									</form>
@@ -115,7 +119,7 @@
 			</div>
 			<!-- //sub_content -->
 		</div>
-		<!-- //본문 끝 contents -->
+		<!-- //���� �� contents -->
 	</div>
 
 

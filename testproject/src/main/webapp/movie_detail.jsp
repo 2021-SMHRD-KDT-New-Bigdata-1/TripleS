@@ -1,3 +1,4 @@
+
 <%@page import="javax.servlet.annotation.WebServlet"%>
 <%@page import="com.VO.VideoVO"%>
 <%@page import="java.util.ArrayList"%>
@@ -12,11 +13,7 @@
 <link rel='stylesheet' href='CSS/movie/movie_detail.css'>
 </head>
 <body>
-	<%
-	VideoVO vo = (VideoVO)session.getAttribute("vo");
-	%>
-
-	<div data-include-path="header.jsp"></div>
+<div data-include-path="header.jsp"></div>
 
 	<script>
 		function includeHTML() {
@@ -44,6 +41,13 @@
 		includeHTML();
 	</script>
 
+	<%
+	VideoVO vo = (VideoVO)session.getAttribute("vo");
+	String year = vo.getUpload_date();
+	String content = vo.getVideo_content();
+	String content1 = content.replace(".", ".<br>");
+		
+	%>
 	<section class="movie_serch1">
 		<div id="contents">
 			<div class="wrap-movie-detail" id="select_main">
@@ -53,7 +57,7 @@
 			</div>
 			<div class="sect-base-movie">
 				<div class="box-image">
-					<span class="thumb-image"><img src="img/spider/1.jpg" alt=""></span>
+					<span class="thumb-image"><img src="img/poster/<%out.print(vo.getVideo_filename());%>.jpg" alt=""></span>
 				</div>
 			</div>
 			<div class="box-contents">
@@ -66,19 +70,20 @@
 					<dt>배우 : <%out.print(vo.getActor());%></dt>
 					<dt>장르 : <%out.print(vo.getGenre());%></dt>
 					<dt>시간 : <%out.print(vo.getRunning_time());%></dt>
-					<dt>개봉 : <%out.print(vo.getUpload_date());%></dt>
+					<dt>개봉 : <%out.print(year.substring(2,6)+"년");%></dt>
 				</dl>
 			</div>
+			<br>
 			<div class="box-story-top">
 				<h3>줄거리</h3>
 			</div>
 			<div class="sect-story-movie">
 				<br>
 				<P>
-					<STRONG><EM><SPAN style="FONT-FAMILY: sans-serif">마블
-								히어로의 세대교체!</SPAN></EM></STRONG>
+					<STRONG><EM><SPAN style="FONT-FAMILY: sans-serif">
+								<%out.print(content1);%></SPAN></EM></STRONG>
 				</P>
-				<P>
+<!-- 				<P>
 					<STRONG><EM><SPAN style="FONT-FAMILY: sans-serif">“어벤져스가
 								되려면 시험 같은 거 봐요?”</SPAN></EM></STRONG>
 				</P>
@@ -119,7 +124,7 @@
 				<P>
 					<STRONG><SPAN style="FONT-FAMILY: sans-serif">그는 과연
 							진정한 히어로로 거듭날 수 있을 것인가!</SPAN></STRONG>
-				</P>
+				</P> -->
 				<br>
 			</div>
 		</div>

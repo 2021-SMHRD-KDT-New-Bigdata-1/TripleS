@@ -20,11 +20,11 @@
 	%>
 		
 <div data-include-path="header.jsp"></div>
+<form action="replyboard">
  <section class="section1">
         <div class="board_wrap">
             <div class="board_title">
-              <strong>글 내용 읽기</strong>
-              <p># 목록에서 글을 클릭 했을 때 or 글 등록후 작성된 페이지를 보여줌</p>
+              <strong>리뷰 게시판</strong>
             </div>
             <div class="board_view_wrap">
               <div class="board_view">
@@ -41,24 +41,24 @@
                <div class="info">
                 <dl>
                   <dt>번호</dt>
-                  <dd>1</dd>
+                  <dd><%out.print(vo2.getArticles_seq()); %></dd>
                 </dl>
                 <dl>
                   <dt>작성자</dt>
-                  <dd>gomdol</dd>
+                  <dd><%out.print(vo2.getMemberId()); %></dd>
                 </dl>
                 <dl>
                   <dt>작성일</dt>
-                  <dd>2021.09.18</dd>
+                  <dd><%out.print(vo2.getReg_date()); %></dd>
                 </dl>
                 <dl>
                   <dt>조회</dt>
-                  <dd>33</dd>
+                  <dd><%out.print(vo2.getCnt()); %></dd>
                 </dl>
                </div>
                <div class="cont">
                
-         		<!--  글 내용 -->
+         		<% out.print(vo2.getContent()); %>
          		
                </div>
               </div>
@@ -73,7 +73,7 @@
                             <div class="comment_box">
                                 <div class="comment_nick_box">
                                     <div class="comment_nick_info">
-                                        <a href="#" role="button" class="comment_nickname">gomdol</a>
+                                        <a href="#" role="button" class="comment_nickname"> #댓글 작성자 id가 들어감</a>
                                     </div>
                                     <div class="md">
                                         <a href="#" class="modify">수정</a>
@@ -83,11 +83,11 @@
                                 </div>
                                 <div class="comment_text_box">
                                     <p class="comment_text_view">
-                                        <span class="text_comment">난 곰도리야</span>
+                                        <span class="text_comment" > #댓글내용이 들어감</span>
                                     </p>
                                 </div>
                                 <div class="comment_info_box">
-                                    <span class="comment_info_date"> 2021.09.23 15:24</span>
+                                    <span class="comment_info_date">#날짜가 들어감</span>
                                
                                 </div>
                             </div>
@@ -97,23 +97,30 @@
                 <div class="CommentWriter">
                     <div class="comment_inbox"> 
                         <strong class="blind">댓글을 입력하세요</strong>
-                        <em class="comment_inbox_name">gomdori</em>
-                        <textarea placeholder="댓글을 남겨보세요" class="comment_inbox_text" rows="1" style="overflow: hidden; overflow-wrap: break-word; height: 17px;"></textarea>
+                        <em class="comment_inbox_name"><% out.print(vo2.getMemberId()); %></em>
+                        <textarea name="reply" placeholder="댓글을 남겨보세요" class="comment_inbox_text" rows="1" style="overflow: hidden; overflow-wrap: break-word; height: 17px;"></textarea>
                     </div>
                     <div class="comment_attach">
                         <div class="register_box">
-                            <a href="#" role="button" class="button btn_register">등록</a>
+                            <input type ="submit" value="등록" style="display: inline-block;
+    min-width: 46px;
+    height: 32px;
+    font-size: 13px;
+    color: black;
+    vertical-align: top;
+    margin-top: -24px;
+    margin-left: auto";>
                         </div>
                     </div>
                 </div>
               <div class="bt_wrap" id="bt_wrap1">
-                <a href="reviewB.html" class="on">목록</a>
+                <a href="review_board.jsp" class="on">목록</a>
                  <!-- <a href="edit.html" >수정</a>  -->
             </div> 
         </div>
     
     </section>
-
+</form>
 
 <script>
 

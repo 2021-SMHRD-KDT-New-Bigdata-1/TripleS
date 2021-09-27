@@ -213,6 +213,7 @@ a {
   }
   em {
     font-style: normal;
+    font-size: 20pt;
   }
   
   .CommentWriter .comment_inbox_text {
@@ -282,3 +283,7 @@ a {
     margin-left: -985px;
 }
 ul { list-style: none; }
+
+p {
+	font-size : 15px;
+}

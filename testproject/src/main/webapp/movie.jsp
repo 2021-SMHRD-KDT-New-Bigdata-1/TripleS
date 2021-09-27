@@ -64,7 +64,7 @@ ArrayList<VideoVO> al = dao.select();
 				for (int i = 0; i< al.size()/8; i++) {
 				out.print("<tr>");
 				for (int e = a; e < b; e++) {
-					out.print("<td><a href='movieCon.do?filename="+al.get(e).getVideo_filename()+"'><img src='img/mini/"+al.get(e).getVideo_filename()+".jpg'></a></td>");
+					out.print("<td><a href='movieCon.do?filename="+al.get(e).getVideo_filename()+"'><img src='img/mini1/"+al.get(e).getVideo_filename()+".jpg'></a></td>");
 				}
 				out.print("<tr>");
 				a += 8;

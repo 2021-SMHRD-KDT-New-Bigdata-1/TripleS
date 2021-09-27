@@ -56,10 +56,7 @@
 						class="km-page-active">
 						<h2 id="kakaoBody" class="screen_out">카카오계정 본문</h2>
 						<h3 class="tit_kaccount">내정보 관리</h3>
-						<div class="wrap_btn4 manage_btn">
-							<button id="readNicknameButton" type="button"
-								class="btn_comm btn_type8">수정</button>
-						</div>
+
 						<%
 						MemberVO vo = (MemberVO) session.getAttribute("vo");
 						%>
@@ -76,8 +73,8 @@
 												alt="프로필사진"> <span class="img_frame"></span>
 										</div>
 										<span class="info_accounts"> <strong class="screen_out">이용
-												중인 계정</strong> <span class="txt_accounts">마일리지</span> <span
-											class="txt_set" style="transform: translateY(10px);"><%=vo.getMileage()%></span>
+												중인 계정</strong> <span class="txt_accounts" style="margin-top: 10px;">마일리지</span>
+											<span class="txt_set"><%=vo.getMileage()%></span>
 										</span>
 									</div>
 									<span class="ico_account ico_arr"></span>
@@ -86,16 +83,30 @@
 							<div class="box_set">
 								<strong class="tit_manage">로그인 정보</strong>
 								<p class="desc_comm desc_manage">계정 정보입니다.</p>
-								<strong class="tit_set">이메일</strong> <span class="txt_set"><%=vo.getMemberId()%></span>
+								<strong class="tit_set">이메일</strong> 
+								<span class="txt_set">
+								<button id="readNicknameButton" type="button"
+									class="btn_comm btn_type8">수정</button>
+								</span>
+								<span class="txt_set"><%=vo.getMemberId()%></span>
 							</div>
-							<div class="box_set">
+
+							<%-- <div class="box_set">
 								<strong class="tit_set">비밀번호</strong> <span class="txt_set"><%=vo.getPassword()%></span>
+							</div> --%>
+							<div class="box_set">
+								<strong class="tit_set">닉네임</strong><span class="txt_set">
+								<button id="readNicknameButton" type="button"
+									class="btn_comm btn_type8">수정</button>
+								</span> 
+								<span class="txt_set"><%=vo.getNickname()%></span>
 							</div>
 							<div class="box_set">
-								<strong class="tit_set">닉네임</strong> <span class="txt_set"><%=vo.getNickname()%></span>
-							</div>
-							<div class="box_set">
-								<strong class="tit_set">전화번호</strong> <span class="txt_set"><%=vo.getPhone() %></span>
+								<strong class="tit_set">전화번호</strong><span class="txt_set">
+								<button id="readNicknameButton" type="button"
+									class="btn_comm btn_type8">수정</button>
+								</span> 
+								<span class="txt_set"><%=vo.getPhone()%></span>
 							</div>
 
 						</div>

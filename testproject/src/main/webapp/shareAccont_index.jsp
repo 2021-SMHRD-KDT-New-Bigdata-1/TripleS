@@ -38,7 +38,7 @@
 				<nav id="kakaoGnb">
 					<h2 class="screen_out">카카오계정 메뉴</h2>
 					<ul class="list_gnb">
-						<li><a href="myPage_index.html" class="link_gnb">내정보 관리</a>
+						<li><a href="myPage_index.jsp" class="link_gnb">내정보 관리</a>
 						</li>
 						<li><a href="#" class="link_gnb">공유
 								계정</a></li>
@@ -72,7 +72,7 @@
 										</div>
 										<span class="info_accounts"> <strong class="screen_out">이용
 												중인 계정</strong> <span class="txt_accounts">넷플릭스</span> <span
-											class="txt_set_2">회원1/회원2/회원3</span>
+											class="txt_set_2" style="margin-top: 10px;">회원1/회원2/회원3</span>
 										</span>
 									</div>
 									<span class="ico_account ico_arr"></span>

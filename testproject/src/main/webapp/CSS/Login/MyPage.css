@@ -64,7 +64,7 @@ font: bold;}
       .btn_type5{width:46px;height:26px;border:1px solid #a7b2d4;font-size:12px;color:#5066aa}
       .btn_type6{width:48px;height:28px;border:1px solid #e0e0e0;border-radius:16px;font-size:12px;color:#252525}
       .btn_type7{height:30px;padding:8px 0 8px 11px}.btn_type7 .ico_arr{width:9px;height:14px;background-position:0 -80px}
-      .btn_type8{width:46px;height:26px;border:1px solid rgba(0,0,0,0.12);border-radius:26px;font-size:12px;color:#252525}
+      .btn_type8{margin-left: 10px; width:46px;height:26px;border:1px solid rgba(0,0,0,0.12);border-radius:26px;font-size:12px;color:#252525}
       .wrap_btn4:after{display:block;content:'';clear:both}
       .wrap_btn4 .btn_comm{float:left;margin-left:6px}.wrap_btn4 .btn_comm:first-child{margin-left:500px}
       .wrap_btn5,.manage_comm .wrap_btn8{font-size:0;text-align:center}
@@ -95,8 +95,9 @@ font: bold;}
       .manage_comm #kakaoWrap{position:relative;min-width:1280px;min-height:100%}
       .manage_comm #kakaoContent{padding-bottom:30px}
       .manage_comm #mArticle{max-width:560px;margin:50px auto 0}
-
-      .tit_kaccount{position: absolute; font-weight:normal;font-size:20px;letter-spacing:0}
+	  .txt_accounts{ display: inline-block;
+    				margin-top: 10px;}
+      .tit_kaccount{position: relative; font-weight:normal;font-size:20px;letter-spacing:0}
       .tit_accountinfo{margin-bottom:24px;font-weight:500;font-size:16px;color:rgba(0,0,0,0.85);line-height:20px;letter-spacing:0}
       .wrap_kaccount{margin-top:10px;padding-bottom:80px;border-top:1px solid #7c7c7c}.cont_home .wrap_kaccount{margin-top:0;border-top:0 none}
       .info_home .thumb_profile{width:48px;height:48px;margin:0 8px 0 0}

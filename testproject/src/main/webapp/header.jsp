@@ -37,15 +37,16 @@
 				<ul class="sns-ul">
 				<%if(vo==null){
 					out.print("<button class='button'>");
-					out.print("<a href='login_index.html'>로그인 |</a>");
+					out.print("<a href='login_index.html'>로그인 | </a>");
 					out.print("</button>");
 					out.print("<button class='button'>");
 					out.print("<a href='join_index.html'>회원가입</a>");
 					out.print("</button>");
 				}else{
 					out.print("<button class='button'>");
-					out.print("<h1>"+vo.getNickname()+"님</h1>");
-					out.print("<a href='myPage_index.jsp'>마이페이지 |</a>");
+					out.print("<h3 class='nickname'>"+vo.getNickname()+"님</h1>");
+					out.print("<button class='button'>");
+					out.print("<a href='myPage_index.jsp'>마이페이지 | </a>");
 					out.print("</button>");
 					out.print("<button class='button'>");
 					out.print("<a href='LogOutService'>로그아웃</a>");

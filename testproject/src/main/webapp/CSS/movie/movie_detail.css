@@ -38,7 +38,7 @@ h3 {
 }
 
 .sect-base-movie{
-    margin-top: 45px;
+    margin-top: 40px;
 }
 [class|="sect-base"][class$="movie"] .thumb-image img {
     width: 185px;
@@ -73,7 +73,7 @@ strong {
     width: 765px;
     float: left;
     position: relative;
-    margin-top: -265px;
+    margin-top: -275px;
     margin-left: 220px;
 }
 
@@ -86,7 +86,7 @@ strong {
     padding-top: 18px;
     line-height: 1.6;
     position: relative;
-    margin-top: -200px;
+    margin-top: -250px;
     margin-left: 220px;
 }
 dl {
@@ -213,7 +213,7 @@ a {
   }
   em {
     font-style: normal;
-    font-size: 20pt;
+    font-size: 15pt;
   }
   
   .CommentWriter .comment_inbox_text {
@@ -286,4 +286,16 @@ ul { list-style: none; }
 
 p {
 	font-size : 15px;
+}
+
+.icon {
+  position: relative;
+  margin-top: -10px;
+}
+.icon img{
+  width: 40px; height: 40px;
+}
+.icon a:not(:first-child) {
+  margin-left: 15px;
+    display: inline-block;
 }

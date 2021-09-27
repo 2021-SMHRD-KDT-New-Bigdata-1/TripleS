@@ -1,14 +1,25 @@
+<%@page import="com.VO.WriteVO"%>
+<%@page import="com.VO.MemberVO"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <script src="https://kit.fontawesome.com/19aa9ed23d.js" crossorigin="anonymous"></script>
 <head>
 <meta charset="EUC-KR">
-<title>Content</title>
+<title>CONTENT</title>
  <link rel="stylesheet" href="CSS/Board/css.css">
 </head>
+
 <body>
+	<%
+		//vo 가져옴
+	MemberVO vo = (MemberVO)session.getAttribute("vo");
+	WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
+	
+	%>
+		
 <div data-include-path="header.jsp"></div>
-<body>
  <section class="section1">
         <div class="board_wrap">
             <div class="board_title">
@@ -17,8 +28,15 @@
             </div>
             <div class="board_view_wrap">
               <div class="board_view">
+              
                <div class="titleview">
-                 글 제목이 들어갑니다.
+               
+               <%
+               out.print("제목  "+vo2.getSubject());
+               
+
+               %>
+         
                </div>
                <div class="info">
                 <dl>

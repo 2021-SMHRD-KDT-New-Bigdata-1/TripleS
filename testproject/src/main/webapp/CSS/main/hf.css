@@ -65,7 +65,8 @@ header {  background-color: black; position: absolute; top: 0; left: 0; width: 1
 .ci span { display: block; width: 100%; height: 100%; background: url('/img/main/ci.png') no-repeat center; }
 
 /* GNB */
-button.button{ color: #ffffff; font-size: larger; margin-top: 3.5px;}
+.nickname{display: inline-block; margin-left: 5px;}
+button.button{ color: #ffffff; font-size: larger; margin-top: 3.5px; margin-right: 5px;}
 .gnb { display: inline-block; vertical-align: top; margin-top: 22px; }
 .gnb-menu { padding-left: 10px; padding-right: 10px; position: relative; width: auto; text-align: center; }
 .gnb-menu:last-child a { padding-right: 0; }

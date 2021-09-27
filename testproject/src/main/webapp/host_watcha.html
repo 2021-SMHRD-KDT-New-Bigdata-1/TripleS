@@ -30,22 +30,23 @@
 
             <div class="back">&nbsp;</div>
 
+			<form action = "MatchingWatcha" method = "post">
             <div class="id_box">
-                <input class="input_id" type="text" placeholder="공유할 왓챠 ID입력">
+                <input class="input_id" type="text" placeholder="공유할 왓챠 ID입력" name = "ottid">
                 <label class="label_id">아이디</label>
             </div>
 
             <div class="back">&nbsp;</div>
 
             <div class="pw_box">
-                <input class="input_pw" type="password" placeholder="공유할 왓챠 PW입력">
+                <input class="input_pw" type="password" placeholder="공유할 왓챠 PW입력" name = "ottpw">
                 <label class="label_pw">비밀번호</label>
             </div>
 
             <div class="back">&nbsp;</div>
 
             <div class="account_box">
-                <div> <select class="back">
+                <div> <select class="back" name = "bank">
                     <option value="은행선택">은행선택</option>
                     <option value="국민은행">국민은행</option>
                     <option value="신한은행">신한은행</option>
@@ -54,15 +55,15 @@
                 </select>
             </div>
             
-                <input class="input_account" type="text" placeholder="정산받을 계좌 입력">
-                <input class="input_name" type="text" placeholder="예금주명 입력">
+                <input class="input_account" type="text" placeholder="정산받을 계좌 입력" name = "account">
+                <input class="input_name" type="text" placeholder="예금주명 입력" name = "accountname">
                 <label class="label_id">정산 계좌 정보</label>
             </div>
 
             <div class="back">&nbsp;</div>
 
-            <div class="cp">구독/등록 완료</div>
-
+            <input type = "submit" class="cp" value = "구독/등록 완료" >
+			</form>
             
         </div>
 

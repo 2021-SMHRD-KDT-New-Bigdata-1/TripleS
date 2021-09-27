@@ -18,12 +18,24 @@ public class netflex_info extends HttpServlet {
 		String hs = request.getParameter("matching");
 		
 		if (ott.equals("netflex") && hs.equals("host")){
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("ott", ott);
 			response.sendRedirect("host_netflex.html");
 		} else if(ott.equals("watcha") && hs.equals("host")) {
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("ott", ott);
 			response.sendRedirect("host_watcha.html");
 		} else if(ott.equals("wavve") && hs.equals("host")) {
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("ott", ott);
 			response.sendRedirect("host_wavve.html");
 		} else if(ott.equals("tiving") && hs.equals("host")) {
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("ott", ott);
 			response.sendRedirect("host_tiving.html");
 		} else {
 			HttpSession session = request.getSession();

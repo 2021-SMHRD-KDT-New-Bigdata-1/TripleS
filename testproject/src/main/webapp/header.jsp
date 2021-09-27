@@ -22,11 +22,11 @@
 						</h1>
 					</li>
 
-					<li class="gnb-menu"><a href="matching_start.html"><h2>게시판</h2></a>
+					<li class="gnb-menu"><a href="#"><h2>게시판</h2></a>
 						<ul class="sub-gnb">
-							<li><a href="/child/sub/bbs/notice.php">리뷰게시판</a></li>
-							<li><a href="/child/sub/bbs/entrance.php">자유게시판</a></li>
-							<li><a href="/child/sub/bbs/audition.php">이벤트게시판</a></li>
+							<li><a href="review_board.html">리뷰게시판</a></li>
+							<li><a href="community_board.html">자유게시판</a></li>
+							<li><a href="event_board.html">이벤트게시판</a></li>
 						</ul></li>
 					<li class="gnb-menu"><a href="/child/sub/inquiry/"><h2>문의사항</h2></a>
 					</li>
@@ -37,15 +37,16 @@
 				<ul class="sns-ul">
 				<%if(vo==null){
 					out.print("<button class='button'>");
-					out.print("<a href='login_index.html'>로그인 |</a>");
+					out.print("<a href='login_index.html'>로그인 | </a>");
 					out.print("</button>");
 					out.print("<button class='button'>");
 					out.print("<a href='join_index.html'>회원가입</a>");
 					out.print("</button>");
 				}else{
 					out.print("<button class='button'>");
-					out.print("<h1>"+vo.getNickname()+"님</h1>");
-					out.print("<a href='myPage_index.jsp'>마이페이지 |</a>");
+					out.print("<h3 class='nickname'>"+vo.getNickname()+"님</h1>");
+					out.print("<button class='button'>");
+					out.print("<a href='myPage_index.jsp'>마이페이지 | </a>");
 					out.print("</button>");
 					out.print("<button class='button'>");
 					out.print("<a href='LogOutService'>로그아웃</a>");

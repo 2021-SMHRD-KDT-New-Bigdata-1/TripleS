@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import com.VO.VideoVO;
 
 
+
 public class VideoDAO {
 
 	Connection conn = null;
@@ -116,5 +117,41 @@ public class VideoDAO {
 	}
 
 	
+	public ArrayList<VideoVO> search(String title) {
+		ArrayList<VideoVO> al = new ArrayList<VideoVO>();
+
+		try {
+			conn();
+
+			sql = "SELECT * from videos where video_title LIKE '%"+title+"%'";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+//				int video_seq;
+				String video_title = rs.getString(2); // 비디오 제목
+				//String video_content = rs.getString(3); // 비디오 시놉시스
+				String video_filename = rs.getString(4); // 비디오 파일명
+				//String upload_date = rs.getString(5); // 개봉년도
+				//String running_time = rs.getString(6); // 상영시간
+				//String genre = rs.getString(7); // 장르
+				//String ott_platform = rs.getString(8); // ott
+//				String member_id = rs.getString(9);
+				//String actor = rs.getString(10); // 출연배우
+
+				vo = new VideoVO(0, video_title, null, video_filename, null, null, null, null,null,null);
+				al.add(vo);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			// 실행 후 오류가 발생했을 때 에러출력
+		} finally {
+			close();
+		}
+		return al;
+	}
+
+
+
 	
 }

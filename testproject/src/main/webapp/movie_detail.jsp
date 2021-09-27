@@ -72,6 +72,20 @@
 					<dt>½Ã°£ : <%out.print(vo.getRunning_time());%></dt>
 					<dt>°³ºÀ : <%out.print(year.substring(2,6)+"³â");%></dt>
 				</dl>
+			<div class="icon">
+				<%
+				String str = vo.getOtt_platform();
+				if (str.contains("N")){
+					out.print("<a href='#'><img src='img/icon/netflic.png'></a>");
+				}
+				if (str.contains("H")){
+					out.print("<a href='#'><img src='img/icon/watha.png'></a>");
+				}
+				if (str.contains("W")){
+					out.print("<a href='#'><img src='img/icon/wavve.png'></a>");
+				}
+					%>
+            </div>
 			</div>
 			<br>
 			<div class="box-story-top">

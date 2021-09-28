@@ -203,4 +203,33 @@ public class MemberDAO {
 		}
 		return al;
 	}
+
+	public String findPw(String memberId, String phone) {
+		
+
+		String pw = null;
+		try {
+			conn();
+			String sql = "select * from members where member_id=? and phone=?";
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, memberId);
+			psmt.setString(2, phone);
+
+
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				
+			pw= rs.getString(3);
+				
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return pw;
+	}
 }

@@ -69,7 +69,7 @@
                 <div>
                   <div class="num" ><%=list.getArticles_seq() %></div>
                   <div class="title"><a href="detail_view.jsp?id=<%=list.getArticles_seq() %>"><%=list.getSubject()%></a></div>
-                  <div class="writer" name="memberId"><%=list.getMemberId()%></div>
+                  <div class="writer"><%=list.getMemberId()%></div>
                   <div class="date" ><%=list.getReg_date() %></div>
                   <div class="good" ><%=list.getRec_cnt() %></div>
                   <div class="count" ><%=list.getCnt()%></div>
@@ -108,8 +108,18 @@
                </div>
              </div>
               <div class="bt_wrap">
-                <a href="write_board.html" class="on">글 작성</a>
-                 <!-- <a href="edit.html" >수정</a>  -->
+           
+              <%if(vo==null){
+					
+					//out.print("<a href='review_board.jsp' class='on'>목록</a>");
+				
+				}else{
+					out.print("<a href='write_board.html' class='on'>글작성</a>");
+				}
+
+				%>
+              <!--  <a href="write_board.html" class="on">글 작성</a>-->
+                 
             </div> 
             </div> 
             

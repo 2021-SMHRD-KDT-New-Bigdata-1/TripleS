@@ -15,7 +15,7 @@
 
 <body>
 <%
-
+MemberVO vo = (MemberVO) session.getAttribute("vo");
 WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
 %>
 
@@ -45,7 +45,7 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
                 </dl>
                 <dl>
                   <dt>작성자</dt>
-                  <dd><%=writevo.getMemberId() %></dd>
+                  <dd><%=writevo.getMemberId()%></dd>
                 </dl>
                 <dl>
                   <dt>작성일</dt>
@@ -94,10 +94,17 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
                         </div>
                     </li>
                 </ul>
-                <div class="CommentWriter">
+        
+                             <%if(vo==null){
+                           
+                        }else{%>
+                        		
+                        	
+                    
+                    <div class="CommentWriter">
                     <div class="comment_inbox"> 
                         <strong class="blind">댓글을 입력하세요</strong>
-                        <em class="comment_inbox_name"></em>
+                        <em class="comment_inbox_name"><%=vo.getNickname() %> </em>
                         <textarea name="reply" placeholder="댓글을 남겨보세요" class="comment_inbox_text" rows="1" style="overflow: hidden; overflow-wrap: break-word; height: 17px;"></textarea>
                     </div>
                     <div class="comment_attach">
@@ -113,8 +120,9 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
                         </div>
                     </div>
                 </div>
+               <% } %>
               <div class="bt_wrap" id="bt_wrap1">
-              <%MemberVO vo = (MemberVO) session.getAttribute("vo");%>
+     
               <%if(vo==null){
 					
 					out.print("<a href='review_board.jsp' class='on'>목록</a>");

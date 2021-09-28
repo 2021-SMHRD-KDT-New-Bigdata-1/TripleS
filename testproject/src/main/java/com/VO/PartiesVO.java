@@ -35,6 +35,21 @@ public class PartiesVO {
 		this.account_name = account_name;
 		this.bank = bank;
 	}
+	
+	
+	
+
+
+	public PartiesVO(String memberId, String member1, String member2, String member3) {
+		super();
+		this.memberId = memberId;
+		this.member1 = member1;
+		this.member2 = member2;
+		this.member3 = member3;
+	}
+
+
+
 
 
 	public int getParty_seq() {

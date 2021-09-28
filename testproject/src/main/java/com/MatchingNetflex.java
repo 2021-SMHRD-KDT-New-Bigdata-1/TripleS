@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.DAO.MatchingDAO;
 import com.VO.MemberVO;
+import com.VO.PartiesVO;
 
 @WebServlet("/MatchingNetflex")
 public class MatchingNetflex extends HttpServlet {
@@ -35,6 +36,9 @@ public class MatchingNetflex extends HttpServlet {
 		
 		MatchingDAO dao = new MatchingDAO();
 		int cnt = dao.parties(memberId, OTT, ottid, ottpw, account, accountname, bank);
+		
+		System.out.println(memberId);
+		
 		
 		if(cnt > 0) {
 			response.sendRedirect("main_index.html");

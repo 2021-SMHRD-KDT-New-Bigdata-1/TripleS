@@ -44,26 +44,37 @@ public class MatchingWatcha extends HttpServlet {
 		
 		
 		if (members.size() == 0) {
-			cnt = cnt;
+			cnt = -4;
 		} else if(members.size() == 1) {
 			member1 = members.get(0);
 			cnt = dao.delete_member1(member1);
 			cnt = dao.change_member1(member1, memberId);
+			cnt = -3;
 		} else if(members.size() == 2) {
 			member1 = members.get(0);
 			member2 = members.get(1);
 			cnt = dao.delete_member2(member1, member2);
 			cnt = dao.change_member2(member1, member2, memberId);
+			cnt=-2;
 		} else if (members.size() == 3) {
 			member1 = members.get(0);
 			member2 = members.get(1);
 			member3 = members.get(2);
 			cnt = dao.delete_member3(member1, member2, member3);
 			cnt = dao.change_member3(member1, member2, member3, memberId);
+			cnt = -1;
 		}
 		
 		if(cnt > 0) {
 			response.sendRedirect("main_index.html");
+		} else if (cnt == -1) {
+			response.sendRedirect("matching_success.html");
+		} else if (cnt == -2) {
+			response.sendRedirect("minus_1.html");
+		} else if (cnt == -3) {
+			response.sendRedirect("minus_2.html");
+		} else if (cnt == -4) {
+			response.sendRedirect("minus_3.html");
 		}
 		
 	}

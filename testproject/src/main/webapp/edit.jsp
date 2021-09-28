@@ -1,41 +1,64 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+
 <!DOCTYPE html>
 <html>
 <script src="https://kit.fontawesome.com/19aa9ed23d.js" crossorigin="anonymous"></script>
 <head>
 <meta charset="EUC-KR">
-<title>게시글 수정</title>
- <link rel="stylesheet" href=" CSS/Board/css.css">
+<title>CONTENT</title>
+ <link rel="stylesheet" href="CSS/Board/css.css">
 </head>
+
 <body>
+
 <div data-include-path="header.jsp"></div>
 <section class="section1">
     <div class="board_wrap">
         <div class="board_editTitle">
             <strong><i class="fas fa-eraser"></i>  게시글 수정하기</strong>
-            <p># 글 수정하는 페이지</p>
+            <p></p>
         </div>
         <div class="board_write_wrap">
-            <div class="board_write">
+             <div class="board_write">
                 <div class="title">
                     <dl>
                         <dt>제목</dt>
-                        <dd><input type="text" placeholder="제목 입력" value="글 제목이 들어갑니다"></dd>
+                        <dd><input type="text" placeholder="제목 입력" name="subject"></dd>
                     </dl>
                 </div>
-                <div class="info">
-                    <dl>
-                        <dt>글쓴이</dt>
-                        <dd><input type="text" placeholder="글쓴이 입력" value="김이름"></dd>
-                    </dl>
-                    <dl>
-                        <dt>비밀번호</dt>
-                        <dd><input type="password" placeholder="비밀번호 입력" value="1234"></dd>
-                    </dl>
-                </div>
+            
                 <div class="cont">
-                    <textarea placeholder="내용 입력">
-게시글 수정
-</textarea>
+                    <textarea  name="content"></textarea>
+                   
+                </tbody>
+                </div>
+            </div>
+            <div class="file">
+            <tbody >
+                <div class="file1">
+                <tr>
+                    <th scope="row">첨부파일1<i class="far fa-file"></i></th>
+                    <td><input name="img_pic1"  type="file">
+                    </td>
+                </tr>
+            </div>
+            <div class="file2">
+                <tr>
+                    <th scope="row">첨부파일2<i class="far fa-file"></i></th>     
+                    <td><input name="img_pic2" type="file">
+                    </td>
+                </tr>
+            </div>
+            <div class="file3">
+                <tr>
+                    <th scope="row">첨부파일3<i class="far fa-file"></i></th>
+                    <td><input name="img_pic3" type="file">
+                    </td>
+                </tr>
+            </div>
+            </tbody>
+        </div>
                 </div>
             </div>
             <div class="bt_wrap" id="bt_wrap2">
@@ -64,6 +87,7 @@
                 }
             });
         });
+    
     
     </script>
 	  <div data-include-path="footer.html"></div>

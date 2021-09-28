@@ -15,7 +15,7 @@
 
 <body>
 <%
-MemberVO vo = (MemberVO)session.getAttribute("vo");
+
 WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
 %>
 
@@ -114,8 +114,25 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
                     </div>
                 </div>
               <div class="bt_wrap" id="bt_wrap1">
-                <a href="review_board.jsp" class="on">목록</a>
-                 <!-- <a href="edit.html" >수정</a>  -->
+              <%MemberVO vo = (MemberVO) session.getAttribute("vo");%>
+              <%if(vo==null){
+					
+					out.print("<a href='review_board.jsp' class='on'>목록</a>");
+				
+				}else{
+					if(vo.getMemberId().equals(writevo.getMemberId())){
+					out.print("<a href='edit.jsp' >수정</a>");
+					out.print("<a href='review_board.jsp' class='on'>목록</a>");
+					}else{
+						out.print("<a href='review_board.jsp' class='on'>목록</a>");
+					}
+				}
+
+				%>
+                 <!--<a href="review_board.jsp" class="on">목록</a> -->
+
+                <!-- a href="edit.html" >수정</a>  -->
+                
             </div> 
         </div>
     

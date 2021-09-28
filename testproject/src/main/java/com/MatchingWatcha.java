@@ -1,6 +1,8 @@
 package com;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +27,10 @@ public class MatchingWatcha extends HttpServlet {
 		String bank = request.getParameter("bank");
 		String account = request.getParameter("account");
 		String accountname = request.getParameter("accountname");
+		String member1 = null;
+		String member2 = null;
+		String member3 = null;
+		int cnt = 0;
 		
 		HttpSession session = request.getSession();
 		vo = (MemberVO)session.getAttribute("vo");
@@ -33,7 +39,28 @@ public class MatchingWatcha extends HttpServlet {
 		
 		
 		MatchingDAO dao = new MatchingDAO();
-		int cnt = dao.parties(memberId, OTT, ottid, ottpw, account, accountname, bank);
+		cnt = dao.parties(memberId, OTT, ottid, ottpw, account, accountname, bank);
+		ArrayList<String> members = dao.member_check(OTT);
+		
+		
+		if (members.size() == 0) {
+			cnt = cnt;
+		} else if(members.size() == 1) {
+			member1 = members.get(0);
+			cnt = dao.delete_member1(member1);
+			cnt = dao.change_member1(member1, memberId);
+		} else if(members.size() == 2) {
+			member1 = members.get(0);
+			member2 = members.get(1);
+			cnt = dao.delete_member2(member1, member2);
+			cnt = dao.change_member2(member1, member2, memberId);
+		} else if (members.size() == 3) {
+			member1 = members.get(0);
+			member2 = members.get(1);
+			member3 = members.get(2);
+			cnt = dao.delete_member3(member1, member2, member3);
+			cnt = dao.change_member3(member1, member2, member3, memberId);
+		}
 		
 		if(cnt > 0) {
 			response.sendRedirect("main_index.html");

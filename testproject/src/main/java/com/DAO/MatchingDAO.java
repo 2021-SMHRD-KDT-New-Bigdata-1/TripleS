@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import com.VO.MemberVO;
 import com.VO.PartiesVO;
@@ -218,5 +219,173 @@ public int member3(String memberId , String hostId) {
 	return cnt;
 	
 }
+
+
+public ArrayList<String> member_check(String OTT) {
+	/* String[] member_list = new String [3]; */
+	
+	ArrayList <String> members = new ArrayList<>();
+	try {
+		conn();
+		String sql = "SELECT member_id FROM waiting WHERE ott_platform = ? and ROWNUM <= 4 order by waiting_seq";
+		psmt = conn.prepareStatement(sql);
+		
+		psmt.setString(1, OTT);
+
+		rs = psmt.executeQuery();
+		
+		
+		
+		
+		while(rs.next()) {
+			members.add(rs.getString(1));
+		}
+		
+
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		close();
+	}
+	return members;
+}
+
+
+public int delete_member1(String member1) {
+	int cnt = 0;
+	try {
+		conn();
+		String sql = "delete from waiting where member_id = ?";
+		psmt = conn.prepareStatement(sql);
+		
+		psmt.setString(1, member1);
+		cnt = psmt.executeUpdate();
+
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		close();
+	}
+	return cnt;
+}
+
+public int delete_member2(String member1, String member2) {
+	int cnt = 0;
+	try {
+		conn();
+		String sql = "delete from waiting where member_id in(?,?)";
+		psmt = conn.prepareStatement(sql);
+		
+		psmt.setString(1, member1);
+		psmt.setString(2, member2);
+		
+		cnt = psmt.executeUpdate();
+
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		close();
+	}
+	return cnt;
+}
+
+
+
+public int delete_member3(String member1, String member2, String member3) {
+	int cnt = 0;
+	try {
+		conn();
+		String sql = "delete from waiting where member_id in (?,?,?)";
+		psmt = conn.prepareStatement(sql);
+		
+		psmt.setString(1, member1);
+		psmt.setString(2, member2);
+		psmt.setString(3, member3);
+
+		cnt = psmt.executeUpdate();
+
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		close();
+	}
+	return cnt;
+}
+
+
+public int change_member1(String member1 , String memberId) {
+	
+	int cnt = 0;
+	try {
+		conn();
+		String sql = "update parties set member_1 = ? where member_id = ?";
+		psmt = conn.prepareStatement(sql);
+		
+		psmt.setString(1, member1);
+		psmt.setString(2, memberId);
+
+		cnt = psmt.executeUpdate();
+
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		close();
+	}
+	return cnt;
+	
+}
+
+
+public int change_member2(String member1 ,String member2, String memberId) {
+	
+	int cnt = 0;
+	try {
+		conn();
+		String sql = "update parties set member_1 = ?, member_2 = ? where member_id = ?";
+		psmt = conn.prepareStatement(sql);
+		
+		psmt.setString(1, member1);
+		psmt.setString(2, member2);
+		psmt.setString(3, memberId);
+
+		cnt = psmt.executeUpdate();
+
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		close();
+	}
+	return cnt;
+	
+}
+
+
+public int change_member3(String member1 ,String member2, String member3, String memberId) {
+	
+	int cnt = 0;
+	try {
+		conn();
+		String sql = "update parties set member_1 = ?, member_2 = ?, member_3 = ? where member_id = ?";
+		psmt = conn.prepareStatement(sql);
+		
+		psmt.setString(1, member1);
+		psmt.setString(2, member2);
+		psmt.setString(3, member3);
+		psmt.setString(4, memberId);
+
+		cnt = psmt.executeUpdate();
+
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		close();
+	}
+	return cnt;
+	
+}
+
+
+
+
 	
 }

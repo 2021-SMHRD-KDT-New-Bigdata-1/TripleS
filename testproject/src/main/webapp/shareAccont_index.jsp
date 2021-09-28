@@ -41,6 +41,7 @@
 				<nav id="kakaoGnb">
 					<h2 class="screen_out">카카오계정 메뉴</h2>
 					<ul class="list_gnb">
+					
 						<li><a href="myPage_index.jsp" class="link_gnb">내정보 관리</a>
 						</li>
 						<li><a href="#" class="link_gnb">공유

@@ -41,79 +41,29 @@
 
 </script>
 
-	<div id="popup">
 
-
-	</div>
 	<div id="wrap">
-		<input type="button" id="btn1" class="btn pre" value="<"
-			onclick="pre()"> <input type="button" id="btn2"
-			class="btn next" value=">" onclick="next()">
-		<div class="visual fade">
-			<div class="visual-slide">
-				<div>
-					<div class="_v" id="im">
-						<!-- <a href=""> -->
-						<div class="v-bg v1" id="img"></div>
-						<div class="v-bg v2" id="img2"></div>
-						<div class="v-bg v3" id="img3"></div>
-						<div class="centre">
-							<div class="inner">
-								<div class="container">
-									<div class="text-wrap"></div>
-								</div>
-							</div>
-						</div>
-						<!-- </a> -->
-					</div>
-				</div>
+		<div data-include-path="movie.jsp"></div>
+	<script>
 
-				<script>
-        
-var div_tag = document.getElementById("img")
-var div_tag2 = document.getElementById("img2")
-var div_tag3 = document.getElementById("img3")
-var temp = 1;
-var sub = 2;
-var i = 3;
-// setInterval(실행할 함수, 밀리초); : 일정 시간이 지나면 실행하는 함수
+    window.addEventListener('load', function() {
+        var allElements = document.getElementsByTagName('*');
+        Array.prototype.forEach.call(allElements, function(el) {
+            var includePath = el.dataset.includePath;
+            if (includePath) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        el.outerHTML = this.responseText;
+                    }
+                };
+                xhttp.open('GET', includePath, true);
+                xhttp.send();
+            }
+        });
+    });
 
-
-
-setInterval(function(){
-	next();
-},3500);
-
-
-function pre() {
-	if (i>1) {
-		temp = sub
-		sub = i
-		--i
-	}else {
-		
-		i=3;
-	}
-	div_tag.style.backgroundImage = 'url(img/main/visual/'+(temp)+'.png)'
-	div_tag2.style.backgroundImage = 'url(img/main/visual/'+(sub)+'.png)'
-	div_tag3.style.backgroundImage = 'url(img/main/visual/'+(i)+'.png)'
-}
-// 다음 이미지로 이동하는 함수
-function next() {
-	if (i<3) {
-		temp = sub
-		sub = i
-		i++
-	}else {
-        temp = sub
-		sub = i
-		i=1;	
-	}
-	div_tag.style.backgroundImage = 'url(img/main/visual/'+(temp)+'.png)'
-	div_tag2.style.backgroundImage = 'url(img/main/visual/'+(sub)+'.png)'
-	div_tag3.style.backgroundImage = 'url(img/main/visual/'+(i)+'.png)'
-}
-    </script>
+</script>
 
 
 			</div>

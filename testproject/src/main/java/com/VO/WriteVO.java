@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class WriteVO {
 
-	private int articles_seq;
+	private int article_seq;
 	private String subject;
 	private String content;
 	private String img_pic1;
@@ -18,7 +18,7 @@ public class WriteVO {
 	public WriteVO(int articles_seq, String subject, String content, String img_pic1, String img_pic2, String img_pic3,
 			String memberId, Date reg_date, int cnt, int rec_cnt) {
 		super();
-		this.articles_seq = articles_seq;
+		this.article_seq = articles_seq;
 		this.subject = subject;
 		this.content = content;
 		this.img_pic1 = img_pic1;
@@ -31,11 +31,11 @@ public class WriteVO {
 	}
 	
 	public int getArticles_seq() {
-		return articles_seq;
+		return article_seq;
 	}
 
 	public void setArticles_seq(int articles_seq) {
-		this.articles_seq = articles_seq;
+		this.article_seq = articles_seq;
 	}
 
 	public String getSubject() {

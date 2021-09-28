@@ -1,5 +1,7 @@
-<%@page import="com.VO.WriteVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.DAO.WriteDAO"%>
 <%@page import="com.VO.MemberVO"%>
+<%@page import="com.VO.WriteVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -12,15 +14,13 @@
 </head>
 
 <body>
-	<%
-		//vo 가져옴
-	MemberVO vo = (MemberVO)session.getAttribute("vo");
-	WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
+<%
+MemberVO vo = (MemberVO)session.getAttribute("vo");
+WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
+%>
 
-	%>
-		
+
 <div data-include-path="header.jsp"></div>
-<form action="replyboard">
  <section class="section1">
         <div class="board_wrap">
             <div class="board_title">
@@ -28,40 +28,40 @@
             </div>
             <div class="board_view_wrap">
               <div class="board_view">
-              
+              <%
+            	  int id = Integer.parseInt(request.getParameter("id"));
+              	WriteDAO dao = new WriteDAO();
+				WriteVO writevo = dao.subjectList(id);
+				%>
+			
                <div class="titleview">
-               
-               <%
-               out.print("제목  "+vo2.getSubject());
-               
-
-               %>
-         
+               제목  <%=writevo.getSubject() %>
+         		
                </div>
                <div class="info">
                 <dl>
                   <dt>번호</dt>
-                  <dd><%out.print(vo2.getArticles_seq()); %></dd>
+                  <dd><%=writevo.getArticles_seq() %></dd>
                 </dl>
                 <dl>
                   <dt>작성자</dt>
-                  <dd><%out.print(vo2.getMemberId()); %></dd>
+                  <dd><%=writevo.getMemberId() %></dd>
                 </dl>
                 <dl>
                   <dt>작성일</dt>
-                  <dd><%out.print(vo2.getReg_date()); %></dd>
+                  <dd><%=writevo.getReg_date() %></dd>
                 </dl>
                 <dl>
                   <dt>조회</dt>
-                  <dd><%out.print(vo2.getCnt()); %></dd>
+                  <dd><%=writevo.getCnt() %></dd>
                 </dl>
                </div>
                <div class="cont">
-               
-         		<% out.print(vo2.getContent()); %>
-         		
+               <%=writevo.getContent() %>
+
                </div>
               </div>
+        
               <div class="CommentBox">
                 <div class="comment_option">
                     <h3 class="comment_title"> 댓글 </h3>
@@ -97,7 +97,7 @@
                 <div class="CommentWriter">
                     <div class="comment_inbox"> 
                         <strong class="blind">댓글을 입력하세요</strong>
-                        <em class="comment_inbox_name"><% out.print(vo2.getMemberId()); %></em>
+                        <em class="comment_inbox_name"></em>
                         <textarea name="reply" placeholder="댓글을 남겨보세요" class="comment_inbox_text" rows="1" style="overflow: hidden; overflow-wrap: break-word; height: 17px;"></textarea>
                     </div>
                     <div class="comment_attach">

@@ -14,13 +14,15 @@
  <link rel="stylesheet" href="CSS/Board/css.css">
 </head>
 <body>
+
 <div data-include-path="header.jsp"></div>
 	<%
 		//vo 가져옴
 	MemberVO vo = (MemberVO)session.getAttribute("vo");
 	WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
-	
+
 	%>
+
 <section class="section1">
         <div class="board_wrap">
             <div class="board_title">
@@ -61,15 +63,16 @@
              
              
              %>
+                 
             		<%for(WriteVO list:v){ %>
       			
                 <div>
-                  <div class="num"><%=list.getArticles_seq() %></div>
-                  <div class="title"><a href="<%=list.getSubject()%>"><%=list.getSubject()%></a></div>
+                  <div class="num" ><%=list.getArticles_seq() %></div>
+                  <div class="title"><a href="detail_view.jsp?id=<%=list.getArticles_seq() %>"><%=list.getSubject()%></a></div>
                   <div class="writer"><%=list.getMemberId()%></div>
-                  <div class="date"><%=list.getReg_date() %></div>
-                  <div class="good"><%=list.getRec_cnt() %></div>
-                  <div class="count"><%=list.getCnt()%></div>
+                  <div class="date" ><%=list.getReg_date() %></div>
+                  <div class="good" ><%=list.getRec_cnt() %></div>
+                  <div class="count" ><%=list.getCnt()%></div>
 					
                 </div>
                    <%} %>
@@ -79,11 +82,11 @@
               
               <div class="board_page">
                 <a href="#" class="bt first"><<</a>
-                <a href="#" class="bt prev"><</a>
-                <%
+                <a href="#" class="bt prev"><<</a>
+                
             
-                   for(int j=1; j<=count; j++){%>
-                   <a href="review_board.jsp?page=<%=j %>" class="num on"><%=j %></a>
+		           <%for(int j=1; j<=count; j++){%>
+                   <a href="review_board.jsp?page=<%=j%>" class="num on" ><%=j %></a>
                   
              <%}%>
      
@@ -92,6 +95,7 @@
               </div>
               <div class="inputTypeText">
                 <div class="search"> <select class= "search" >
+               
                    <option value="제목">제목</option>
                    <option value="글내용">글내용</option>
                    <option value="작성자">작성자</option>
@@ -112,7 +116,7 @@
         </div>
     
     </section>
-    
+
     <script>
 
         window.addEventListener('load', function() {

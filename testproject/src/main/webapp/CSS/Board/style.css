@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 * {
   margin: 0;
   padding: 0;
@@ -177,9 +179,23 @@ a {
 }
 
 .board_page a.num.on {
-  border-color: black;
+
+  background: white;
+  color: black;
+}
+
+.board_page a.num.on:hover {
+
   background: black;
-  color: #fff;
+  color: white;
+}
+
+
+
+.board_page a.num.on:active {
+
+  background: red;
+  color: white;
 }
 
 .board_page a:first-child {
@@ -436,7 +452,7 @@ em {
   outline: 0;
 }
 textarea {
-  font-family: "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", 돋움, dotum,
+  font-family: "Apple SD Gothic Neo", "留묒� 怨좊뵓", "Malgun Gothic", �룍��, dotum,
     sans-serif;
 }
 .CommentWriter .comment_attach {

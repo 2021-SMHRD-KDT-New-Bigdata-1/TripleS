@@ -269,7 +269,6 @@ a {
   }
 
 .box-story-top {
-    display: inline-block;
     position: relative;
     height: inherit;
     margin: 0;
@@ -280,7 +279,6 @@ a {
     text-align: left;
     vertical-align: middle;
     margin-top: 50px;
-    margin-left: -985px;
 }
 ul { list-style: none; }
 

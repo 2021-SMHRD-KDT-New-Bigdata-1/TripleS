@@ -56,6 +56,10 @@ position: absolute;}
 #Ticon {
     width: 50px; height: 50px;
 }
+#aicon {
+	width: 50px; height: 50px;
+	opacity: 0;
+}
 
 .movie_serch_table{
     

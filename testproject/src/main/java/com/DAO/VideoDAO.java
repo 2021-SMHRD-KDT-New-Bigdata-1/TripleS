@@ -150,7 +150,115 @@ public class VideoDAO {
 		}
 		return al;
 	}
+	
+	public ArrayList<VideoVO> Nselect() {
+		ArrayList<VideoVO> al = new ArrayList<VideoVO>();
 
+		try {
+			conn();
+
+			sql = "SELECT * from videos where ott_platform like '%N%'";
+			psmt = conn.prepareStatement(sql);
+
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				// 로그인 성공
+//				int video_seq;
+//				String video_title;
+//				String video_content;
+//				String video_filename;
+//				String upload_date;
+//				String genre;
+//				String ott_platform;
+//				String member_id;
+//				String actor;
+				String poster = rs.getString(4); // 포스터 이미지 이름 가져오기
+
+				vo = new VideoVO(0, null, null, poster, null, null, null, null, null, null);
+				al.add(vo);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			// 실행 후 오류가 발생했을 때 에러출력
+		} finally {
+			close();
+		}
+		return al;
+	}
+
+	public ArrayList<VideoVO> Hselect() {
+		ArrayList<VideoVO> al = new ArrayList<VideoVO>();
+
+		try {
+			conn();
+
+			sql = "SELECT * from videos where ott_platform like '%H%'";
+			psmt = conn.prepareStatement(sql);
+
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				// 로그인 성공
+//				int video_seq;
+//				String video_title;
+//				String video_content;
+//				String video_filename;
+//				String upload_date;
+//				String genre;
+//				String ott_platform;
+//				String member_id;
+//				String actor;
+				String poster = rs.getString(4); // 포스터 이미지 이름 가져오기
+
+				vo = new VideoVO(0, null, null, poster, null, null, null, null, null, null);
+				al.add(vo);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			// 실행 후 오류가 발생했을 때 에러출력
+		} finally {
+			close();
+		}
+		return al;
+	}
+	
+	public ArrayList<VideoVO> Wselect() {
+		ArrayList<VideoVO> al = new ArrayList<VideoVO>();
+
+		try {
+			conn();
+
+			sql = "SELECT * from videos where ott_platform like '%W%'";
+			psmt = conn.prepareStatement(sql);
+
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				// 로그인 성공
+//				int video_seq;
+//				String video_title;
+//				String video_content;
+//				String video_filename;
+//				String upload_date;
+//				String genre;
+//				String ott_platform;
+//				String member_id;
+//				String actor;
+				String poster = rs.getString(4); // 포스터 이미지 이름 가져오기
+
+				vo = new VideoVO(0, null, null, poster, null, null, null, null, null, null);
+				al.add(vo);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			// 실행 후 오류가 발생했을 때 에러출력
+		} finally {
+			close();
+		}
+		return al;
+	}
+	
 
 
 	

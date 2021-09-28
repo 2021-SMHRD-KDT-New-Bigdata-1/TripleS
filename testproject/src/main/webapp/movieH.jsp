@@ -1,4 +1,3 @@
-
 <%@page import="com.VO.VideoVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.VideoDAO"%>
@@ -8,13 +7,13 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<link rel='stylesheet' href='CSS/movie/movie.css'>
 <title>Insert title here</title>
+<link rel='stylesheet' href='CSS/movie/movie.css'>
 </head>
 <body>
 <% 
 VideoDAO dao = new VideoDAO();
-ArrayList<VideoVO> al = dao.select();
+ArrayList<VideoVO> al = dao.Hselect();
 System.out.print(al.size());
 %>
 	<div data-include-path="header.jsp"></div>
@@ -49,23 +48,24 @@ System.out.print(al.size());
 	<section class="movie_serch1">
 		<div class="movie_top">
 			<ul class="movie_top_ul">
-				<form action="movie_search.jsp">
-					<li><a href="movieN.jsp"><img src="img/icon/netflic.png" id="nicon"></a></li>
-					<li><a href="#"><img src="img/icon/watha.png" id="Hicon"></a></li>
-					<li><a href="#"><img src="img/icon/wavve.png" id="Wicon"></a></li>
-					<li><a href="#"><img src="img/icon/tiving.png" id="Ticon"></a></li>
-					<li><input type="text" placeholder="검색어를 입력해주세요." id="seachwindow" name = "title"></li>
+				<form action="#">
+					<li><a href="movie.jsp"><img src="img/icon/watha.png" id="nicon"></a></li>
+					<li><img src="img/icon/a.png" id="aicon"></a></li>
+					<li><img src="img/icon/a.png" id="aicon"></a></li>
+					<li><img src="img/icon/a.png" id="aicon"></a></li>
+					<li><input type="text" placeholder="검색어를 입력해주세요." id="seachwindow"></li>
 					<input type="image" id="seachicon" src="img/icon/pngegg.png">
 				</form>
 			</ul>
 		</div>
 		<table class="movie_table">
-			<% 	int a = 0;
-				int b = 8;
-				for (int i = 0; i< al.size()/8; i++) {
+			<%
+			int a = 0;
+			int b = 8;
+			for (int i = 0; i < al.size() / 8; i++) {
 				out.print("<tr>");
 				for (int e = a; e < b; e++) {
-					out.print("<td><a href='movieCon.do?filename="+al.get(e).getVideo_filename()+"'><img src='img/mini1/"+al.get(e).getVideo_filename()+".jpg'></a></td>");
+					out.print("<td><a href='movieCon.do?filename=" + al.get(e).getVideo_filename() + "'><img src='img/mini1/"+ al.get(e).getVideo_filename() + ".jpg'></a></td>");
 				}
 				out.print("<tr>");
 				a += 8;
@@ -97,6 +97,5 @@ System.out.print(al.size());
 		});
 		
 	</script>
-
 </body>
 </html>

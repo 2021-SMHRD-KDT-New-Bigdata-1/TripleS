@@ -9,6 +9,19 @@ public class ReplyVO {
 	private String reply_comment;
 	private String member_id;
 	private Date reg_date;
+	private String video_seq;
+	
+	
+	
+	public ReplyVO(int reply_seq, int article_seq, String reply_comment, String member_id, Date reg_date,String video_seq) {
+		super();
+		this.reply_seq = reply_seq;
+		this.article_seq = article_seq;
+		this.reply_comment = reply_comment;
+		this.member_id = member_id;
+		this.reg_date = reg_date;
+		this.video_seq = video_seq;
+	}
 	
 	public int getReply_seq() {
 		return reply_seq;
@@ -40,6 +53,14 @@ public class ReplyVO {
 	public void setReg_date(Date reg_date) {
 		this.reg_date = reg_date;
 	}
+	
+	public String getVideo_seq() {
+		return video_seq;
+	}
+	public void setVideo_seq(String video_seq) {
+		this.video_seq = video_seq;
+	}
+
 	
 	
 }

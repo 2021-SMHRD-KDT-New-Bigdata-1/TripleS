@@ -52,8 +52,8 @@
         <section class = "movie_serch1">
             <div class = "movie_top">
                 <ul class="movie_top_ul">
-                    <form action="#">
-                    <li><input type="text" placeholder="<%out.print(title);%>" id = "seachwindow"></li>
+                    <form action="movie_search.jsp">
+                    <li><input type="text" placeholder="<%out.print(title);%>" id = "seachwindow" name="title"></li>
                     <input type="image" id="seachicon" src="img/icon/pngegg.png">
                     </form>
                 </ul>

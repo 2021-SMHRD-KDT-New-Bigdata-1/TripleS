@@ -24,7 +24,7 @@ public class movieCon extends HttpServlet {
 		VideoVO vo =  dao.oneselect(filename);
 		
 		if (vo != null) {
-			session.setAttribute("vo", vo);
+			session.setAttribute("vvo", vo);
 			response.sendRedirect("movie_detail.jsp");
 			System.out.println("연결성공");
 		}

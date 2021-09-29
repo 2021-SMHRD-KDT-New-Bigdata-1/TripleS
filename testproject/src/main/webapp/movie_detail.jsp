@@ -1,4 +1,10 @@
 
+<%@page import="com.DAO.WriteDAO"%>
+<%@page import="com.VO.replyVO"%>
+<%@page import="java.awt.datatransfer.ClipboardOwner"%>
+<%@page import="com.DAO.replyDAO"%>
+<%@page import="com.VO.WriteVO"%>
+<%@page import="com.VO.MemberVO"%>
 <%@page import="javax.servlet.annotation.WebServlet"%>
 <%@page import="com.VO.VideoVO"%>
 <%@page import="java.util.ArrayList"%>
@@ -42,11 +48,17 @@
 	</script>
 
 	<%
-	VideoVO vo = (VideoVO)session.getAttribute("vo");
+	VideoVO vo = (VideoVO)session.getAttribute("vvo");
+	MemberVO vo1 = (MemberVO)session.getAttribute("vo");
 	String year = vo.getUpload_date();
 	String content = vo.getVideo_content();
 	String content1 = content.replace(".", ".<br>");
-		
+	String video_seq = vo.getVideo_filename();
+	replyDAO rdao = new replyDAO();
+	ArrayList<replyVO> al = rdao.rselect(video_seq);
+	
+	System.out.print(al.size());
+	WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
 	%>
 	<section class="movie_serch1">
 		<div id="contents">
@@ -97,97 +109,73 @@
 					<STRONG><EM><SPAN style="FONT-FAMILY: sans-serif">
 								<%out.print(content1);%></SPAN></EM></STRONG>
 				</P>
-<!-- 				<P>
-					<STRONG><EM><SPAN style="FONT-FAMILY: sans-serif">“어벤져스가
-								되려면 시험 같은 거 봐요?”</SPAN></EM></STRONG>
-				</P>
-				<P>
-					<SPAN style="FONT-FAMILY: sans-serif">&nbsp;</SPAN>
-				</P>
-				<P>
-					<SPAN style="FONT-FAMILY: sans-serif">‘시빌 워’ 당시 ‘토니 스타크’(로버트
-						다우니 주니어)에게 발탁되어</SPAN>
-				</P>
-				<P>
-					<SPAN style="FONT-FAMILY: sans-serif">대단한 활약을 펼쳤던 스파이더맨 ‘피터
-						파커’(톰 홀랜드).</SPAN>
-				</P>
-				<P>
-					<SPAN style="FONT-FAMILY: sans-serif">그에게 새로운 수트를 선물한 ‘토니
-						스타크’는 위험한 일은 하지 말라며 조언한다.</SPAN>
-				</P>
-				<P>
-					<SPAN style="FONT-FAMILY: sans-serif">하지만 허세와 정의감으로 똘똘 뭉친
-						‘피터 파커’는</SPAN>
-				</P>
-				<P>
-					<SPAN style="FONT-FAMILY: sans-serif">세상을 위협하는 강력한 적
-						‘벌처’(마이클 키튼)에 맞서려 하는데…</SPAN>
-				</P>
-				<P>
-					<SPAN style="FONT-FAMILY: sans-serif">&nbsp;</SPAN>
-				</P>
-				<P>
-					<STRONG><SPAN style="FONT-FAMILY: sans-serif">아직은
-							어벤져스가 될 수 없는 스파이더맨</SPAN></STRONG>
-				</P>
-				<P>
-					<STRONG><SPAN style="FONT-FAMILY: sans-serif">숙제보다
-							세상을 구하고 싶은 스파이더맨</SPAN></STRONG>
-				</P>
-				<P>
-					<STRONG><SPAN style="FONT-FAMILY: sans-serif">그는 과연
-							진정한 히어로로 거듭날 수 있을 것인가!</SPAN></STRONG>
-				</P> -->
 				<br>
 			</div>
 		</div>
-
-		<div class="CommentBox">
-			<div class="comment_option">
-				<h3 class="comment_title">댓글</h3>
-
-			</div>
-			<ul class="comment_list">
-				<li class="CommentItem">
-					<div class="comment_area">
-						<div class="comment_box">
-							<div class="comment_nick_box">
-								<div class="comment_nick_info">
-									<a href="#" role="button" class="comment_nickname">gomdol</a>
-								</div>
-								<div class="md">
-									<a href="#" class="modify">수정</a> <a href="#" class="delete">삭제</a>
-								</div>
-
-							</div>
-							<div class="comment_text_box">
-								<p class="comment_text_view">
-									<span class="text_comment">난 곰도리야</span>
-								</p>
-							</div>
-							<div class="comment_info_box">
-								<span class="comment_info_date"> 2021.09.23 15:24</span>
-
-							</div>
-						</div>
-					</div>
-				</li>
-			</ul>
-			<div class="CommentWriter">
-				<div class="comment_inbox">
-					<strong class="blind">댓글을 입력하세요</strong> <em
-						class="comment_inbox_name">gomdori</em>
-					<textarea placeholder="댓글을 남겨보세요" class="comment_inbox_text"
-						rows="1"
-						style="overflow: hidden; overflow-wrap: break-word; height: 17px;"></textarea>
-				</div>
-				<div class="comment_attach">
-					<div class="register_box">
-						<a href="#" role="button" class="button btn_register">등록</a>
-					</div>
-				</div>
-			</div>
+			<form action="commentCon">
+              <div class="CommentBox">
+                <div class="comment_option">
+                    <h3 class="comment_title"> 댓글 </h3>
+           
+                </div>
+                <%if(al.size()==0){
+                           
+                 }else{%>
+                <ul class="comment_list">
+                    <li class="CommentItem">
+                        <div class="comment_area">
+                        <%for(replyVO reply:al){ %>
+                            <div class="comment_box">
+                                <div class="comment_nick_box">
+                                    <div class="comment_nick_info">
+                                        <a href="#" role="button" class="comment_nickname"> <%=reply.getNickname() %></a>
+                                    </div>
+                                    <div class="md">
+                                        <a href="#" class="modify">수정</a>
+                                        <a href="#" class="delete">삭제</a>
+                                    </div>
+                                 
+                                </div>
+                                <div class="comment_text_box">
+                                    <p class="comment_text_view">
+                                        <span class="text_comment" > <%=reply.getReply_comment() %></span>
+                                    </p>
+                                </div>
+                                <div class="comment_info_box">
+                                    <span class="comment_info_date"><%=reply.getReg_date() %></span>
+                                </div>
+                            </div>
+                            <%} %>
+                        </div>
+                    </li>
+                </ul>
+                     <% } %>
+                
+                       <%if(vo1==null){
+                           
+                        }else{%>
+                <div class="CommentWriter">
+                    <div class="comment_inbox"> 
+                        <strong class="blind">댓글을 입력하세요</strong>
+                        <em class="comment_inbox_name"></em>
+                        <textarea name="reply" placeholder="댓글을 남겨보세요" class="comment_inbox_text" rows="1" style="overflow: hidden; overflow-wrap: break-word; height: 17px;"></textarea>
+                    </div>
+                    <div class="comment_attach">
+                        <div class="register_box">
+                            <input type ="submit" style="display: inline-block;
+    min-width: 46px;
+    height: 32px;
+    font-size: 13px;
+    color: black;
+    vertical-align: top;
+    margin-top: -24px;
+    margin-left: auto";>
+                        </div>
+                    </div>
+                </div>
+                 <% } %>
+        </div>
+</form>
 	</section>
 
 

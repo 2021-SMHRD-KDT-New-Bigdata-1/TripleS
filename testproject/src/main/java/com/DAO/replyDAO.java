@@ -5,13 +5,17 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import com.VO.VideoVO;
+import com.VO.replyVO;
 
 public class replyDAO {
 
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
-
+	String sql = null;
 	public void conn() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -41,15 +45,17 @@ public class replyDAO {
 		}
 	}
 
-	public int reply(String reply_comment, String memberId) {
+	public int insert(int article_seq,String reply_comment, String memberId,String video_seq,String nickname) {
 		int cnt = 0;
 		try {
 			conn();
-			String sql = "insert into replies values(reply_seq.nextval,article_seq.nextval,?,?,sysdate)";
+			sql = "insert into replies values(replies_seq.nextval,?,?,?,sysdate,?,?)";
 			psmt = conn.prepareStatement(sql);
-
-			psmt.setString(1, reply_comment);
-			psmt.setString(2, memberId);
+			psmt.setInt(1, article_seq);
+			psmt.setString(2, reply_comment);
+			psmt.setString(3, memberId);
+			psmt.setString(4, video_seq);
+			psmt.setString(5, nickname);
 			
 
 			cnt = psmt.executeUpdate();
@@ -60,6 +66,39 @@ public class replyDAO {
 			close();
 		}
 		return cnt;
+	}
+	
+	public ArrayList<replyVO> rselect(String video_seq) {
+		ArrayList<replyVO> al = new ArrayList<replyVO>();
+
+		try {
+			conn();
+
+			sql = "SELECT * from replies where video_seq = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, video_seq);
+
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				int REPLY_SEQ = rs.getInt(1);
+				int ARTICLE_SEQ = rs.getInt(2);
+				String REPLY_COMMENT = rs.getString(3);
+				String MEMBER_ID = rs.getString(4);
+				Date REG_DATE = rs.getDate(5);
+				String VIDEO_SEQ = rs.getString(6);
+				String NICKNAME = rs.getString(7);
+
+				replyVO  rvo = new replyVO(REPLY_SEQ, ARTICLE_SEQ, REPLY_COMMENT, MEMBER_ID, REG_DATE, VIDEO_SEQ,NICKNAME );
+				al.add(rvo);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			// 실행 후 오류가 발생했을 때 에러출력
+		} finally {
+			close();
+		}
+		return al;
 	}
 	
 	

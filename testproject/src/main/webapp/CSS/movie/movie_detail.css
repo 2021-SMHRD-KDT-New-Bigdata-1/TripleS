@@ -117,156 +117,161 @@ a {
 }
 
 .CommentBox {
-    margin-top: 17px;
-  }
-  
-  .CommentBox .comment_option {
-    position: relative;
-    padding-top: 16px;
-    margin-bottom: 11px;
-    border-bottom: 1px dashed #ddd;
-    padding: 7px;
-  }
-  
-  .CommentBox .comment_option .comment_title {
-    margin-top: -10px;
-    margin-left: -3px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-    font-size: 1.6rem;
-    font-style: normal;
-  }
-  .CommentBox .comment_option .comment_tab .comment_tab_list {
-    display: inline-block;
-    margin-top: -2px;
-    font-size: 1.2rem;
-    vertical-align: top;
-  }
-  .CommentBox .comment_option .comment_tab .comment_tab_item:first-child {
-    margin-left: 0;
-  }
-  .CommentBox .comment_option .comment_tab .comment_tab_item {
-    float: left;
-  }
-  .CommentBox .comment_list .CommentItem {
-    position: relative;
-  }
-  
-  .CommentBox .comment_list .comment_nick_box .comment_nick_info {
-    display: inline-block;
-    position: relative;
-    font-size: 1.6rem;
-    vertical-align: top;
-    margin-top: 8px;
-  }
-  .CommentBox .comment_list .comment_text_box {
-    position: relative;
-    font-size: 1.6rem;
-    word-break: break-all;
-    word-wrap: break-word;
-  }
-  .CommentBox .comment_list .comment_text_box p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-  }
-  .CommentBox .comment_list .comment_info_box {
-    margin-top: 7px;
-    font-size: 1.4rem;
-    color: #777;
-    margin-bottom: 27px;
-  }
-  .CommentBox .comment_list + .CommentWriter {
-    margin-top: 10px;
-  }
-  .CommentWriter {
-    box-sizing: border-box;
-    margin: 30px 0px 29px;
-    padding: 20px 10px 20px 18px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #999;
-    border-image: initial;
-    border-radius: 6px;
-    background: white;
-  }
-  .CommentWriter .comment_inbox {
-    position: relative;
-    margin-bottom: 20px;
-  }
-  .blind {
-    position: absolute;
-    clip: rect(0 0 0 0);
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-  }
+  margin-top: 17px;
+}
 
-  .CommentWriter .comment_inbox_name {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 700;
-    font-size: 1.5rem;
-  }
-  em {
-    font-style: normal;
-    font-size: 15pt;
-  }
-  
-  .CommentWriter .comment_inbox_text {
-    display: block;
-    width: 100%;
-    min-height: 17px;
-    padding-right: 1px;
-    border: 0;
-    font-size: 13px;
-    -webkit-appearance: none;
-    resize: none;
-    box-sizing: border-box;
-    background: white;
-    color: black;
-    outline: 0;
-  }
-  textarea {
-    font-family: "Apple SD Gothic Neo", "∏º¿∫ ∞ÌµÒ", "Malgun Gothic", µ∏øÚ, dotum,
-      sans-serif;
-  }
-  .CommentWriter .comment_attach {
-    position: relative;
-  }
-  .CommentWriter .register_box {
-    float: right;
-  }
-  .CommentWriter .register_box .button {
-    display: inline-block;
-    min-width: 46px;
-    height: 34px;
-    line-height: 36px;
-    font-size: 13px;
-    color: #777;
-    border-radius: 6px;
-    box-sizing: border-box;
-    font-weight: 700;
-    text-align: center;
-    vertical-align: top;
-    margin-top: -28px;
-    margin-left: auto;
-  }
-  
-  .CommentBox .comment_list .md .modify,
-  .CommentBox .comment_list .md .delete {
-    float: right;
-    margin-top: -12px;
-    font-size: 1.3rem;
-    color: #777;
-  }
-  
-  .CommentBox .comment_list .delete {
-    margin-right: 8px;
-  }
+.CommentBox .comment_option {
+  position: relative;
+  padding-top: 16px;
+  margin-bottom: 11px;
+  border-bottom: 1px dashed #ddd;
+  padding: 7px;
+}
+
+.CommentBox .comment_option .comment_title {
+  margin-top: -10px;
+  margin-left: -3px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+  font-style: normal;
+}
+.CommentBox .comment_option .comment_tab .comment_tab_list {
+  display: inline-block;
+  margin-top: -2px;
+  font-size: 1.2rem;
+  vertical-align: top;
+}
+.CommentBox .comment_option .comment_tab .comment_tab_item:first-child {
+  margin-left: 0;
+}
+.CommentBox .comment_option .comment_tab .comment_tab_item {
+  float: left;
+}
+.CommentBox .comment_list .CommentItem {
+  position: relative;
+}
+
+.CommentBox .comment_list .comment_nick_box .comment_nick_info {
+  display: inline-block;
+  position: relative;
+  font-size: 10pt;
+  vertical-align: top;
+  margin-top: 8px;
+}
+.CommentBox .comment_list .comment_text_box {
+  position: relative;
+  font-size: 1.6rem;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.CommentBox .comment_list .comment_text_box p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.CommentBox .comment_list .comment_info_box {
+  margin-top: 7px;
+  font-size: 10pt;
+  color: #777;
+  margin-bottom: 27px;
+}
+.CommentBox .comment_list + .CommentWriter {
+  margin-top: 10px;
+}
+.CommentWriter {
+  box-sizing: border-box;
+  margin: 30px 0px 29px;
+  padding: 20px 10px 20px 18px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #999;
+  border-image: initial;
+  border-radius: 6px;
+  background: white;
+}
+.CommentWriter .comment_inbox {
+  position: relative;
+  margin-bottom: 20px;
+}
+.blind {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+strong {
+  font-weight: bold;
+}
+.CommentWriter .comment_inbox_name {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+em {
+  font-style: normal;
+}
+
+.CommentWriter .comment_inbox_text {
+  display: block;
+  width: 100%;
+  min-height: 17px;
+  padding-right: 1px;
+  border: 0;
+  font-size: 13px;
+  -webkit-appearance: none;
+  resize: none;
+  box-sizing: border-box;
+  background: white;
+  color: black;
+  outline: 0;
+}
+textarea {
+  font-family: "Apple SD Gothic Neo", "ÔßçÎ¨íÔøΩ ÊÄ®Ï¢äÎµì", "Malgun Gothic", ÔøΩÎ£çÔøΩÔøΩ, dotum,
+    sans-serif;
+}
+.CommentWriter .comment_attach {
+  position: relative;
+}
+.CommentWriter .register_box {
+  float: right;
+}
+.CommentWriter .register_box .button {
+  display: inline-block;
+  min-width: 46px;
+  height: 34px;
+  line-height: 36px;
+  font-size: 13px;
+  color: #777;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: top;
+  margin-top: -28px;
+  margin-left: auto;
+}
+
+.CommentBox .comment_list .md .modify,
+.CommentBox .comment_list .md .delete {
+  float: right;
+  margin-top: -12px;
+  font-size: 1.3rem;
+  color: #777;
+}
+
+.CommentBox .comment_list .delete {
+  margin-right: 8px;
+}
+
+.text_comment{
+	font-size : 20pt
+}
 
 .box-story-top {
     position: relative;

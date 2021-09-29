@@ -44,7 +44,9 @@ public class replyDAO {
 			e.printStackTrace();
 		}
 	}
-
+	// 댓글 DB에 저장하기
+	// video_seq 널가능
+	// 게시판 댓글에서는 video_seq 널값으로 지정하세여
 	public int insert(int article_seq,String reply_comment, String memberId,String video_seq,String nickname) {
 		int cnt = 0;
 		try {

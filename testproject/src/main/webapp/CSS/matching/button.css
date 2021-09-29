@@ -90,24 +90,24 @@
 
 #p_member{
 	color: black;
-	border: 1px solid black;
-	width: 250px;
+    border: 1px solid #c2c9cf;
+    width: 250px;
 }
 
 #p_host{
 	color: black;
-	border: 1px solid black;
-	width: 250px;
+    border: 1px solid #c2c9cf;
+    width: 250px;
 }
 
 .form .OTT-type input:checked + label{
-	border: 1px solid #E0F8F7;
-	background-color: #E0F8F7;
+	border: 1px solid #E8F0F6;
+    background-color: #E8F0F6;
 }
 
 .form .maching-plan input:checked + label{
 	border: 1px solid #E0F8F7;
-	background-color: #E0F8F7;
+    background-color: #E8F0F6;
 }
 
 .form .OTT-type input:checked + label:after, .form .maching-plan input:checked + label:after{

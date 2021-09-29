@@ -260,4 +260,15 @@ div{
 .OTT_cnt{
     font-size: 17px;
     margin-left: 20px;
+    
+}
+.OTT_strong{
+	text-decoration: line-through;
+}
+
+.ratio2{
+       margin-left: 4px;
+    color: red;
+    font-size: 27px;
+    vertical-align: baseline;
 }

@@ -1,3 +1,5 @@
+<%@page import="com.VO.WriteVO"%>
+<%@page import="com.DAO.WriteDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 
@@ -16,15 +18,20 @@
 <section class="section1">
     <div class="board_wrap">
         <div class="board_editTitle">
-            <strong><i class="fas fa-eraser"></i>  게시글 수정하기</strong>
-            <p></p>
+            <strong><i class="fas fa-eraser"></i> 게시글 수정하기</strong>
+            <p>게시판 용도에 맞지 않는 글은 운영자에 의해 삭제될 수 있습니다.</p>
         </div>
         <div class="board_write_wrap">
              <div class="board_write">
+              <%
+            	  int id = Integer.parseInt(request.getParameter("id"));
+              	WriteDAO dao = new WriteDAO();
+				WriteVO writevo = dao.subjectList(id);
+				%>
                 <div class="title">
                     <dl>
-                        <dt>제목</dt>
-                        <dd><input type="text" placeholder="제목 입력" name="subject"></dd>
+                        <dt>제목 </dt>
+                        <dd><%=writevo.getSubject()%></dd>
                     </dl>
                 </div>
             

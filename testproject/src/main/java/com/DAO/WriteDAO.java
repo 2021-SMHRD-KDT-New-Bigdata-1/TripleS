@@ -52,7 +52,7 @@ public class WriteDAO {
 		int cnt = 0;
 		try {
 			conn();
-			String sql = "insert into articles values(articles_seq.nextval,?,?,?,?,?,?,sysdate,0,0)";
+			String sql = "insert into articles (subject, content, img_pic1, img_pic2, img_pic3, member_id, reg_date, cnt, rec_cnt) values(?,?,?,?,?,?,sysdate,0,0)";
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, subject);
@@ -238,7 +238,7 @@ public class WriteDAO {
 		int result = 0;
 		conn();
 
-		String sql = "select count(*) from articles ";
+		String sql = "select max(article_seq) from articles ";
 
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -254,7 +254,6 @@ public class WriteDAO {
 		} finally {
 			close();
 		}
-		System.out.println(result);
 		return result;
 	}
 	// 하나의 게시글을 보는 메소드
@@ -272,7 +271,7 @@ public class WriteDAO {
 			rs = psmt.executeQuery();
 
 			if (rs.next()) {
-
+				
 				String subject = rs.getString(2);
 				String content = rs.getString(3);
 				String img_1 = rs.getString(4);
@@ -294,5 +293,27 @@ public class WriteDAO {
 		}
 		return vo3;
 	}
+	
+	public int cnt_subject(int article_seq, int cnt) {
+		try {
+			conn();
+			cnt+=1;
+			String sql = "update articles set cnt =? where article_seq=?" ; // 다시한번해보세요!
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setInt(1, cnt);
+			psmt.setInt(2, article_seq);
+
+			psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}return cnt;
+	
+	}
+		
+	
+
 
 }

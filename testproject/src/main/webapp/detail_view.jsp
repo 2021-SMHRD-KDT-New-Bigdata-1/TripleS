@@ -32,6 +32,8 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
             	  int id = Integer.parseInt(request.getParameter("id"));
               	WriteDAO dao = new WriteDAO();
 				WriteVO writevo = dao.subjectList(id);
+				int count = dao.cnt_subject(writevo.getArticles_seq(), writevo.getCnt());
+				System.out.println(writevo.getArticles_seq()+","+ writevo.getCnt());
 				%>
 			
                <div class="titleview">
@@ -53,14 +55,23 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
                 </dl>
                 <dl>
                   <dt>조회</dt>
-                  <dd><%=writevo.getCnt() %></dd>
+                  <dd><%=count %></dd>
                 </dl>
+               
                </div>
                <div class="cont">
                <%=writevo.getContent() %>
-
+				
+				
                </div>
-              </div>
+              <div class="feeling_div">
+			<div class="like">
+			    <button class="feeling_a">
+			      <i class="fa fa-heart-o"> Like</i>    
+			    </a>
+			  </div>
+			  
+		</div>
         
               <div class="CommentBox">
                 <div class="comment_option">
@@ -130,6 +141,7 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
 				}else{
 					if(vo.getMemberId().equals(writevo.getMemberId())){
 					out.print("<a href='edit.jsp' >수정</a>");
+
 					out.print("<a href='review_board.jsp' class='on'>목록</a>");
 					}else{
 						out.print("<a href='review_board.jsp' class='on'>목록</a>");
@@ -146,7 +158,7 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
     
     </section>
 </form>
-
+	 
 <script>
 
         window.addEventListener('load', function() {
@@ -165,8 +177,21 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
                 }
             });
         });
+    	
     
     </script>
-	  <div data-include-path="footer.html"></div>
+    
+ <div data-include-path="footer.html"></div>
+ <script>
+ $('.like> .feeling_a, .dislike-container  > .feeling_a').on('click', function() {
+	    event.preventDefault();
+	    $('.active').removeClass('active');
+	    $(this).addClass('active');
+	});
+.active {
+background-color: #2199e8;
+color: #fff;
+}
+ </script>
 </body>
 </html>

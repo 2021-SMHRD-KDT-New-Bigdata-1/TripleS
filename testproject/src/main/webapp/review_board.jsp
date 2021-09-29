@@ -46,7 +46,8 @@
              int count = dao.selectCnt();
              String tempStart = request.getParameter("page");
              int startPage = 1;
-             int onePageCnt = 5;
+             int onePageCnt = 10;
+             System.out.print(count);
              
              count = (int)Math.ceil((double)count/(double)onePageCnt);
              
@@ -57,7 +58,7 @@
             	 onePageCnt = (Integer.parseInt(tempStart)-1)*onePageCnt+onePageCnt;
        
              }
-             ArrayList<WriteVO> v = dao.selectPage((startPage*2),onePageCnt*2);
+             ArrayList<WriteVO> v = dao.selectPage((startPage),onePageCnt);
              
 
              

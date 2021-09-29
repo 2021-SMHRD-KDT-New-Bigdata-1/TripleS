@@ -56,17 +56,22 @@ public class Matchingmember extends HttpServlet {
 			
 			if(member1==null) {
 				cnt = dao.member1(memberId, hostId);
+				cnt = -1;
 			} else if(member2==null) {
 				cnt = dao.member2(memberId, hostId);
+				cnt = -1;
 			} else if(member3==null) {
 				cnt = dao.member3(memberId, hostId);
+				cnt = -1;
 			} 
 			
 		}
 		
 		
 		if(cnt > 0) {
-			response.sendRedirect("main_index.html");
+			response.sendRedirect("waiting_matching.html");
+		} else if (cnt == -1) {
+			response.sendRedirect("success_member.html");
 		}
 		
 		

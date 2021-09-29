@@ -46,7 +46,6 @@ public class MatchingNetflex extends HttpServlet {
 		
 		
 		if (members.size() == 0) {
-			cnt = cnt;
 		} else if(members.size() == 1) {
 			member1 = members.get(0);
 			cnt = dao.delete_member1(member1);
@@ -65,8 +64,8 @@ public class MatchingNetflex extends HttpServlet {
 		}
 		
 		if(cnt > 0) {
-			response.sendRedirect("main_index.html");
-		}
+			response.sendRedirect("success_host.html");
+		} 
 		
 		
 		

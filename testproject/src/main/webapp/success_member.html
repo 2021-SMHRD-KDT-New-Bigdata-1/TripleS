@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "CSS/matching/success_member.css">
+</head>
+<body>
+	
+	<!-- Redirection Counter -->
+<script type="text/javascript">
+  var count = 20; // Timer
+  var redirect = "/"; // Target URL
+
+  function countDown() {
+    var timer = document.getElementById("timer"); // Timer ID
+    if (count > 0) {
+      count--;
+      timer.innerHTML = "This page will redirect in " + count + " seconds."; // Timer Message
+      setTimeout("countDown()", 1000);
+    } else {
+      window.location.href = "main_index.html";
+    }
+  }
+</script>
+
+<div id="master-wrap">
+  <div id="logo-box">
+
+    <div class="animated fast fadeInUp">
+      <div class="icon"></div>
+      <h1>매칭 성공!</h1>
+    </div>
+
+    <div class="notice animated fadeInUp">
+      <p class="lead">마이페이지에서 공유계정을 확인해주세요</p>
+      <a class="btn animation" href="main_index.html">&larr; Back</a>
+    </div>
+
+    <div class="footer animated slow fadeInUp">
+      <p id="timer">
+        <script type="text/javascript">
+          countDown();
+        </script>
+      </p>
+      <p class="copyright">&copy; TripleS.com</p>
+    </div>
+
+  </div>
+  <!-- /#logo-box -->
+</div>
+<!-- /#master-wrap -->
+	
+</body>
+</html>

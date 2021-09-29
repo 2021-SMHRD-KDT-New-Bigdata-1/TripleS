@@ -12,7 +12,7 @@
 <script src="js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-
+	
 
 	<div class="container" id="container">
 		<div class="form-container sign-up-container">

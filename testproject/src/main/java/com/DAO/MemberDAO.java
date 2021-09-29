@@ -49,7 +49,7 @@ public class MemberDAO {
 		int cnt = 0;
 		try {
 			conn();
-			String sql = "insert into members values(?, sysdate, ?, ? , ?, 0, ?,'N')";
+			String sql = "insert into members values(?, sysdate, ?, ? , ?, 0, ?,'N',sysdate)";
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, nickname);
@@ -149,8 +149,9 @@ public class MemberDAO {
 				int mileage = rs.getInt(6);
 				String adminYN = rs.getString(7);
 				String payYN = rs.getString(8);
+				String mileage_date = rs.getString(9);
 
-				vo = new MemberVO(nickname, entryDate, password, phone, memberId, mileage, adminYN, payYN);
+				vo = new MemberVO(nickname, entryDate, password, phone, memberId, mileage, adminYN, payYN,mileage_date);
 
 			}
 
@@ -231,5 +232,26 @@ public class MemberDAO {
 			close();
 		}
 		return pw;
+	}
+	
+	public int mileage(int mileage, String memberId, String mileage_date) {
+
+		mileage += 1;
+		try {
+			conn();
+			String sql = "update members set mileage=?,mileage_date=sysdate where member_id=?";
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setInt(1, mileage);
+			psmt.setString(2, memberId);
+
+			psmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return mileage;
 	}
 }

@@ -1,3 +1,6 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
+<%@page import="com.DAO.MemberDAO"%>
 <%@page import="com.VO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
@@ -59,6 +62,15 @@
 
 						<%
 						MemberVO vo = (MemberVO) session.getAttribute("vo");
+						MemberDAO dao = new MemberDAO();
+						SimpleDateFormat format = new SimpleDateFormat ("yyyy-MM-dd");
+						Date time = new Date();
+						String time1 = format.format(time);
+						String time2 = vo.getMileage_date();
+						String result = time2.substring(0,10);
+						System.out.println(time1);
+						System.out.println(result);
+						
 						%>
 						<div class="wrap_kaccount">
 							<div class="box_manage">
@@ -74,7 +86,14 @@
 										</div>
 										<span class="info_accounts"> <strong class="screen_out">이용
 												중인 계정</strong> <span class="txt_accounts" style="margin-top: 10px;">마일리지</span>
+												<%if(time1.equals(result)){
+													%>
 											<span class="txt_set"><%=vo.getMileage()%></span>
+												<%}else{ 
+													int mileage = dao.mileage(vo.getMileage(), vo.getMemberId(), vo.getMileage_date());
+												%>
+											<span class="txt_set"><%=mileage%></span>
+												<%}%>
 										</span>
 									</div>
 									<span class="ico_account ico_arr"></span>

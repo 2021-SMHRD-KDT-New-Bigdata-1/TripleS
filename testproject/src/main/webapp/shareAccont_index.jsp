@@ -3,7 +3,7 @@
 <%@page import="com.DAO.MemberDAO"%>
 <%@page import="com.VO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,25 +15,23 @@
 
 	<div data-include-path="header.jsp"></div>
 	<script>
-
-    window.addEventListener('load', function() {
-        var allElements = document.getElementsByTagName('*');
-        Array.prototype.forEach.call(allElements, function(el) {
-            var includePath = el.dataset.includePath;
-            if (includePath) {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        el.outerHTML = this.responseText;
-                    }
-                };
-                xhttp.open('GET', includePath, true);
-                xhttp.send();
-            }
-        });
-    });
-
-</script>
+		window.addEventListener('load', function() {
+			var allElements = document.getElementsByTagName('*');
+			Array.prototype.forEach.call(allElements, function(el) {
+				var includePath = el.dataset.includePath;
+				if (includePath) {
+					var xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+							el.outerHTML = this.responseText;
+						}
+					};
+					xhttp.open('GET', includePath, true);
+					xhttp.send();
+				}
+			});
+		});
+	</script>
 
 	<div id="kakaoWrap">
 		<header id="kakaoHead">
@@ -41,16 +39,21 @@
 				<nav id="kakaoGnb">
 					<h2 class="screen_out">카카오계정 메뉴</h2>
 					<ul class="list_gnb">
-					
-						<li><a href="myPage_index.jsp" class="link_gnb">내정보 관리</a>
-						</li>
-						<li><a href="#" class="link_gnb">공유
-								계정</a></li>
+
+						<li><a href="myPage_index.jsp" class="link_gnb">내정보 관리</a></li>
+						<li><a href="#" class="link_gnb">공유 계정</a></li>
 					</ul>
 				</nav>
 			</div>
 		</header>
 
+		<%
+		MemberDAO dao = new MemberDAO();
+		MemberVO vo = (MemberVO) session.getAttribute("vo");
+		String memberId = vo.getMemberId();
+		ArrayList<PartiesVO> al = dao.share(memberId);
+		System.out.println(al.size());
+		%>
 
 		<hr class="hide">
 
@@ -62,15 +65,26 @@
 						class="km-page-active">
 						<h2 id="kakaoBody" class="screen_out">카카오계정 본문</h2>
 						<h3 id="tit_s">공유 계정</h3>
-										<%		
-										MemberDAO dao = new MemberDAO();
-										MemberVO vo = (MemberVO) session.getAttribute("vo");
-										String memberId = vo.getMemberId();
-										ArrayList<PartiesVO> al = dao.share(memberId); 
-										System.out.println(al.size());%>
-										
-										
-										<%for(PartiesVO share:al){ %>
+
+						<%
+						if (al.size() == 0) {
+						%>
+						<div class="wrap_kaccount">
+							<div class="box_manage">
+							<div class="share_alert">
+							<strong>공유하고 있는 계정이 없습니다.</strong>
+							</div>
+							</div>
+						</div>
+
+
+						<%
+						} else {
+						%>
+
+						<%
+						for (PartiesVO share : al) {
+						%>
 						<div class="wrap_kaccount">
 							<div class="box_manage">
 								<strong class="tit_manage">공유 계정</strong>
@@ -79,19 +93,14 @@
 									class="link_set link_profile">
 									<div class="info_kaccount">
 										<div class="thumb_profile">
-										
-											<img src="img/login/icon-<%=share.getOtt() %>.png" class="img_profile"
-												alt="프로필사진"> <span class="img_frame"></span>
+
+											<img src="img/login/icon-<%=share.getOtt()%>.png"
+												class="img_profile" alt="프로필사진"> <span
+												class="img_frame"></span>
 										</div>
 										<span class="info_accounts"> <strong class="screen_out">이용
-												중인 계정</strong> <span class="txt_accounts"><%=share.getOtt() %></span> <span
-											class="txt_set_2" style="margin-top: 10px;">
-
-											<%=share.getMemberId() %>
-											<%if(share.getMember1()!=null){ %>/<%=share.getMember1()%>/<%} %>
-											<%if(share.getMember2()!=null){ %><%=share.getMember2()%>/<%} %>
-											<%if(share.getMember3()!=null){ %><%=share.getMember3()%>/<%} %>
-											</span>
+												중인 계정</strong> <span class="txt_accounts"><%=share.getOtt()%></span>
+											<span class="txt_set_2" style="margin-top: 10px;"> </span>
 										</span>
 									</div>
 									<span class="ico_account ico_arr"></span>
@@ -107,7 +116,10 @@
 							</div>
 
 						</div>
-						<%} %>
+						<%
+						}
+						}
+						%>
 					</div>
 
 				</div>
@@ -134,6 +146,5 @@
 				});
 			});
 		</script>
-
 </body>
 </html>

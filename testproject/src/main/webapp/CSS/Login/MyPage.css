@@ -1,6 +1,8 @@
 @charset "utf-8";
 
-
+.share_alert{
+	text-align: center;
+}
 #tit_s{position: relative;
   font-weight: normal;
   font-size: 20px;

@@ -12,10 +12,12 @@ public class MemberVO {
 	private int mileage;
 	private String adminYN;
 	private String payYN;
+	private String mileage_date;
 	
 	public MemberVO(String nickname, Date entryDate, String password, String phone, String memberId, int mileage,
-			String adminYN, String payYN) {
+			String adminYN, String payYN, String mileage_date) {
 		super();
+	
 		this.nickname = nickname;
 		this.entryDate = entryDate;
 		this.password = password;
@@ -24,7 +26,22 @@ public class MemberVO {
 		this.mileage = mileage;
 		this.adminYN = adminYN;
 		this.payYN = payYN;
+		this.mileage_date = mileage_date;
 	}
+
+
+
+	public String getMileage_date() {
+		return mileage_date;
+	}
+
+
+
+	public void setMileage_date(String mileage_date) {
+		this.mileage_date = mileage_date;
+	}
+
+
 
 	public String getNickname() {
 		return nickname;

@@ -152,7 +152,7 @@ body {
 
 .page {
   max-width: 1200px;
-  margin: 180px auto;
+  margin: 180px auto 80px;
 }
 
 a {

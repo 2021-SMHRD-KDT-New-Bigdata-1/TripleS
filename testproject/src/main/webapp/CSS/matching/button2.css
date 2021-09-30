@@ -61,11 +61,12 @@
 }
 
 .maching-plan{
-	margin-left: 280px;
+	margin-left: 290px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 65vh;
+    margin-bottom: 30px;
     margin-top: 40px;
 }
 

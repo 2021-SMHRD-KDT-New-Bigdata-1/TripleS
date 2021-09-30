@@ -37,12 +37,12 @@ public class write_board2 extends HttpServlet {
 		
 		if (cnt>0) {
 			
-			//WriteVO vo2 = dao.view(subject);
+			WriteVO vo2 = dao.view(subject);
 			
 			if(vo!=null) {
 			
-				//session.setAttribute("vo2", vo2);
-				//response.sendRedirect("view_board.jsp");
+				session.setAttribute("vo2", vo2);
+				response.sendRedirect("view_board2.jsp");
 				System.out.println("글 작성 성공");;
 				
 			}

@@ -1,3 +1,6 @@
+<%@page import="com.VO.replyVO"%>
+<%@page import="com.DAO.replyDAO"%>
+<%@page import="com.VO.VideoVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.WriteDAO"%>
 <%@page import="com.VO.MemberVO"%>
@@ -17,12 +20,13 @@
 <body>
 <%
 MemberVO vo = (MemberVO) session.getAttribute("vo");
-WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
+replyDAO rdao = new replyDAO();
 %>
 
 
 <div data-include-path="header.jsp"></div>
  <section class="section1">
+ 	<form action="articlecommentcon">
         <div class="board_wrap">
             <div class="board_title">
               <strong>리뷰 게시판</strong>
@@ -30,11 +34,13 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
             <div class="board_view_wrap">
               <div class="board_view">
               <%
-            	  int id = Integer.parseInt(request.getParameter("id"));
+            	int id = Integer.parseInt(request.getParameter("id"));
               	WriteDAO dao = new WriteDAO();
 				WriteVO writevo = dao.subjectList(id);
+				ArrayList<replyVO> al = rdao.dselect(writevo.getArticles_seq());
+				System.out.print(al.size());
 				int count = dao.cnt_subject(writevo.getArticles_seq(), writevo.getCnt());
-				
+				session.setAttribute("seq", writevo.getArticles_seq());
 				%>
 			
                <div class="titleview">
@@ -82,13 +88,17 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
                     <h3 class="comment_title"> 댓글 </h3>
            
                 </div>
+                <%if(al.size()==0){
+                           
+                 }else{%>
                 <ul class="comment_list">
                     <li class="CommentItem">
                         <div class="comment_area">
+                        <%for(replyVO reply:al){ %>
                             <div class="comment_box">
                                 <div class="comment_nick_box">
                                     <div class="comment_nick_info">
-                                        <a href="#" role="button" class="comment_nickname"> #댓글 작성자 id가 들어감</a>
+                                        <a href="#" role="button" class="comment_nickname"> <%=reply.getNickname() %></a>
                                     </div>
                                     <div class="md">
                                         <a href="#" class="modify">수정</a>
@@ -98,31 +108,30 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
                                 </div>
                                 <div class="comment_text_box">
                                     <p class="comment_text_view">
-                                        <span class="text_comment" > #댓글내용이 들어감</span>
+                                        <span class="text_comment" > <%=reply.getReply_comment() %></span>
                                     </p>
                                 </div>
                                 <div class="comment_info_box">
-                                    <span class="comment_info_date">#날짜가 들어감</span>
-                               
+                                    <span class="comment_info_date"><%=reply.getReg_date() %></span>
                                 </div>
                             </div>
+                            <%} %>
                         </div>
                     </li>
                 </ul>
-        
-                             <%if(vo==null){
+                     <% } %>
+                
+                       <%if(vo==null){
                            
                         }else{%>
-                        		
-                        	
-                    
-                    <div class="CommentWriter">
+                <div class="CommentWriter">
                     <div class="comment_inbox"> 
                         <strong class="blind">댓글을 입력하세요</strong>
-                        <em class="comment_inbox_name"><%=vo.getNickname() %> </em>
+                        <em class="comment_inbox_name"></em>
                         <textarea name="reply" placeholder="댓글을 남겨보세요" class="comment_inbox_text" rows="1" style="overflow: hidden; overflow-wrap: break-word; height: 17px;"></textarea>
                     </div>
                     <div class="comment_attach">
+                       </div>
                         <div class="register_box">
                             <input type ="submit" style="display: inline-block;
     min-width: 46px;
@@ -135,33 +144,10 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
                         </div>
                     </div>
                 </div>
-               <% } %>
-              <div class="bt_wrap" id="bt_wrap1">
-     
-              <%if(vo==null){
-					
-					out.print("<a href='review_board.jsp' class='on'>목록</a>");
-				
-				}else{
-					if(vo.getMemberId().equals(writevo.getMemberId())){
-					out.print("<a href='edit.jsp' >수정</a>");
-
-					out.print("<a href='review_board.jsp' class='on'>목록</a>");
-					}else{
-						out.print("<a href='review_board.jsp' class='on'>목록</a>");
-					}
-				}
-
-				%>
-                 <!--<a href="review_board.jsp" class="on">목록</a> -->
-
-                <!-- a href="edit.html" >수정</a>  -->
-                
-            </div> 
+                 <% } %>
         </div>
-    
-    </section>
 </form>
+    </section>
 	 
 <script>
 

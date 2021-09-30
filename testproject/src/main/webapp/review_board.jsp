@@ -23,7 +23,6 @@
 		//vo °¡Á®¿È
 	MemberVO vo = (MemberVO)session.getAttribute("vo");
 	WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
-
 	%>
 <!--  -->
 <section class="section1">

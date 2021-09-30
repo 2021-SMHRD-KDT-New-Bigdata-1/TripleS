@@ -103,6 +103,39 @@ public class replyDAO {
 		return al;
 	}
 	
+	public ArrayList<replyVO> dselect(int article_seq) {
+		ArrayList<replyVO> al = new ArrayList<replyVO>();
+
+		try {
+			conn();
+
+			sql = "SELECT * from replies where ARTICLE_SEQ = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, article_seq);
+
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				int REPLY_SEQ = rs.getInt(1);
+				int ARTICLE_SEQ = rs.getInt(2);
+				String REPLY_COMMENT = rs.getString(3);
+				String MEMBER_ID = rs.getString(4);
+				Date REG_DATE = rs.getDate(5);
+				String VIDEO_SEQ = rs.getString(6);
+				String NICKNAME = rs.getString(7);
+
+				replyVO  rvo = new replyVO(REPLY_SEQ, ARTICLE_SEQ, REPLY_COMMENT, MEMBER_ID, REG_DATE, VIDEO_SEQ,NICKNAME );
+				al.add(rvo);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			// 실행 후 오류가 발생했을 때 에러출력
+		} finally {
+			close();
+		}
+		return al;
+	}
+	
 	
 	
 }

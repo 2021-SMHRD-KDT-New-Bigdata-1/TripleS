@@ -61,6 +61,7 @@
 	WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
 	%>
 	<section class="movie_serch1">
+	
 		<div id="contents">
 			<div class="wrap-movie-detail" id="select_main">
 				<div class="tit-heading-wrap">

@@ -62,13 +62,14 @@
 			<% 	int a = 0;
 				int b = 4;
 				for (int i = 0; i< al.size()/4+1; i++) {
+					
 				out.print("<tr>");
 				if (al.size()/4==0){
 					for (int e = a; e < al.size(); e++) {
-						out.print("<td><a href='movieCon.do?filename="+al.get(e).getVideo_filename()+"'><img src='img/mini1/"+al.get(e).getVideo_filename()+".jpg'><br>"+al.get(e).getVideo_title()+"</a></td>");}
+						out.print("<td><a href='movieCon.do?filename="+al.get(e).getVideo_filename()+"'><img src='img/mini1/"+al.get(e).getVideo_filename()+".jpg'><br><br>"+al.get(e).getVideo_title()+"</a></td>");}
 				}else{
 				for (int e = a; e < b; e++) {
-					out.print("<td><a href='movieCon.do?filename="+al.get(e).getVideo_filename()+"'><img src='img/mini1/"+al.get(e).getVideo_filename()+".jpg'><br>"+al.get(e).getVideo_title()+"</a></td>");
+					out.print("<td><a href='movieCon.do?filename="+al.get(e).getVideo_filename()+"'><img src='img/mini1/"+al.get(e).getVideo_filename()+".jpg'><br><br>"+al.get(e).getVideo_title()+"</a></td>");
 					System.out.print(e);
 				}
 				out.print("<tr>");

@@ -55,7 +55,7 @@ System.out.print(al.size());
 					<li><a href="movieH.jsp"><img src="img/icon/watha.png" id="Hicon"></a></li>
 					<li><a href="movieW.jsp"><img src="img/icon/wavve.png" id="Wicon"></a></li>
 					<li><a href="#"><img src="img/icon/tiving.png" id="Ticon"></a></li>
-					<li><input type="text" placeholder="검색어를 입력해주세요." id="seachwindow" name = "title"></li>
+					<li class = "searchbar"><input type="text" placeholder="                    검색어를 입력해주세요." id="seachwindow" name = "title"></li>
 					<input type="image" id="seachicon" src="img/icon/pngegg.png">
 				</form>
 			</ul>

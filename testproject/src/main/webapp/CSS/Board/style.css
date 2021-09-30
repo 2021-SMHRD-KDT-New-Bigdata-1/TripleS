@@ -23,9 +23,10 @@ a {
 }
 
 .board_wrap {
-  width: 1200px;
+  width: 1100px;
   margin: 0px auto;
   margin-bottom: 50px;
+	margin-top: 10px;
 }
 
 .board_editTitle {
@@ -569,7 +570,7 @@ input[type="text"] {
   line-height: 22px;
   padding: 2px 4px;
   margin-top: 39px;
-  margin-right: -802px;
+  margin-right: -660px;
   color: #353535;
   font-size: 16px;
 }
@@ -602,25 +603,4 @@ margin-bottom: 9px;
 	color:green;
 	background-color:#c4efff9e;
 }
-
-       #kakaoHead{padding-bottom:30px; overflow:visible;position:relative;height:57px;border-bottom:1px solid #ebebeb;background-color:transparent;text-align:center}
-       #kakaoHead .wrap_head{position:relative;width:1200px;margin:0 auto; height:50px}
-       #kakaoHead h1{position:absolute;top:17px;left:0;z-index:10;font-family:NotoSans-Regular,AppleSDGothicNeo-Regular,'맑은 고딕',Malgun Gothic,'돋움',dotum,sans-serif}
-       #kakaoHead .link_logo{float:left;height:22px;margin-top:2px;font-size:15px;color:#252525}
-      #kakaoHead .logo_kakao{float:left;margin-right:6px}
-      #kakaoHead .service_kakao{float:left;font-weight:normal;font-size:15px}
-      #kakaoGnb{width:600px;height:58px;margin:0 auto}.manage_comm #kakaoGnb .list_gnb{display:inline-block;overflow:hidden;height:58px}
-       #kakaoGnb .list_gnb li{float:left;margin-left:35px; font-size: 20px;}
-       #kakaoGnb .list_gnb li:first-child{margin-left:0}
-      label,button,a,input{-webkit-tap-highlight-color:rgba(255,255,255,0)}
-      
-      .txt_set_2{float:right;color:#000000}.link_set .txt_set,.box_set .txt_set{float:right;color:#5066aa}
-       #kakaoHead .logo_kakao{float:left;margin-right:6px}.manage_comm #kakaoHead .service_kakao{float:left;font-weight:normal;font-size:15px}
-       #kakaoHead #kakaoGnb{width:600px;height:58px;margin:0 auto}
-      #kakaoHead #kakaoGnb .list_gnb{display:inline-block;overflow:hidden;height:58px}.manage_comm #kakaoHead #kakaoGnb li{float:left;margin-left:35px}
-       #kakaoHead #kakaoGnb li:first-child{margin-left:0}.manage_comm .link_gnb{font-size: 20; display:block;height:39px;padding:19px 5px 0;letter-spacing:0}
-
-
-
-
 

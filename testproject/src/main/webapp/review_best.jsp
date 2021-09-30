@@ -10,7 +10,7 @@
 <script src="https://kit.fontawesome.com/19aa9ed23d.js" crossorigin="anonymous"></script>
 <head>
 <meta charset="EUC-KR">
-<title>리뷰게시판</title>
+<title>리뷰베스트</title>
  <link rel="stylesheet" href="CSS/Board/css.css">
  <link rel="stylesheet" href="CSS/Board/tab.css">
 
@@ -34,10 +34,11 @@
    <a href="review_board2.jsp">리뷰게시판</a></li>
   <!-- <p> 게시판 용도에 맞지 않는 글은 운영자에 의해 삭제될 수 있습니다.</p> -->	
             <li><a href="review_best.jsp">베스트글</a></li>
-			
+
   </ul>
             
             </div>
+
   
 
         <div class="board_wrap">

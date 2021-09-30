@@ -148,6 +148,7 @@ public class WriteDAO {
 		return list;
 
 	}
+	
 
 	//detail_view에서 사용
 	public WriteVO subjectList(int seq) {
@@ -191,7 +192,8 @@ public class WriteDAO {
 		return vo;
 
 	}
-
+	
+	
 	public ArrayList<WriteVO> selectPage(int start, int pageCnt) {
 
 		ArrayList<WriteVO> list = new ArrayList<WriteVO>();
@@ -236,6 +238,29 @@ public class WriteDAO {
 
 	}
 
+	public int bestCnt() {
+		int result = 0;
+		conn();
+
+		String sql = "select * rec_cnt from articles where rec_cnt >5 ";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				result = rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	
 	public int selectCnt() {
 		int result = 0;
 		conn();
@@ -300,7 +325,7 @@ public class WriteDAO {
 		try {
 			conn();
 			cnt+=1;
-			String sql = "update articles set cnt =? where article_seq=?" ; // 다시한번해보세요!
+			String sql = "update articles set cnt =? where article_seq=?" ; 
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setInt(1, cnt);

@@ -85,9 +85,11 @@ div{
 .OTT_title{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     font-weight: bold;
     font-size: 14px;
+    margin-right: 11px;
+    margin-bottom: 15px;
 }
 
 
@@ -149,9 +151,9 @@ div{
     padding-right: 16px;
     padding-left: 16px;
     overflow: hidden;
-    background-color: #dddddd;
+    background-color: #d3d3d35c;
     border-radius: 8px;
-    border: 1px solid lightgray;
+    border: 1px solid #d3d3d35c;
     
 }
 
@@ -162,7 +164,7 @@ div{
     height: 120px;
     -webkit-box-pack: justify;
     justify-content: space-between;
-    cursor: pointer;
+    
 }
 
 .price_contenet_01{
@@ -178,6 +180,7 @@ div{
 }
 
 .price_contenet_02{
+	margin-right: 25px;
     height: 80px;
     margin-top: 15px;
 }
@@ -217,7 +220,7 @@ div{
 }
 
 
-.matching{
+.matching_submit{
     display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -251,7 +254,7 @@ div{
     border-radius: 12px;
     padding: 32px 24px 20px;
     margin-bottom: 24px;
-    border: 1px solid lightgray;
+    border: 1px solid #E8F0F6;
 }
 
 .guide_cnt{
@@ -272,4 +275,9 @@ div{
     color: red;
     font-size: 27px;
     vertical-align: baseline;
+}
+
+.OTT_font{
+	font-size: 15px;
+    margin-top: 15px;
 }

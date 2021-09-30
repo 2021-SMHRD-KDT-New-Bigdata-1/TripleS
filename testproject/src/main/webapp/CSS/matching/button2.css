@@ -57,17 +57,19 @@
 .OTT-type{
 	display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .maching-plan{
-	display: flex;
+	margin-left: 280px;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 65vh;
+    margin-top: 40px;
 }
 
-.form .OTT-type input, .form .maching-plan input{
+.form .OTT-type input, .maching-plan input{
 	display: none;
 }
 
@@ -89,15 +91,23 @@
 }
 
 #p_member{
-	color: black;
+	line-height: 70px;
+    height: 70px;
+    color: black;
     border: 1px solid #4aa9f0;
     width: 250px;
+    text-align: center;
+    border-radius: 12px;
 }
 
 #p_host{
-	color: black;
+	line-height: 70px;
+    height: 70px;
+    color: black;
     border: 1px solid #4aa9f0;
     width: 250px;
+    text-align: center;
+    border-radius: 12px;
 }
 
 .form .OTT-type input:checked + label{
@@ -105,12 +115,12 @@
     background-color: #E8F0F6;
 }
 
-.form .maching-plan input:checked + label{
+.maching-plan input:checked + label{
 	border: 1px solid #E0F8F7;
     background-color: #E8F0F6;
 }
 
-.form .OTT-type input:checked + label:after, .form .maching-plan input:checked + label:after{
+.form .OTT-type input:checked + label:after, .maching-plan input:checked + label:after{
 	/* content: "\2713"; */
 	width: 40px;
 	height: 40px;

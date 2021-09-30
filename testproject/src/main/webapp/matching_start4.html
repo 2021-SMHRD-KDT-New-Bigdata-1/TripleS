@@ -3,23 +3,25 @@
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="CSS/matching/matching_st3.css">
-<link rel="stylesheet" href="CSS/matching/matching_st2.css">
-<link rel="stylesheet" href="CSS/matching/button2.css">
+
+	<link rel="stylesheet" href="CSS/matching/matching_st.css">
+    <link rel="stylesheet" href="CSS/matching/button.css">
+
 </head>
 <body>
+	
+	<div id="root">
+        <div data-include-path="header.jsp"></div>
 
-	<article class="page">
-	  <div data-include-path="header.jsp"></div>
-  <h1>빠른매칭 시작하기</h1>
-  
-  <h2>&nbsp;</h2>
-  <ul class="timeline">
-    <li class="timeline-milestone is-completed timeline-start">
-      <div class="timeline-action">
-        <h2 class="title">원하는 플랫폼 선택</h2>
 
- <form class="form cf" style="display: flex; flex-direction:column" action = "netflex_info">
+        <div class="info">
+        <div class="back">&nbsp;</div>
+            <div class="back">&nbsp;</div>
+            <div class="back">&nbsp;</div>
+            <h3><strong style="font-weight: bold;">빠른 매칭 시작하기</strong></h3>
+            <div class="back">&nbsp;</div>
+            <div class="container">
+                <form class="form cf" style="display: flex; flex-direction:column" action = "netflex_info">
                     <section class="OTT-type">
                         
                         <input type="radio" name="OTT" id="credit" value="netflex">
@@ -36,37 +38,31 @@
                         <label class="paypa2-label four col" for="paypa2"><img class="OTT_img" src="img/OTT/tiving2.png"></label>
                     </section>
 
-   <div class="OTT_title">
-                        <div class = "OTT_font">넷플릭스</div>
-                        <div class = "OTT_font" style = "margin-right: 11px;">왓챠</div>
-                        <div class = "OTT_font" style = "margin-right: 8px;">웨이브</div>
-                        <div class = "OTT_font">티빙</div>
+
+                    <div class="OTT_title">
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;넷플릭스</div>
+                        <div>왓챠</div>
+                        <div>웨이브</div>
+                        <div style="margin-right: 32px;">티빙</div>
                     </div>
-        </div>
-      </div>
-      
-    </li>
-    <li class="timeline-milestone is-current">
-      <div class="timeline-action is-expandable expanded">
-        
-        <h2 class="title">파티장 / 파티원 선택</h2>
-        <div class="maching-plan">
+
+                    <div class="back">&nbsp;</div>
+
+
+                    <section class="maching-plan">
                         <input type="radio" name="matching" id="monthly" value="member" checked>
                         <label class="monthly-label four coll" for="monthly" id="p_member">파티원</label>
                         
                         <input type="radio" name="matching" id="yearly" value="host">
                         <label class="yearly-label four coll" for="yearly" id="p_host">파티장</label>
-                    </div>  <!-- section 끝나는 자리 -->
-        
-        <div class="content">
-         
-        </div>
-      </div>
-    </li>
-    <li class="timeline-milestone is-future">
-      <div class="timeline-action is-expandable">
-        <h2 class="title">여기 쓸말 추천좀</h2>
-        <div class="price">
+                    </section>
+               
+            </div>
+
+
+            <div class="back">&nbsp;</div>
+
+            <div class="price">
                 <div class="price_box">
                     <div class="price_contenet_01">최고화질<br>&nbsp;4인파티</div>
                     
@@ -80,15 +76,10 @@
                     </div>
                 </div>
             </div>
-        <div class="content">
-          
-        </div>
-      </div>
-    </li>
-    <li class="timeline-milestone is-future timeline-end">
-      <div class="timeline-action">
-        <h2 class="title">여러개 구독하면 더 저렴해요</h2>
-        <div class="guide">
+
+            <div class="back">&nbsp;</div>
+
+            <div class="guide">
                 <ul class="guide_info">
                     <li class="guid_cnt"><div class="OTT_cnt">1개 OTT이용시 &nbsp;&nbsp;&nbsp; <strong>4,500원</strong></div></li>
                     <li class="guid_cnt"><div class="OTT_cnt">2개 OTT이용시 &nbsp;&nbsp;&nbsp; <strong class = "OTT_strong">9,000원</strong><sub class="ratio2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8,500원</sub></div></li>
@@ -98,22 +89,19 @@
                     
                 </ul>
             </div>
-        <div class="content">
-          
-        </div>
-      </div>
-    </li>
-    <li class="timeline-milestone is-future timeline-end">
-    	<div class="timeline-action">
-      		<input type = "submit" class = "matching_submit" value = "빠른 매칭 시작하기">
-      	</div>
-    </li>
-  </ul>
-  </form>
-</article>
-<div data-include-path="footer.html"></div>
+            
+            <div class="back">&nbsp;</div>
 
-<script>
+        <input type="submit" class="matching" value="빠른매칭 시작하기">
+        </div>
+	 </form>
+        
+    </div>
+    <div class="back">&nbsp;</div>
+    <div class="back">&nbsp;</div>
+    <div class="back">&nbsp;</div>
+	<div data-include-path="footer.html"></div>
+    <script>
         function includeHTML() {
             var z, i, elmnt, file, xhttp;
             z = document.getElementsByTagName("*");
@@ -160,6 +148,7 @@
     });
 
 </script>
-
+	
+	
 </body>
 </html>

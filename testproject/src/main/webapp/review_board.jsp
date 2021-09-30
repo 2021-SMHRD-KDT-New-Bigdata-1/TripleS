@@ -61,6 +61,7 @@
              <%
              WriteDAO dao = new WriteDAO();
              int count = dao.selectCnt();
+             int best = dao.bestCnt();
              String tempStart = request.getParameter("page");
              int startPage = 1;
              int onePageCnt = 10;

@@ -1,7 +1,8 @@
+<%@page import="com.DAO.Write3DAO"%>
+<%@page import="com.VO.Write3VO"%>
 <%@page import="java.util.Vector"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.DAO.WriteDAO"%>
-<%@page import="com.VO.WriteVO"%>
+<%@page import="com.DAO.write2DAO"%>
 <%@page import="com.VO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -10,44 +11,30 @@
 <script src="https://kit.fontawesome.com/19aa9ed23d.js" crossorigin="anonymous"></script>
 <head>
 <meta charset="EUC-KR">
-<title>리뷰베스트</title>
+<title>이벤트게시판</title>
  <link rel="stylesheet" href="CSS/Board/css.css">
- <link rel="stylesheet" href="CSS/Board/tab.css">
-
- 
 </head>
 <body>
 
 <div data-include-path="header.jsp"></div>
-	<%
-		//vo 가져옴
-	MemberVO vo = (MemberVO)session.getAttribute("vo");
-	WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
+<%
+MemberVO vo = (MemberVO)session.getAttribute("vo");
+Write3VO vo2 = (Write3VO)session.getAttribute("vo2");
 
-	%>
-<!--  -->
+%>
 <section class="section1">
-
 <nav>
   <ul>
     <li class="active">
-   <a href="review_board.jsp">리뷰게시판</a></li>
+   <a href="event.jsp"><i class="far fa-laugh-squint"></i> 이벤트게시판 </a></li>
   <!-- <p> 게시판 용도에 맞지 않는 글은 운영자에 의해 삭제될 수 있습니다.</p> -->	
-            <li><a href="review_best.jsp">베스트글</a></li>
 
   </ul>
             
             </div>
-
-  
-
         <div class="board_wrap">
-            <div class="board_title" >
-            
-
-
-                     
-<!--  -->
+            <div class="board_title">
+           
             <div class="board_list_wrap">
               <div class="board_list">
                 <div class="top">
@@ -58,52 +45,31 @@
                   <div class="good">추천수</div>
                   <div class="count">조회수</div>
                     </div>
-           
-            	
              <%
-             WriteDAO dao = new WriteDAO();
-             int count = dao.selectCnt();
-             int best = dao.bestCnt();
-             String tempStart = request.getParameter("page");
-             int startPage = 1;
-             int onePageCnt = 10;
+             Write3DAO dao = new Write3DAO();
 
-             
-             best = (int)Math.ceil((double)count/(double)onePageCnt);
-             
-      
-             
-             if(tempStart!=null){
-            	 startPage = (Integer.parseInt(tempStart)-1)*onePageCnt+1;
-            	 onePageCnt = (Integer.parseInt(tempStart)-1)*onePageCnt+onePageCnt;
-       
-             }
-             ArrayList<WriteVO> v = dao.selectPage((startPage),onePageCnt);
+             ArrayList<Write3VO> list = dao.subjectList();
              
 
              
              
              %>
-                 
-            		<%for(WriteVO list:v){ %>
-      			<%
-
+                
+            	  		<%for(int i = 0; i<list.size(); i++){ %>
+      
       			
-    			
-      			if(list.getRec_cnt()>5){ 
-      				
-      				%>
                 <div>
-                  <div class="num" ><%=list.getArticles_seq() %></div>
-                  <div class="title"><a href="detail_view.jsp?id=<%=list.getArticles_seq() %>"><%=list.getSubject()%></a></div>
-                  <div class="writer"><%=list.getMemberId()%></div>
-                  <div class="date" ><%=list.getReg_date() %></div>
-                  <div class="good" ><%=list.getRec_cnt() %></div>
-                  <div class="count" ><%=list.getCnt()%></div>
+                  <div class="num" ><%=list.get(i).getNotice_seq()%></div>
+                  <div class="title"><a href="detail_view3.jsp?id=<%=list.get(i).getNotice_seq() %>"><%=list.get(i).getNotice_title()%></a></div>
+                  <div class="writer"><%=list.get(i).getMemberId() %></div>
+                 
+                  <div class="date" ><%=list.get(i).getInput_date() %></div>
+                  <div class="good" >0</div>
+                  <div class="count" ><%=list.get(i).getCnt() %></div>
 					
                 </div>
-                   <%} %>
-           <%} %>
+               <%} %>
+          
               </div>
               
               	
@@ -111,11 +77,10 @@
                 <a href="#" class="bt first"><<</a>
                 <a href="#" class="bt prev"><<</a>
                 
+           
+                   <a href="event.jsp?page=#" class="num on" >1</a>
             
-		           <%for(int j=1; j<=best; j++){%>
-                   <a href="review_board.jsp?page=<%=j%>" class="num on" ><%=j %></a>
-                  
-             <%}%>
+		   
      
                 <a href="#" class="bt">></a>
                 <a href="#" class="bt">>></a>
@@ -141,7 +106,7 @@
 					//out.print("<a href='review_board.jsp' class='on'>목록</a>");
 				
 				}else{
-					out.print("<a href='write_board.html' class='on'>글작성</a>");
+					out.print("<a href='write_board3.html' class='on'>글작성</a>");
 				}
 
 				%>
@@ -151,11 +116,7 @@
             </div> 
             
         </div>
-        
-
-</nav>
-     
-
+    
     </section>
 
     <script>
@@ -178,7 +139,7 @@
         });
     
     </script>
-<script>
+    <script>
 var nav = $("nav");
 var line = $("<div />").addClass("line");
 
@@ -256,7 +217,8 @@ nav.find("ul li a").click(function (e) {
   }
 });
 </script>
-
+    
+    
 	  <div data-include-path="footer.html"></div>
 </body>
 </html>

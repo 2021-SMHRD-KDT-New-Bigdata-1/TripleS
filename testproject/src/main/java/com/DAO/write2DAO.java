@@ -70,8 +70,8 @@ public class write2DAO {
 		}
 		return cnt;
 	}
-	public WriteVO view(String subject) {
-		WriteVO vo2 = null;
+	public Write2VO view(String subject) {
+		Write2VO vo2 = null;
 		try {
 			conn();
 
@@ -94,7 +94,7 @@ public class write2DAO {
 				int cnt = rs.getInt(9);
 				int rec_cnt = rs.getInt(10);
 
-				vo2 = new WriteVO(article2_seq, subject, content, img_1, img_2, img_3, memberId, reg_date, cnt, rec_cnt);
+				vo2 = new Write2VO(article2_seq, subject, content, img_1, img_2, img_3, memberId, reg_date, cnt, rec_cnt);
 
 			}
 

@@ -25,7 +25,7 @@
 					<li class="gnb-menu"><a href="#"><h2>게시판</h2></a>
 						<ul class="sub-gnb">
 							<li><a href="review_board.jsp">리뷰게시판</a></li>
-							<li><a href="community_board.html">자유게시판</a></li>
+							<li><a href="community.jsp">자유게시판</a></li>
 							<li><a href="event_board.html">이벤트게시판</a></li>
 						</ul></li>
 					<li class="gnb-menu"><a href="/child/sub/inquiry/"><h2>문의사항</h2></a>

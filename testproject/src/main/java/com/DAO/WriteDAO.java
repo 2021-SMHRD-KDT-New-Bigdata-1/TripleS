@@ -72,6 +72,7 @@ public class WriteDAO {
 		return cnt;
 	}
 
+
 	public WriteVO view(String subject) {
 		WriteVO vo2 = null;
 		try {
@@ -107,7 +108,7 @@ public class WriteDAO {
 		}
 		return vo2;
 	}
-
+	
 	public ArrayList<WriteVO> subjectList() {
 
 		ArrayList<WriteVO> list = new ArrayList<WriteVO>();
@@ -147,6 +148,7 @@ public class WriteDAO {
 		return list;
 
 	}
+
 	//detail_view에서 사용
 	public WriteVO subjectList(int seq) {
 
@@ -310,6 +312,27 @@ public class WriteDAO {
 		} finally {
 			close();
 		}return cnt;
+	
+	}
+	
+	public int like( int like,int article) {
+		try {
+			conn();
+			like+=1;
+	
+			
+			String sql = "update articles set REC_CNT=? where article_seq=?" ; // 다시한번해보세요!
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setInt(1, like);
+			psmt.setInt(2, article);
+
+			psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}return like;
 	
 	}
 		

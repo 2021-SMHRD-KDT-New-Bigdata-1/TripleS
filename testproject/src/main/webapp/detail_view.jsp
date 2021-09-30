@@ -11,6 +11,7 @@
 <meta charset="EUC-KR">
 <title>CONTENT</title>
  <link rel="stylesheet" href="CSS/Board/css.css">
+<script src="js/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -33,7 +34,7 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
               	WriteDAO dao = new WriteDAO();
 				WriteVO writevo = dao.subjectList(id);
 				int count = dao.cnt_subject(writevo.getArticles_seq(), writevo.getCnt());
-				System.out.println(writevo.getArticles_seq()+","+ writevo.getCnt());
+				
 				%>
 			
                <div class="titleview">
@@ -43,7 +44,7 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
                <div class="info">
                 <dl>
                   <dt>번호</dt>
-                  <dd><%=writevo.getArticles_seq() %></dd>
+                  <dd id="seq"><%=writevo.getArticles_seq() %></dd>
                 </dl>
                 <dl>
                   <dt>작성자</dt>
@@ -57,18 +58,21 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
                   <dt>조회</dt>
                   <dd><%=count %></dd>
                 </dl>
-               
+               <dl>
+                  <dt>추천수</dt>
+                  <dd id="like"><%=writevo.getRec_cnt() %></dd>
+                </dl>
                </div>
                <div class="cont">
                <%=writevo.getContent() %>
-				
-				
+
                </div>
               <div class="feeling_div">
 			<div class="like">
-			    <button class="feeling_a">
+			    <button class="feeling_a" type="button" onclick="like()">
 			      <i class="fa fa-heart-o"> Like</i>    
-			    </a>
+			 	</button>
+			 	<!-- <button type="button" onclick="pwFind()" >추천</button> -->
 			  </div>
 			  
 		</div>
@@ -182,16 +186,41 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
     </script>
     
  <div data-include-path="footer.html"></div>
- <script>
- $('.like> .feeling_a, .dislike-container  > .feeling_a').on('click', function() {
-	    event.preventDefault();
-	    $('.active').removeClass('active');
-	    $(this).addClass('active');
-	});
-.active {
-background-color: #2199e8;
-color: #fff;
-}
- </script>
+
 </body>
+ <script>
+ function like(){
+		
+		var article = <%=writevo.getArticles_seq() %>
+		var like = <%=writevo.getRec_cnt() %>
+	<%-- 	alert(like)
+		alert(article)
+		
+		alert(<%=writevo.getArticles_seq() %>); --%>
+		
+		/* 이메일 */
+		$.ajax({
+			// type : 데이터 전송 방식
+			// data : 서버에 보낼 데이터{키:값}
+			// url : 데이터를 보낼 서버페이지
+			// dataType : 응답받을 데이터 타입
+			type : "post", 
+			data : {like:like,article:article},
+			url : "likeService",
+			dataType : "text",
+			success : function(data){
+				var sp = document.getElementById("like");
+				
+				if (data!=null) {
+					sp.innerHTML = data
+				}else{
+					sp.innerHTML = "오류"
+				}
+			},
+			error : function(){
+				alert("통신실패");
+			}
+		})
+	}
+ </script>
 </html>

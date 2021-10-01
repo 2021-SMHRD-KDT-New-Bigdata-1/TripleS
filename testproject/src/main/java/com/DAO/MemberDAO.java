@@ -236,7 +236,7 @@ public class MemberDAO {
 	
 	public int mileage(int mileage, String memberId, String mileage_date) {
 
-		mileage += 1;
+		mileage += 5;
 		try {
 			conn();
 			String sql = "update members set mileage=?,mileage_date=sysdate where member_id=?";

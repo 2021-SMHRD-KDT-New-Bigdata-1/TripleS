@@ -1,5 +1,4 @@
 <%@page import="com.VO.Write2VO"%>
-<%@page import="com.VO.WriteVO"%>
 <%@page import="com.VO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -34,7 +33,7 @@
                <div class="titleview">
                
                <%
-               out.print("力格  "+vo2.getSubject());
+               out.print("力格  "+ vo2.getSubject());
                
 
                %>
@@ -47,7 +46,7 @@
                 </dl>
                 <dl>
                   <dt>累己磊</dt>
-                  <dd><%out.print(vo2.getMemberId()); %></dd>
+                  <dd><%out.print(vo2.getNickname()); %></dd>
                 </dl>
                 <dl>
                   <dt>累己老</dt>

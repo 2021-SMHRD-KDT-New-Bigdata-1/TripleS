@@ -47,12 +47,12 @@ public class WriteDAO {
 	}
 
 	public int write(String subject, String content, String img_pic1, String img_pic2, String img_pic3,
-			String memberId) {
+			String memberId, String nickname) {
 
 		int cnt = 0;
 		try {
 			conn();
-			String sql = "insert into articles (subject, content, img_pic1, img_pic2, img_pic3, member_id, reg_date, cnt, rec_cnt) values(?,?,?,?,?,?,sysdate,0,0)";
+			String sql = "insert into articles (subject, content, img_pic1, img_pic2, img_pic3, member_id, reg_date, cnt, rec_cnt, nickname) values(?,?,?,?,?,?,sysdate,0,0,?)";
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, subject);
@@ -61,6 +61,8 @@ public class WriteDAO {
 			psmt.setString(4, img_pic2);
 			psmt.setString(5, img_pic3);
 			psmt.setString(6, memberId);
+			psmt.setString(7, nickname);
+			
 
 			cnt = psmt.executeUpdate();
 
@@ -96,8 +98,9 @@ public class WriteDAO {
 				Date reg_date = rs.getDate(8);
 				int cnt = rs.getInt(9);
 				int rec_cnt = rs.getInt(10);
+				String nickname = rs.getString(11);
 
-				vo2 = new WriteVO(article_seq, subject, content, img_1, img_2, img_3, memberId, reg_date, cnt, rec_cnt);
+				vo2 = new WriteVO(article_seq, subject, content, img_1, img_2, img_3, memberId, reg_date, cnt, rec_cnt, nickname);
 
 			}
 
@@ -133,9 +136,10 @@ public class WriteDAO {
 				Date reg_date = rs.getDate(8);
 				int cnt = rs.getInt(9);
 				int rec_cnt = rs.getInt(10);
+				String nickname = rs.getString(11);
 
 				list.add(new WriteVO(article_seq, subject, content, img_1, img_2, img_3, memberId, reg_date, cnt,
-						rec_cnt));
+						rec_cnt, nickname));
 
 			}
 
@@ -177,9 +181,10 @@ public class WriteDAO {
 				Date reg_date = rs.getDate(8);
 				int cnt = rs.getInt(9);
 				int rec_cnt = rs.getInt(10);
+				String nickname = rs.getString(11);
 
 				vo = new WriteVO(article_seq, subject, content, img_1, img_2, img_3, memberId, reg_date, cnt,
-						rec_cnt);
+						rec_cnt, nickname);
 
 			}
 
@@ -222,9 +227,10 @@ public class WriteDAO {
 				Date reg_date = rs.getDate(8);
 				int cnt = rs.getInt(9);
 				int rec_cnt = rs.getInt(10);
+				String nickname = rs.getString(11);
 
 				list.add(new WriteVO(article_seq, subject, content, img_1, img_2, img_3, memberId, reg_date, cnt,
-						rec_cnt));
+						rec_cnt, nickname));
 
 			}
 
@@ -308,8 +314,9 @@ public class WriteDAO {
 				Date reg_date = rs.getDate(8);
 				int cnt = rs.getInt(9);
 				int rec_cnt = rs.getInt(10);
+				String nickname = rs.getString(11);
 
-				vo3 = new WriteVO(article_seq, subject, content, img_1, img_2, img_3, memberId, reg_date, cnt, rec_cnt);
+				vo3 = new WriteVO(article_seq, subject, content, img_1, img_2, img_3, memberId, reg_date, cnt, rec_cnt, nickname);
 
 			}
 

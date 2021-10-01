@@ -27,17 +27,18 @@ public class writeboard extends HttpServlet {
 		String img_pic1= request.getParameter("img_pic1");
 		String img_pic2= request.getParameter("img_pic2");
 		String img_pic3= request.getParameter("img_pic3");
+		
 
 
 		
 		HttpSession session = request.getSession();
 		MemberVO vo = (MemberVO)session.getAttribute("vo");
 		String memberId = vo.getMemberId();
-		
+		String nickname = vo.getNickname();
 
 		WriteDAO dao = new WriteDAO();
 		
-		int cnt = dao.write(subject, content, img_pic1, img_pic2, img_pic3,memberId);
+		int cnt = dao.write(subject, content, img_pic1, img_pic2, img_pic3,memberId, nickname);
 		
 		if (cnt>0) {
 			

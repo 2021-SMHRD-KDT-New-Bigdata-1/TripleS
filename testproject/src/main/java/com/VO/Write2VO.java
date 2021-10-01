@@ -14,9 +14,10 @@ public class Write2VO {
 	private Date reg_date;
 	private int cnt;
 	private int rec_cnt;
+	private String nickname;
 	
 	public Write2VO(int articles_seq, String subject, String content, String img_pic1, String img_pic2, String img_pic3,
-			String memberId, Date reg_date, int cnt, int rec_cnt) {
+			String memberId, Date reg_date, int cnt, int rec_cnt, String nickname) {
 		super();
 		this.article2_seq = articles_seq;
 		this.subject = subject;
@@ -28,8 +29,29 @@ public class Write2VO {
 		this.reg_date = reg_date;
 		this.cnt = cnt;
 		this.rec_cnt = rec_cnt;
+		this.nickname = nickname;
 	}
 	
+	
+	
+	
+	
+	public String getNickname() {
+		return nickname;
+	}
+
+
+
+
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+
+
+
+
 	public int getArticles_seq() {
 		return article2_seq;
 	}

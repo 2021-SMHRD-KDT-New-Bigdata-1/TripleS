@@ -23,6 +23,7 @@ public class write_board2 extends HttpServlet {
 		request.setCharacterEncoding("euc-kr");
 		
 		String subject = request.getParameter("subject");
+		System.out.println("sub"+subject);
 		String content= request.getParameter("content");
 		String img_pic1= request.getParameter("img_pic1");
 		String img_pic2= request.getParameter("img_pic2");
@@ -31,10 +32,14 @@ public class write_board2 extends HttpServlet {
 		HttpSession session = request.getSession();
 		MemberVO vo = (MemberVO)session.getAttribute("vo");
 		String memberId = vo.getMemberId();
+		String nickname = vo.getNickname();
+		System.out.println("nick :"+nickname);
+		System.out.println("어디까지되니");
 		
 	
 		write2DAO dao = new write2DAO();
-		int cnt = dao.write(subject, content, img_pic1, img_pic2, img_pic3,memberId);
+		System.out.println("어디까지되니1");
+			int cnt = dao.write(subject, content, img_pic1, img_pic2, img_pic3,memberId, nickname);
 		
 		if (cnt>0) {
 			

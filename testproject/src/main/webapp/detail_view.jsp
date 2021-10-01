@@ -47,7 +47,7 @@ ArrayList<replyVO> al = rdao.dselect(writevo.getArticles_seq());
                 </dl>
                 <dl>
                   <dt>작성자</dt>
-                  <dd><%=writevo.getMemberId()%></dd>
+                  <dd><%=writevo.getNickname()%></dd>
                 </dl>
                 <dl>
                   <dt>작성일</dt>

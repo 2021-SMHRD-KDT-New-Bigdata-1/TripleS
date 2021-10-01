@@ -45,7 +45,7 @@
                 </dl>
                 <dl>
                   <dt>작성자</dt>
-                  <dd><%out.print(vo2.getMemberId()); %></dd>
+                  <dd><%out.print(vo2.getNickname()); %></dd>
                 </dl>
                 <dl>
                   <dt>작성일</dt>

@@ -21,8 +21,12 @@ public class reviewDetailCon extends HttpServlet {
 		WriteDAO dao = new WriteDAO();
 		WriteVO writevo = dao.subjectList(seq);
 		
+		
 		if (writevo != null) {
 			session.setAttribute("writevo", writevo);
+			WriteVO cntvo = (WriteVO)session.getAttribute("writevo");
+			int cnt = dao.cnt_subject(seq,cntvo.getCnt());
+			session.setAttribute("cnt", cnt);
 			response.sendRedirect("detail_view.jsp");
 			System.out.println("리뷰게시글 불러오기 성공");
 		}

@@ -23,6 +23,7 @@ MemberVO vo = (MemberVO) session.getAttribute("vo");
 Write2VO writevo = (Write2VO)session.getAttribute("write2vo");
 replyDAO rdao = new replyDAO();
 ArrayList<replyVO> al = rdao.dselect(writevo.getArticles_seq(),"commu");
+int cnt = (int)session.getAttribute("cnt");
 %>
 
 
@@ -31,7 +32,7 @@ ArrayList<replyVO> al = rdao.dselect(writevo.getArticles_seq(),"commu");
  	<form action="articlecommentcon1">
         <div class="board_wrap">
             <div class="board_title">
-              <strong>리뷰 게시판</strong>
+              <strong><a href="community.jsp">자유게시판</a></strong>
             </div>
             <div class="board_view_wrap">
               <div class="board_view">
@@ -55,7 +56,7 @@ ArrayList<replyVO> al = rdao.dselect(writevo.getArticles_seq(),"commu");
                 </dl>
                 <dl>
                   <dt>조회</dt>
-                  <dd><%=writevo.getCnt() %></dd>
+                  <dd><%=cnt %></dd>
                 </dl>
                <dl>
                   <dt>추천수</dt>

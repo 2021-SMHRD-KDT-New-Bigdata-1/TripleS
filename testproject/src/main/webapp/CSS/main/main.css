@@ -194,7 +194,7 @@
 
 /* ------- Section ------- */
 /* Section1 */
-.section1 { padding:130px ; }
+.section1 { padding:130px ;     margin-top: 75px;}
 .media-section { margin-top: -80px; max-width: 1700px ; text-align: center; background-color:white;}
 .media-top { width: 1500px; height: 500px; margin-left: 0px; display: inline-block; vertical-align: top;  }
 .media-bottom { display: inline-block; vertical-align: top; }

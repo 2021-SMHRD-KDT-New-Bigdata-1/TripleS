@@ -153,7 +153,7 @@ figure {
 }
 
 figcaption {
-  height: 60px;
+  height: 80px;
   width: 100%;
   padding: 0;
   position: absolute;
@@ -163,19 +163,20 @@ figcaption {
 }
 
 figcaption p {
-  line-height: 25px !important;
-  font: bold 12px/18px "Arial", sans-serif;
-  text-transform: uppercase;
-  padding: 0 10px;
-  margin: 5px 0;
-  width: 100%;
-  background-color: #f0f0f0;
-  color: #333
+  line-height: 35px !important;
+    font: bold 18px/20px "Arial", sans-serif;
+    text-transform: uppercase;
+    padding: 0 10px;
+    margin: 5px 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    color: #333;
 }
 
 figcaption span {
   left: -100%;
-  opacity: 0
+  opacity: 0;
+  font-size:18px;
 }
 
 figcaption a {

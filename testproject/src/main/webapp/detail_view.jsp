@@ -20,9 +20,9 @@
 <body>
 <%
 MemberVO vo = (MemberVO) session.getAttribute("vo");
-replyDAO rdao = new replyDAO();
 WriteVO writevo = (WriteVO)session.getAttribute("writevo");
-ArrayList<replyVO> al = rdao.dselect(writevo.getArticles_seq());
+replyDAO rdao = new replyDAO();
+ArrayList<replyVO> al = rdao.dselect(writevo.getArticles_seq(),"review");
 %>
 
 

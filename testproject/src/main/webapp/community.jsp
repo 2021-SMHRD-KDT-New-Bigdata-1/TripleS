@@ -105,7 +105,7 @@ Write2VO vo2 = (Write2VO)session.getAttribute("vo2");
       			
                 <div>
                   <div class="num" ><%=list.getArticles_seq() %></div>
-                  <div class="title"><a href="detail_view2.jsp?id=<%=list.getArticles_seq() %>"><%=list.getSubject()%></a></div>
+                  <div class="title"><a href="commuDetailCon.do?seq1=<%=list.getArticles_seq() %>"><%=list.getSubject()%></a></div>
                   <div class="writer"><%=list.getMemberId()%></div>
                  
                   <div class="date" ><%=list.getReg_date() %></div>

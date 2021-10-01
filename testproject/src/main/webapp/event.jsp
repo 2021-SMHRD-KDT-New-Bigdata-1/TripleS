@@ -1,9 +1,10 @@
+
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.Write3DAO"%>
 <%@page import="com.VO.Write3VO"%>
-<%@page import="java.util.Vector"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.DAO.write2DAO"%>
 <%@page import="com.VO.MemberVO"%>
+
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -26,7 +27,7 @@ Write3VO vo2 = (Write3VO)session.getAttribute("vo2");
 <nav>
   <ul>
     <li class="active">
-   <a href="event.jsp"><i class="far fa-laugh-squint"></i> 이벤트게시판 </a></li>
+   <a href="event.jsp" style="font-size:20px;"><i class="far fa-laugh-squint" ></i> 이벤트게시판 </a></li>
   <!-- <p> 게시판 용도에 맞지 않는 글은 운영자에 의해 삭제될 수 있습니다.</p> -->	
 
   </ul>
@@ -50,13 +51,11 @@ Write3VO vo2 = (Write3VO)session.getAttribute("vo2");
 
              ArrayList<Write3VO> list = dao.subjectList();
              
-
-             
              
              %>
                 
             	  		<%for(int i = 0; i<list.size(); i++){ %>
-      
+      		<% %>
       			
                 <div>
                   <div class="num" ><%=list.get(i).getNotice_seq()%></div>

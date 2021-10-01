@@ -21,6 +21,8 @@
 <%
 MemberVO vo = (MemberVO) session.getAttribute("vo");
 replyDAO rdao = new replyDAO();
+WriteVO writevo = (WriteVO)session.getAttribute("writevo");
+ArrayList<replyVO> al = rdao.dselect(writevo.getArticles_seq());
 %>
 
 
@@ -33,16 +35,7 @@ replyDAO rdao = new replyDAO();
             </div>
             <div class="board_view_wrap">
               <div class="board_view">
-              <%
-            	int id = Integer.parseInt(request.getParameter("id"));
-              	WriteDAO dao = new WriteDAO();
-				WriteVO writevo = dao.subjectList(id);
-				ArrayList<replyVO> al = rdao.dselect(writevo.getArticles_seq());
-				System.out.print(al.size());
-				int count = dao.cnt_subject(writevo.getArticles_seq(), writevo.getCnt());
-				session.setAttribute("seq", writevo.getArticles_seq());
-				%>
-			
+		
                <div class="titleview">
                제목  <%=writevo.getSubject() %>
          		
@@ -62,7 +55,7 @@ replyDAO rdao = new replyDAO();
                 </dl>
                 <dl>
                   <dt>조회</dt>
-                  <dd><%=count %></dd>
+                  <dd><%=writevo.getCnt() %></dd>
                 </dl>
                <dl>
                   <dt>추천수</dt>

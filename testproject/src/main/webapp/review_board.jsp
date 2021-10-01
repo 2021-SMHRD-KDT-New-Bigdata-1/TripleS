@@ -30,9 +30,13 @@
 <nav>
   <ul>
     <li class="active">
+<<<<<<< HEAD
    <a href="review_board2.jsp" class = "bbbb">리뷰게시판</a></li>
+=======
+   <a href="review_board2.jsp" style="font-size:20px;">리뷰게시판</a></li>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/project1.git
   <!-- <p> 게시판 용도에 맞지 않는 글은 운영자에 의해 삭제될 수 있습니다.</p> -->	
-            <li><a href="review_best.jsp">베스트글</a></li>
+            <li><a href="review_best.jsp" style="font-size:20px;">베스트글</a></li>
 			
   </ul>
             
@@ -87,7 +91,7 @@
       			
                 <div>
                   <div class="num" ><%=list.getArticles_seq() %></div>
-                  <div class="title"><a href="detail_view.jsp?id=<%=list.getArticles_seq() %>"><%=list.getSubject()%></a></div>
+                  <div class="title"><a href="reviewDetailCon.do?seq=<%=list.getArticles_seq() %>"><%=list.getSubject()%></a></div>
                   <div class="writer"><%=list.getMemberId()%></div>
                   <div class="date" ><%=list.getReg_date() %></div>
                   <div class="good" ><%=list.getRec_cnt() %></div>

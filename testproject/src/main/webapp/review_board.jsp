@@ -30,9 +30,9 @@
 <nav>
   <ul>
     <li class="active">
-   <a href="review_board2.jsp">리뷰게시판</a></li>
+   <a href="review_board2.jsp" style="font-size:20px;">리뷰게시판</a></li>
   <!-- <p> 게시판 용도에 맞지 않는 글은 운영자에 의해 삭제될 수 있습니다.</p> -->	
-            <li><a href="review_best.jsp">베스트글</a></li>
+            <li><a href="review_best.jsp" style="font-size:20px;">베스트글</a></li>
 			
   </ul>
             

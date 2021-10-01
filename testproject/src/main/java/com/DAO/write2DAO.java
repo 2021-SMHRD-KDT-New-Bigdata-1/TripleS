@@ -75,7 +75,7 @@ public class write2DAO {
 		try {
 			conn();
 
-			String sql = "select * from articles_2 where subject=? order by articles2_seq desc"; // 다시한번해보세요!
+			String sql = "select * from articles_2 where subject=? "; // 다시한번해보세요!
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, subject);

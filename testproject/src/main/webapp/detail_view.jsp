@@ -20,9 +20,9 @@
 <body>
 <%
 MemberVO vo = (MemberVO) session.getAttribute("vo");
-replyDAO rdao = new replyDAO();
 WriteVO writevo = (WriteVO)session.getAttribute("writevo");
-ArrayList<replyVO> al = rdao.dselect(writevo.getArticles_seq());
+replyDAO rdao = new replyDAO();
+ArrayList<replyVO> al = rdao.dselect(writevo.getArticles_seq(),"review");
 %>
 
 
@@ -120,7 +120,7 @@ ArrayList<replyVO> al = rdao.dselect(writevo.getArticles_seq());
                 <div class="CommentWriter">
                     <div class="comment_inbox"> 
                         <strong class="blind">댓글을 입력하세요</strong>
-                        <em class="comment_inbox_name"></em>
+                        <em class="comment_inbox_name"><%=vo.getNickname() %></em>
                         <textarea name="reply" placeholder="댓글을 남겨보세요" class="comment_inbox_text" rows="1" style="overflow: hidden; overflow-wrap: break-word; height: 17px;"></textarea>
                     </div>
                     <div class="comment_attach">
@@ -132,7 +132,7 @@ ArrayList<replyVO> al = rdao.dselect(writevo.getArticles_seq());
     font-size: 13px;
     color: black;
     vertical-align: top;
-    margin-top: -24px;
+    margin-top: -19px;
     margin-left: auto";>
                         </div>
                     </div>

@@ -105,15 +105,16 @@ public class replyDAO {
 		return al;
 	}
 	
-	public ArrayList<replyVO> dselect(int article_seq) {
+	public ArrayList<replyVO> dselect(int article_seq, String board_name) {
 		ArrayList<replyVO> al = new ArrayList<replyVO>();
 
 		try {
 			conn();
 
-			sql = "SELECT * from replies where ARTICLE_SEQ = ?";
+			sql = "SELECT * from replies where ARTICLE_SEQ = ? and board_name = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, article_seq);
+			psmt.setString(2, board_name);
 
 			rs = psmt.executeQuery();
 			while (rs.next()) {
@@ -124,9 +125,9 @@ public class replyDAO {
 				Date REG_DATE = rs.getDate(5);
 				String VIDEO_SEQ = rs.getString(6);
 				String NICKNAME = rs.getString(7);
-				String board_name = rs.getString(8);
+				String BOARD_NAME = rs.getString(8);
 
-				replyVO  rvo = new replyVO(REPLY_SEQ, ARTICLE_SEQ, REPLY_COMMENT, MEMBER_ID, REG_DATE, VIDEO_SEQ,NICKNAME,board_name );
+				replyVO  rvo = new replyVO(REPLY_SEQ, ARTICLE_SEQ, REPLY_COMMENT, MEMBER_ID, REG_DATE, VIDEO_SEQ,NICKNAME,BOARD_NAME );
 				al.add(rvo);
 			}
 

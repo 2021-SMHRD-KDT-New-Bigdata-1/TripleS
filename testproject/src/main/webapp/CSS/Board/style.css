@@ -385,7 +385,7 @@ a {
   position: relative;
   font-size: 1.6rem;
   vertical-align: top;
-  margin-top: 8px;
+  margin-top: 20px;
 }
 .CommentBox .comment_list .comment_text_box {
   position: relative;
@@ -495,6 +495,14 @@ textarea {
 
 .CommentBox .comment_list .delete {
   margin-right: 8px;
+}
+
+.comment_box:not(:last-child) {
+    border-bottom: 1px dashed #ddd;
+}
+
+.CommentBox .comment_list .comment_nick_box .comment_nick_info:not(:first-child) {
+  margin-top: 20px;
 }
 tbody {
   display: table-row-group;

@@ -28,7 +28,7 @@
 							<li><a href="community.jsp">자유게시판</a></li>
 							<li><a href="event.jsp">이벤트게시판</a></li>
 						</ul></li>
-					<li class="gnb-menu"><a href="/child/sub/inquiry/"><h2>문의사항</h2></a>
+					<li class="gnb-menu"><a href="notice_board.jsp"><h2>문의사항</h2></a>
 					</li>
 				</ul>
 				

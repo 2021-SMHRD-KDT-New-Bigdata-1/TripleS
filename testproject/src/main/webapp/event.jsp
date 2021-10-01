@@ -95,12 +95,12 @@ Write3VO vo2 = (Write3VO)session.getAttribute("vo2");
                 <div class="search1">
                  <input  type="text" placeholder="Search">
                 
-                 <i class="fas fa-search" ><input type="submit" style= "opacity: 0%  color = white"></i>
+                 <i class="fas fa-search" ></i>
                </div>
              </div>
               <div class="bt_wrap">
            
-              <%if(vo==null){
+             <%-- <%if(vo==null){
 					
 					//out.print("<a href='review_board.jsp' class='on'>목록</a>");
 				
@@ -108,7 +108,7 @@ Write3VO vo2 = (Write3VO)session.getAttribute("vo2");
 					out.print("<a href='write_board3.html' class='on'>글작성</a>");
 				}
 
-				%>
+				%> --%>
               <!--  <a href="write_board.html" class="on">글 작성</a>-->
                  
             </div> 

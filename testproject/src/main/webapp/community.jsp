@@ -142,7 +142,7 @@ Write2VO vo2 = (Write2VO)session.getAttribute("vo2");
                 <div class="search1">
                  <input  type="text" placeholder="Search">
                 
-                 <i class="fas fa-search" ><input type="submit" style= "opacity: 0%  color = white"></i>
+                 <i class="fas fa-search" ></i>
                </div>
              </div>
               <div class="bt_wrap">

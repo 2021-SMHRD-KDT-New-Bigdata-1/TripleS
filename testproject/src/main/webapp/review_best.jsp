@@ -31,10 +31,10 @@
 
 <nav>
   <ul>
-    <li class="active">
+    <li >
    <a href="review_board.jsp" style="font-size:20px;">리뷰게시판</a></li>
   <!-- <p> 게시판 용도에 맞지 않는 글은 운영자에 의해 삭제될 수 있습니다.</p> -->	
-            <li><a href="review_best.jsp" style="font-size:20px;">베스트글</a></li>
+            <li class="active"><a href="review_best.jsp" style="font-size:20px;">베스트글</a></li>
 
   </ul>
             
@@ -145,7 +145,7 @@
                    <a href="review_board.jsp?page=<%=j%>" class="num on" ><%=j %></a>
                   
              <%}%>
-     
+     			<a href="#" class="bt prev">1</a>
                 <a href="#" class="bt">></a>
                 <a href="#" class="bt">>></a>
               </div>
@@ -160,7 +160,7 @@
                 <div class="search1">
                  <input  type="text" placeholder="Search">
                 
-                 <i class="fas fa-search" ><input type="submit" style= "opacity: 0%  color = white"></i>
+                 <i class="fas fa-search" ></i>
                </div>
              </div>
               <div class="bt_wrap">

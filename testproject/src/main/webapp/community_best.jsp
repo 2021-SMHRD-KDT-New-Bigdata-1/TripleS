@@ -25,10 +25,10 @@ Write2VO vo2 = (Write2VO)session.getAttribute("vo2");
 <section class="section1">
 <nav>
   <ul>
-    <li class="active">
+    <li >
    <a href="community.jsp" style="font-size:20px;">커뮤니티</a></li>
   <!-- <p> 게시판 용도에 맞지 않는 글은 운영자에 의해 삭제될 수 있습니다.</p> -->	
-            <li><a href="review_best.jsp" style="font-size:20px;">베스트글</a></li>
+            <li class="active"><a href="review_best.jsp" style="font-size:20px;">베스트글</a></li>
 			
   </ul>
             
@@ -143,7 +143,7 @@ Write2VO vo2 = (Write2VO)session.getAttribute("vo2");
                 <div class="search1">
                  <input  type="text" placeholder="Search">
                 
-                 <i class="fas fa-search" ><input type="submit" style= "opacity: 0%  color = white"></i>
+                 <i class="fas fa-search" ></i>
                </div>
              </div>
               <div class="bt_wrap">

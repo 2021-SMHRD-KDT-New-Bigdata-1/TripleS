@@ -8,16 +8,7 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.timeline:after {
-  border: 6px solid;
-  border-top-width: 13px;
-  border-color: #00637d transparent transparent transparent;
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: -19px;
-  left: 15px;
-}
+
 
 .timeline-horizontal:after {
   border-top-width: 6px;

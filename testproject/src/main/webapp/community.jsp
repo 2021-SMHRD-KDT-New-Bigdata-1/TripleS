@@ -46,7 +46,7 @@ Write2VO vo2 = (Write2VO)session.getAttribute("vo2");
                   <div class="good">추천수</div>
                   <div class="count">조회수</div>
                     </div>
-             <%
+             <%--<%
              write2DAO dao = new write2DAO();
              int count = dao.selectCnt();
              String tempStart = request.getParameter("page");
@@ -68,8 +68,38 @@ Write2VO vo2 = (Write2VO)session.getAttribute("vo2");
              Collections.reverse(v);
              
              
+             --%>
+                <%
+             write2DAO dao = new write2DAO();
+             int count = dao.selectCnt();
+ 
+             String tempStart = request.getParameter("page");
+             int onePageCnt = count;
+             int startPage = count-10;
+            System.out.print(tempStart);
+			
+             
+             count = (int)Math.ceil((double)count/10);
+             
+      		
+             if(tempStart!=null){
+				if(tempStart.equals("1")){
+            	 onePageCnt =onePageCnt-((Integer.parseInt(tempStart)-1)*10)+10;
+            	 startPage = startPage+1-((Integer.parseInt(tempStart)-1)*10);
+					
+				}else{
+            	 onePageCnt =startPage;
+            	 startPage = startPage+1-((Integer.parseInt(tempStart)-1)*10);
+					
+				}
+				}
+
+             ArrayList<Write2VO> v = dao.selectPage(startPage,onePageCnt);
+             System.out.print(v.size());
+
+              Collections.reverse(v); 
+             
              %>
-                
             	  		<%for(Write2VO list:v){ %>
       
       			

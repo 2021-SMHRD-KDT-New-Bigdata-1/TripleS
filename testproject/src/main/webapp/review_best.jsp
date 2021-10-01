@@ -1,3 +1,4 @@
+<%@page import="java.util.Collections"%>
 <%@page import="java.util.Vector"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.WriteDAO"%>
@@ -60,7 +61,7 @@
                     </div>
            
             	
-             <%
+            <%-- <%
              WriteDAO dao = new WriteDAO();
              int count = dao.selectCnt();
              int best = dao.bestCnt();
@@ -79,9 +80,37 @@
        
              }
              ArrayList<WriteVO> v = dao.selectPage((startPage),onePageCnt);
-             
 
+             %>--%> 
+             <%
+             WriteDAO dao = new WriteDAO();
+             int count = dao.selectCnt();
+             int best = dao.bestCnt();
+             String tempStart = request.getParameter("page");
+             int onePageCnt = count;
+             int startPage = count-10;
+            System.out.print(tempStart);
+			
              
+             count = (int)Math.ceil((double)count/10);
+             
+      		
+             if(tempStart!=null){
+				if(tempStart.equals("1")){
+            	 onePageCnt =onePageCnt-((Integer.parseInt(tempStart)-1)*10)+10;
+            	 startPage = startPage+1-((Integer.parseInt(tempStart)-1)*10);
+					
+				}else{
+            	 onePageCnt =startPage;
+            	 startPage = startPage+1-((Integer.parseInt(tempStart)-1)*10);
+					
+				}
+				}
+
+             ArrayList<WriteVO> v = dao.selectPage(startPage,onePageCnt);
+             System.out.print(v.size());
+
+              Collections.reverse(v); 
              
              %>
                  

@@ -201,7 +201,7 @@ public class WriteDAO {
 		conn();
 
 		/* String sql = "select * from articles "; */
-		String sql = "select* from articles where article_seq between ? and ?";
+		String sql = "select* from articles where article_seq between ? and ? ";
 
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -265,7 +265,7 @@ public class WriteDAO {
 		int result = 0;
 		conn();
 
-		String sql = "select max(article_seq) from articles ";
+		String sql = "select count(*) from articles ";
 
 		try {
 			psmt = conn.prepareStatement(sql);

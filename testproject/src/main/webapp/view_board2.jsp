@@ -1,3 +1,4 @@
+<%@page import="com.VO.Write2VO"%>
 <%@page import="com.VO.WriteVO"%>
 <%@page import="com.VO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -15,7 +16,7 @@
 	<%
 		//vo °¡Á®¿È
 	MemberVO vo = (MemberVO)session.getAttribute("vo");
-	WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
+	Write2VO vo2 = (Write2VO)session.getAttribute("vo2");
 	
 
 	%>

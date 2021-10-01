@@ -79,7 +79,7 @@
              ArrayList<WriteVO> v = dao.selectPage((startPage),onePageCnt);
              
 
-             
+             Collections.reverse(v);
              
              %>
                  

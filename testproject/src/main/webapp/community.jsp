@@ -1,3 +1,4 @@
+<%@page import="java.util.Collections"%>
 <%@page import="com.VO.Write2VO"%>
 <%@page import="java.util.Vector"%>
 <%@page import="java.util.ArrayList"%>
@@ -64,7 +65,7 @@ Write2VO vo2 = (Write2VO)session.getAttribute("vo2");
              }
              ArrayList<Write2VO> v = dao.selectPage((startPage),onePageCnt);
              
-
+             Collections.reverse(v);
              
              
              %>

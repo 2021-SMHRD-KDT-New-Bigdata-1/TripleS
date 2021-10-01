@@ -26,7 +26,7 @@ public class JoinService extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String adminYN = null;
 		
-		if (nickname.equals("admin")) {
+		if (nickname.equals("°ü¸®ÀÚ")) {
 			adminYN = "Y";
 		}else {
 			adminYN = "N";

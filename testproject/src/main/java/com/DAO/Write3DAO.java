@@ -116,7 +116,7 @@ public class Write3DAO {
 
 		conn();
 
-		String sql = "select * from anotices ";
+		String sql = "select*from notices";
 
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -134,7 +134,7 @@ public class Write3DAO {
 				int cnt = rs.getInt(8);
 				String memberId = rs.getString(9);
 
-				list.add(new Write3VO(notice_seq,  notice_title, notice_content,input_date, img_1, img_2, img_3, cnt,memberId));
+				list.add(new Write3VO(notice_seq,notice_title,notice_content,input_date, img_1, img_2, img_3, cnt,memberId));
 
 			}
 
@@ -191,72 +191,7 @@ public class Write3DAO {
 	}
 	
 	
-	public ArrayList<Write3VO> selectPage(int start, int pageCnt) {
-
-		ArrayList<Write3VO> list = new ArrayList<Write3VO>();
-
-		conn();
-
-		/* String sql = "select * from articles "; */
-		String sql = "select* from notice where notice_seq between ? and ?";
-
-		try {
-			psmt = conn.prepareStatement(sql);
-
-			psmt.setInt(1, start);
-			psmt.setInt(2, pageCnt);
-
-			rs = psmt.executeQuery();
-
-			while (rs.next()) { // 나에게 온 메세지가 몇 개인지 모르기때문에 while문 사용
-				int notice_seq = rs.getInt(1);
-				String notice_title = rs.getString(2);
-				String notice_content = rs.getString(3);
-				Date input_date = rs.getDate(4);
-				String img_1 = rs.getString(5);
-				String img_2 = rs.getString(6);
-				String img_3 = rs.getString(7);
-				int cnt = rs.getInt(8);
-				String memberId = rs.getString(9);
-
-				list.add(new Write3VO(notice_seq,  notice_title, notice_content,input_date, img_1, img_2, img_3, cnt,memberId));
-
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-
-		return list;
-
-	}
-
 	
-	
-	public int selectCnt() {
-		int result = 0;
-		conn();
-
-		String sql = "select max(notice_seq) from notice";
-
-		try {
-			psmt = conn.prepareStatement(sql);
-
-			rs = psmt.executeQuery();
-
-			if (rs.next()) {
-				result = rs.getInt(1);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return result;
-	}
 	// 하나의 게시글을 보는 메소드
 
 	public Write3VO detailview(int notice_seq) {

@@ -25,9 +25,9 @@ Write2VO vo2 = (Write2VO)session.getAttribute("vo2");
 <nav>
   <ul>
     <li class="active">
-   <a href="community.jsp">커뮤니티</a></li>
+   <a href="community.jsp"style="font-size:20px;">커뮤니티</a></li>
   <!-- <p> 게시판 용도에 맞지 않는 글은 운영자에 의해 삭제될 수 있습니다.</p> -->	
-            <li><a href="community_best.jsp">베스트글</a></li>
+            <li><a href="community_best.jsp"style="font-size:20px;">베스트글</a></li>
 			
   </ul>
             

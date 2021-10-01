@@ -1,9 +1,10 @@
+
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.Write3DAO"%>
 <%@page import="com.VO.Write3VO"%>
-<%@page import="java.util.Vector"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.DAO.write2DAO"%>
 <%@page import="com.VO.MemberVO"%>
+
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -50,13 +51,11 @@ Write3VO vo2 = (Write3VO)session.getAttribute("vo2");
 
              ArrayList<Write3VO> list = dao.subjectList();
              
-
-             
              
              %>
                 
             	  		<%for(int i = 0; i<list.size(); i++){ %>
-      
+      		<% %>
       			
                 <div>
                   <div class="num" ><%=list.get(i).getNotice_seq()%></div>

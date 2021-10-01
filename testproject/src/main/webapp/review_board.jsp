@@ -102,7 +102,7 @@
       			
                 <div>
                   <div class="num" ><%=list.getArticles_seq() %></div>
-                  <div class="title"><a href="reviewDetailCon.do?seq=<%=list.getArticles_seq() %>"><%=list.getSubject()%></a></div>
+                  <div class="title"><a href="reviewDetailCon.do?seq=<%=list.getArticles_seq()%>"><%=list.getSubject()%></a></div>
                   <div class="writer"><%=list.getMemberId()%></div>
                   <div class="date" ><%=list.getReg_date() %></div>
                   <div class="good" ><%=list.getRec_cnt() %></div>

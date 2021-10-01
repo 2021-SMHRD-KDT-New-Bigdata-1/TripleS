@@ -47,17 +47,18 @@ public class replyDAO {
 	// 댓글 DB에 저장하기
 	// video_seq 널가능
 	// 게시판 댓글에서는 video_seq 널값으로 지정하세여
-	public int insert(int article_seq,String reply_comment, String memberId,String video_seq,String nickname) {
+	public int insert(int article_seq,String reply_comment, String memberId,String video_seq,String nickname,String board_name) {
 		int cnt = 0;
 		try {
 			conn();
-			sql = "insert into replies values(replies_seq.nextval,?,?,?,sysdate,?,?)";
+			sql = "insert into replies (ARTICLE_SEQ, REPLY_COMMENT, MEMBER_ID, REG_DATE, VIDEO_SEQ, NICKNAME, BOARD_NAME) values(?,?,?,sysdate,?,?,?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, article_seq);
 			psmt.setString(2, reply_comment);
 			psmt.setString(3, memberId);
 			psmt.setString(4, video_seq);
 			psmt.setString(5, nickname);
+			psmt.setString(6, board_name);
 			
 
 			cnt = psmt.executeUpdate();
@@ -89,8 +90,9 @@ public class replyDAO {
 				Date REG_DATE = rs.getDate(5);
 				String VIDEO_SEQ = rs.getString(6);
 				String NICKNAME = rs.getString(7);
+				String board_name = rs.getString(8);
 
-				replyVO  rvo = new replyVO(REPLY_SEQ, ARTICLE_SEQ, REPLY_COMMENT, MEMBER_ID, REG_DATE, VIDEO_SEQ,NICKNAME );
+				replyVO  rvo = new replyVO(REPLY_SEQ, ARTICLE_SEQ, REPLY_COMMENT, MEMBER_ID, REG_DATE, VIDEO_SEQ,NICKNAME,board_name );
 				al.add(rvo);
 			}
 
@@ -122,8 +124,9 @@ public class replyDAO {
 				Date REG_DATE = rs.getDate(5);
 				String VIDEO_SEQ = rs.getString(6);
 				String NICKNAME = rs.getString(7);
+				String board_name = rs.getString(8);
 
-				replyVO  rvo = new replyVO(REPLY_SEQ, ARTICLE_SEQ, REPLY_COMMENT, MEMBER_ID, REG_DATE, VIDEO_SEQ,NICKNAME );
+				replyVO  rvo = new replyVO(REPLY_SEQ, ARTICLE_SEQ, REPLY_COMMENT, MEMBER_ID, REG_DATE, VIDEO_SEQ,NICKNAME,board_name );
 				al.add(rvo);
 			}
 

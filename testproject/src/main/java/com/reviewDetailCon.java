@@ -17,6 +17,7 @@ public class reviewDetailCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		int seq = Integer.parseInt(request.getParameter("seq"));
+		session.setAttribute("seq", seq);
 		WriteDAO dao = new WriteDAO();
 		WriteVO writevo = dao.subjectList(seq);
 		

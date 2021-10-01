@@ -2,7 +2,16 @@
 /* COMMON */
 /* Visual */
 
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
+*{
+	font-family: 'GmarketSansBold';
+}
 
 
 .visual-slide .slick-dots li { margin: 0 3px; width: 50px; height: 3px; background: rgba(255,255,255,.5); }

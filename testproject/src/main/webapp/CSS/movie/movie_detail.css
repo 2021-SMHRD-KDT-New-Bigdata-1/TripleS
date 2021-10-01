@@ -27,7 +27,7 @@ h3 {
 }
 
 .movie_serch1{
-    width: 65%;
+    width: 55%;
     height: 100%;
     margin: 0 auto;
     margin-top: 150px;
@@ -39,7 +39,7 @@ h3 {
 .tit-heading-wrap {
     position: relative;
     height: 51px;
-    margin-top: 30px;
+    margin-top: 195px;
     border-bottom: 3px solid white;
 }
 
@@ -124,7 +124,8 @@ a {
 }
 
 .CommentBox {
-  margin-top: 17px;
+  margin-top: 70px;
+  margin-bottom: 95px;
 }
 
 .CommentBox .comment_option {
@@ -293,7 +294,7 @@ textarea {
     font-size: 30px;
     text-align: left;
     vertical-align: middle;
-    margin-top: 50px;
+    margin-top: 80px;
 }
 ul { list-style: none; }
 

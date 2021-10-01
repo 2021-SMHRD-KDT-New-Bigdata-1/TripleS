@@ -24,7 +24,7 @@ public class commentCon extends HttpServlet {
 		VideoVO vvo = (VideoVO)session.getAttribute("vvo");
 		String video_seq = vvo.getVideo_filename();
 		replyDAO rdao = new replyDAO();
-		int cnt = rdao.insert(9999, comment, memberId, video_seq,nickname);
+		int cnt = rdao.insert(9999, comment, memberId, video_seq,nickname,null);
 		
 		if (cnt > 0) {
 			response.sendRedirect("movie_detail.jsp");

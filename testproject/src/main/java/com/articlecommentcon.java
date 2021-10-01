@@ -23,10 +23,11 @@ public class articlecommentcon extends HttpServlet {
 		String memberId = mvo.getMemberId();
 		String nickname = mvo.getNickname();
 		WriteVO writevo = (WriteVO)session.getAttribute("vo2");
+		System.out.println("writevo 불러오");
 		int seq = (int)session.getAttribute("seq");
 		System.out.println("seq는 :"+seq);
 		replyDAO rdao = new replyDAO();
-		int cnt = rdao.insert(seq, comment, memberId, "0",nickname);
+		int cnt = rdao.insert(seq, comment, memberId, "0",nickname,"review");
 		
 		if (cnt > 0) {
 			response.sendRedirect("detail_view.jsp");

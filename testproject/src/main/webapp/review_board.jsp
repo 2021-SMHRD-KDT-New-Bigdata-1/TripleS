@@ -102,8 +102,13 @@
       			
                 <div>
                   <div class="num" ><%=list.getArticles_seq() %></div>
+<<<<<<< HEAD
                   <div class="title"><a href="reviewDetailCon.do?seq=<%=list.getArticles_seq() %>"><%=list.getSubject()%></a></div>
                   <div class="writer"><%=list.getNickname()%></div>
+=======
+                  <div class="title"><a href="reviewDetailCon.do?seq=<%=list.getArticles_seq()%>"><%=list.getSubject()%></a></div>
+                  <div class="writer"><%=list.getMemberId()%></div>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/project1.git
                   <div class="date" ><%=list.getReg_date() %></div>
                   <div class="good" ><%=list.getRec_cnt() %></div>
                   <div class="count" ><%=list.getCnt()%></div>

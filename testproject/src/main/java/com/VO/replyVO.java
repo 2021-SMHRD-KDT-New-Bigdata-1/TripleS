@@ -11,9 +11,12 @@ public class replyVO {
 	private Date reg_date;
 	private String video_seq;
 	private String nickname;
+	private String board_name;
 	
 	
-	public replyVO(int reply_seq, int article_seq, String reply_comment, String member_id, Date reg_date,String video_seq, String nickname) {
+
+	public replyVO(int reply_seq, int article_seq, String reply_comment, String member_id, Date reg_date,
+			String video_seq, String nickname, String board_name) {
 		super();
 		this.reply_seq = reply_seq;
 		this.article_seq = article_seq;
@@ -22,8 +25,17 @@ public class replyVO {
 		this.reg_date = reg_date;
 		this.video_seq = video_seq;
 		this.nickname = nickname;
+		this.board_name = board_name;
 	}
-	
+
+	public String getBoard_name() {
+		return board_name;
+	}
+
+	public void setBoard_name(String board_name) {
+		this.board_name = board_name;
+	}
+
 	public String getNickname() {
 		return nickname;
 	}

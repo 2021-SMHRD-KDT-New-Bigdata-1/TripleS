@@ -1,3 +1,4 @@
+<%@page import="java.util.Collections"%>
 <%@page import="com.VO.Write2VO"%>
 <%@page import="java.util.Vector"%>
 <%@page import="java.util.ArrayList"%>
@@ -25,9 +26,9 @@ Write2VO vo2 = (Write2VO)session.getAttribute("vo2");
 <nav>
   <ul>
     <li class="active">
-   <a href="community.jsp">커뮤니티</a></li>
+   <a href="community.jsp" style="font-size:20px;">커뮤니티</a></li>
   <!-- <p> 게시판 용도에 맞지 않는 글은 운영자에 의해 삭제될 수 있습니다.</p> -->	
-            <li><a href="review_best.jsp">베스트글</a></li>
+            <li><a href="review_best.jsp" style="font-size:20px;">베스트글</a></li>
 			
   </ul>
             
@@ -45,7 +46,7 @@ Write2VO vo2 = (Write2VO)session.getAttribute("vo2");
                   <div class="good">추천수</div>
                   <div class="count">조회수</div>
                     </div>
-             <%
+        <%-- <%
              write2DAO dao = new write2DAO();
              int count = dao.selectCnt();
              String tempStart = request.getParameter("page");
@@ -63,14 +64,45 @@ Write2VO vo2 = (Write2VO)session.getAttribute("vo2");
        
              }
              ArrayList<Write2VO> v = dao.selectPage((startPage),onePageCnt);
-             
 
+             %> --%>
              
+             <%
+             write2DAO dao = new write2DAO();
+             int count = dao.selectCnt();
+ 
+             String tempStart = request.getParameter("page");
+             int onePageCnt = count;
+             int startPage = count-10;
+            System.out.print(tempStart);
+			
+             
+             count = (int)Math.ceil((double)count/10);
+             
+      		
+             if(tempStart!=null){
+				if(tempStart.equals("1")){
+            	 onePageCnt =onePageCnt-((Integer.parseInt(tempStart)-1)*10)+10;
+            	 startPage = startPage+1-((Integer.parseInt(tempStart)-1)*10);
+					
+				}else{
+            	 onePageCnt =startPage;
+            	 startPage = startPage+1-((Integer.parseInt(tempStart)-1)*10);
+					
+				}
+				}
+
+             ArrayList<Write2VO> v = dao.selectPage(startPage,onePageCnt);
+             System.out.print(v.size());
+
+              Collections.reverse(v); 
              
              %>
                 
             	  		<%for(Write2VO list:v){ %>
-      
+
+      			<%if(list.getRec_cnt()>5){%> 
+      				
       			
                 <div>
                   <div class="num" ><%=list.getArticles_seq() %></div>
@@ -83,7 +115,7 @@ Write2VO vo2 = (Write2VO)session.getAttribute("vo2");
 					
                 </div>
                <%} %>
-          
+           <%} %>
               </div>
               
               	

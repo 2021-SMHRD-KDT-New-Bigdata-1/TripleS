@@ -1,7 +1,8 @@
+<%@page import="com.DAO.write2DAO"%>
+<%@page import="com.VO.Write2VO"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.DAO.WriteDAO"%>
 <%@page import="com.VO.MemberVO"%>
-<%@page import="com.VO.WriteVO"%>
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -17,7 +18,7 @@
 <body>
 <%
 MemberVO vo = (MemberVO) session.getAttribute("vo");
-WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
+Write2VO vo2 = (Write2VO)session.getAttribute("vo2");
 %>
 
 
@@ -31,8 +32,8 @@ WriteVO vo2 = (WriteVO)session.getAttribute("vo2");
               <div class="board_view">
               <%
             	  int id = Integer.parseInt(request.getParameter("id"));
-              	WriteDAO dao = new WriteDAO();
-				WriteVO writevo = dao.subjectList(id);
+              	write2DAO dao = new write2DAO();
+				Write2VO writevo = dao.subjectList(id);
 				int count = dao.cnt_subject(writevo.getArticles_seq(), writevo.getCnt());
 				
 				%>

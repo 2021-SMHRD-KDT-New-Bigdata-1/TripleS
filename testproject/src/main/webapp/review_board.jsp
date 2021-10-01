@@ -1,3 +1,4 @@
+<%@page import="java.util.Collections"%>
 <%@page import="java.util.Vector"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.WriteDAO"%>
@@ -30,9 +31,9 @@
 <nav>
   <ul>
     <li class="active">
-   <a href="review_board2.jsp">리뷰게시판</a></li>
+   <a href="review_board2.jsp" style="font-size:20px;">리뷰게시판</a></li>
   <!-- <p> 게시판 용도에 맞지 않는 글은 운영자에 의해 삭제될 수 있습니다.</p> -->	
-            <li><a href="review_best.jsp">베스트글</a></li>
+            <li><a href="review_best.jsp" style="font-size:20px;">베스트글</a></li>
 			
   </ul>
             
@@ -63,23 +64,33 @@
              int count = dao.selectCnt();
              int best = dao.bestCnt();
              String tempStart = request.getParameter("page");
-             int startPage = 1;
-             int onePageCnt = 10;
-
+             int onePageCnt = count;
+             int startPage = count-10;
+            System.out.print(tempStart);
+			
              
-             count = (int)Math.ceil((double)count/(double)onePageCnt);
+             count = (int)Math.ceil((double)count/10);
              
-      
-             
+      		
              if(tempStart!=null){
-            	 startPage = (Integer.parseInt(tempStart)-1)*onePageCnt+1;
-            	 onePageCnt = (Integer.parseInt(tempStart)-1)*onePageCnt+onePageCnt;
+				if(tempStart.equals("1")){
+            	 onePageCnt =onePageCnt-((Integer.parseInt(tempStart)-1)*10)+10;
+            	 startPage = startPage+1-((Integer.parseInt(tempStart)-1)*10);
+					
+				}else{
+            	 onePageCnt =startPage;
+            	 startPage = startPage+1-((Integer.parseInt(tempStart)-1)*10);
+					
+				}
+				}
        
-             }
-             ArrayList<WriteVO> v = dao.selectPage((startPage),onePageCnt);
              
+            	 
 
-             
+             ArrayList<WriteVO> v = dao.selectPage(startPage,onePageCnt);
+             System.out.print(v.size());
+
+              Collections.reverse(v); 
              
              %>
                  
@@ -87,7 +98,7 @@
       			
                 <div>
                   <div class="num" ><%=list.getArticles_seq() %></div>
-                  <div class="title"><a href="detail_view.jsp?id=<%=list.getArticles_seq() %>"><%=list.getSubject()%></a></div>
+                  <div class="title"><a href="reviewDetailCon.do?seq=<%=list.getArticles_seq() %>"><%=list.getSubject()%></a></div>
                   <div class="writer"><%=list.getMemberId()%></div>
                   <div class="date" ><%=list.getReg_date() %></div>
                   <div class="good" ><%=list.getRec_cnt() %></div>

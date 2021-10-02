@@ -44,7 +44,7 @@ public class write_board3 extends HttpServlet {
 			if(vo!=null) {
 			
 				session.setAttribute("vo2", vo2);
-				response.sendRedirect("view_board3.jsp");
+				response.sendRedirect("event_view.jsp");
 				System.out.println("글 작성 성공");;
 				
 			}

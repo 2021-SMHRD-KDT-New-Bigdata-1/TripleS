@@ -38,7 +38,7 @@
 					style="font-size: 20px;">회원 관리</a></li>
 
 				<!-- <p> 게시판 용도에 맞지 않는 글은 운영자에 의해 삭제될 수 있습니다.</p> -->
-				<li><a href="review_best.jsp" style="font-size: 20px;">이벤트
+				<li><a href="event_mg.jsp" style="font-size: 20px;">이벤트
 						관리</a></li>
 
 			</ul>

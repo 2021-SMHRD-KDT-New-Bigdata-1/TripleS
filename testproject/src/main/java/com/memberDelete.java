@@ -16,7 +16,6 @@ public class memberDelete extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String memberId = request.getParameter("memberId");
-		System.out.println("들어오나?"+memberId);
 		ManagerDAO dao = new ManagerDAO();
 		dao.delete(memberId);
 		response.sendRedirect("member_mg.jsp");

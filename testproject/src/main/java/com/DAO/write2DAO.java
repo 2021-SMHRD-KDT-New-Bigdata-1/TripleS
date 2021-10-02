@@ -115,7 +115,7 @@ public class write2DAO {
 
 		conn();
 
-		String sql = "select * from articles_2 order by article2_seq desc";
+		String sql = "select * from articles_2 ";
 
 		try {
 			psmt = conn.prepareStatement(sql);

@@ -25,7 +25,7 @@
  <section class="section1">
         <div class="board_wrap">
             <div class="board_title">
-              <strong>리뷰 게시판</strong>
+              <strong>자유 게시판</strong>
             </div>
             <div class="board_view_wrap">
               <div class="board_view">

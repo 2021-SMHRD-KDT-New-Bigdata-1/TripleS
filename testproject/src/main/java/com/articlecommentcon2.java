@@ -23,7 +23,7 @@ public class articlecommentcon2 extends HttpServlet {
 		MemberVO mvo = (MemberVO)session.getAttribute("vo");
 		String memberId = mvo.getMemberId();
 		String nickname = mvo.getNickname();
-		Write2VO write2vo = (Write2VO)session.getAttribute("write2vo");
+		Write2VO write2vo = (Write2VO)session.getAttribute("Write2vo");
 		System.out.println("writevo 불러오");
 		int seq = (int)session.getAttribute("seq1");
 		System.out.println("seq는 :"+seq);

@@ -1,10 +1,10 @@
-<%@page import="com.VO.replyVO"%>
-<%@page import="com.DAO.replyDAO"%>
-<%@page import="com.DAO.write2DAO"%>
-<%@page import="com.VO.Write2VO"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.VO.MemberVO"%>
 
+
+<%@page import="com.VO.replyVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.DAO.replyDAO"%>
+<%@page import="com.VO.Write2VO"%>
+<%@page import="com.VO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -141,7 +141,7 @@ ArrayList<replyVO> al = rdao.dselect(writevo.getArticles_seq(),"commu");
         </div>
 </form>
     </section>
-    </section>
+
 	 
 <script>
 

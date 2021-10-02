@@ -42,6 +42,15 @@
 					out.print("<button class='button'>");
 					out.print("<a href='login.jsp'>회원가입</a>");
 					out.print("</button>");
+				}else if(vo.getNickname().equals("관리자")){
+					out.print("<button class='button'>");
+					out.print("<h3 class='nickname'>"+vo.getNickname()+"님</h1>");
+					out.print("<button class='button'>");
+					out.print("<a href='member_mg.jsp'>회원관리 | </a>");
+					out.print("</button>");
+					out.print("<button class='button'>");
+					out.print("<a href='LogOutService'>로그아웃</a>");
+					out.print("</button>");
 				}else{
 					out.print("<button class='button'>");
 					out.print("<h3 class='nickname'>"+vo.getNickname()+"님</h1>");

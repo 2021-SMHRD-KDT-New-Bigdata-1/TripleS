@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+.board_list > div.top > div{
+	width:14%;
+	display: inline-block;
+	vertical-align: middle;
+    padding: 15px 0;
+    font-size: 1.4rem;}
+.board_list .top .title{width:14%;display: inline-block;vertical-align: middle;
+    padding: 15px 0;
+    font-size: 1.4rem;}
+.board_list .num,
+.board_list .title,
+.board_list .writer,
+.board_list .date,
+.board_list .good,
+.board_list .count{width:14%;text-align: center;display: inline-block;vertical-align: middle;
+    padding: 15px 0;
+    font-size: 1.4rem;}
+
+.inputTypeText {
+	margin-top: -10px; 
+    margin-bottom: 10px;
+}
+
+#bt_wrap1 {
+	display: inline-block;
+    font-size: 0px;
+    width:14%;
+    text-align: center;
+    margin-left: 0px;
+    transform: translateY(3px);
+}
+button.on{
+	background-color: black;
+    color: white;
+    text-align: center;
+    width: 80px;
+    height: 40px;
+}
+.board_list > div,.board_list > form>div {
+  border-bottom: 1px solid #ddd;
+  font-size: 0;
+  
+}
+.id>input,.id{
+	display:none;
+}
+

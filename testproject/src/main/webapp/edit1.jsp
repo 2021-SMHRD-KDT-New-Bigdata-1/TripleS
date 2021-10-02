@@ -25,7 +25,7 @@ int cnt = (int)session.getAttribute("cnt");
 %>
 	
 	
-<form action="writeboard">
+<form action="updateService">
 <section class="section1">
     <div class="board_wrap">
         <div class="board_title">
@@ -42,7 +42,7 @@ int cnt = (int)session.getAttribute("cnt");
                 </div>
             
                 <div class="cont">
-                    <textarea type="text" value="<%=writevo.getContent() %>" name="content"></textarea>
+                    <textarea name="content"><%=writevo.getContent() %></textarea>
                    
                 </tbody>
                 </div>

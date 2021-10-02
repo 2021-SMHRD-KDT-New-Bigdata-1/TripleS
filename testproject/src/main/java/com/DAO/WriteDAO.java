@@ -386,6 +386,26 @@ public class WriteDAO {
 	
 	}
 	
+	public int update_board(String subject,String content, int article_seq) {
+		int cnt = 0;
+		try {
+			conn();
+			String sql = "UPDATE articles SET subject=?, content=? WHERE article_seq=?"; 
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, subject);
+			psmt.setString(2, content);
+			psmt.setInt(3, article_seq);
+
+			 cnt = psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}return cnt;
+	
+	}
+	
 
 
 }

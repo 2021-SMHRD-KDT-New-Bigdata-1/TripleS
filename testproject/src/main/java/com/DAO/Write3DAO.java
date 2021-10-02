@@ -53,7 +53,7 @@ public class Write3DAO {
 		int cnt = 0;
 		try {
 			conn();
-			String sql = "insert into notices ( notice_title, notice_content, input_date, img_pic1, img_pic2, img_pic3, cnt,member_id,) values(?,?,sysdate,?,?,?,0,?)";
+			String sql = "insert into notices ( notice_title, notice_content, input_date, img_pic1, img_pic2, img_pic3, cnt,member_id) values(?,?,sysdate,?,?,?,0,?)";
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, subject);
@@ -116,7 +116,7 @@ public class Write3DAO {
 
 		conn();
 
-		String sql = "select*from notices";
+		String sql = "select * from notices";
 
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -176,7 +176,7 @@ public class Write3DAO {
 				int cnt = rs.getInt(8);
 				String memberId = rs.getString(9);
 
-				vo = new Write3VO(notice_seq,  notice_title, notice_content,input_date, img_1, img_2, img_3, cnt,memberId);
+				vo = new Write3VO(notice_seq,notice_title, notice_content,input_date, img_1, img_2, img_3, cnt,memberId);
 
 			}
 

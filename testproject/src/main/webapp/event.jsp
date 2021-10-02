@@ -1,4 +1,3 @@
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.Write3DAO"%>
 <%@page import="com.VO.Write3VO"%>
@@ -23,6 +22,7 @@ MemberVO vo = (MemberVO)session.getAttribute("vo");
 Write3VO vo2 = (Write3VO)session.getAttribute("vo2");
 
 %>
+
 <section class="section1">
 <nav>
   <ul>
@@ -32,7 +32,6 @@ Write3VO vo2 = (Write3VO)session.getAttribute("vo2");
 
   </ul>
             
-            </div>
         <div class="board_wrap">
             <div class="board_title">
            
@@ -55,7 +54,6 @@ Write3VO vo2 = (Write3VO)session.getAttribute("vo2");
              %>
                 
             	  		<%for(int i = 0; i<list.size(); i++){ %>
-      		<% %>
       			
                 <div>
                   <div class="num" ><%=list.get(i).getNotice_seq()%></div>

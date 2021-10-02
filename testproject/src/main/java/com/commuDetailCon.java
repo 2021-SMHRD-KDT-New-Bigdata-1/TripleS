@@ -27,6 +27,9 @@ public class commuDetailCon extends HttpServlet {
 		
 		if (write2vo != null) {
 			session.setAttribute("write2vo", write2vo);
+			Write2VO cntvo = (Write2VO)session.getAttribute("write2vo");
+			int cnt = dao.cnt_subject(seq,cntvo.getCnt());
+			session.setAttribute("cnt", cnt);
 			response.sendRedirect("detail_view2.jsp");
 			System.out.println("리뷰게시글 불러오기 성공");
 		}

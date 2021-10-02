@@ -121,7 +121,7 @@ int cnt = (int)session.getAttribute("cnt");
                 <div class="CommentWriter">
                     <div class="comment_inbox"> 
                         <strong class="blind">댓글을 입력하세요</strong>
-                        <em class="comment_inbox_name"></em>
+                        <em class="comment_inbox_name"><%=vo.getNickname() %></em>
                         <textarea name="reply" placeholder="댓글을 남겨보세요" class="comment_inbox_text" rows="1" style="overflow: hidden; overflow-wrap: break-word; height: 17px;"></textarea>
                     </div>
                     <div class="comment_attach">
@@ -133,8 +133,8 @@ int cnt = (int)session.getAttribute("cnt");
     font-size: 13px;
     color: black;
     vertical-align: top;
-    margin-top: -24px;
-    margin-left: auto";>
+    margin-top: -20px;
+    margin-left: auto;">
                         </div>
                     </div>
                 </div>

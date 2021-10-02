@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.DAO.WriteDAO;
+import com.DAO.write2DAO;
 
 @WebServlet("/likeService")
 public class likeService extends HttpServlet {
@@ -25,7 +25,7 @@ public class likeService extends HttpServlet {
 		int article = Integer.parseInt(a);
 		System.out.println(like);
 		System.out.println(article);
-		WriteDAO dao = new WriteDAO();
+		write2DAO dao = new write2DAO();
 		
 		int data = dao.like(like,article);
 		

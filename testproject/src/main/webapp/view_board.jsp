@@ -71,9 +71,9 @@
                     <li class="CommentItem">
                         <div class="comment_area">
                             <div class="comment_box">
-                                <div class="comment_nick_box">
+                                <!-- <div class="comment_nick_box">
                                     <div class="comment_nick_info">
-                                        <a href="#" role="button" class="comment_nickname"> #댓글 작성자 id가 들어감</a>
+                                        <a href="#" role="button" class="comment_nickname"></a>
                                     </div>
                                     <div class="md">
                                         <a href="#" class="modify">수정</a>
@@ -83,13 +83,13 @@
                                 </div>
                                 <div class="comment_text_box">
                                     <p class="comment_text_view">
-                                        <span class="text_comment" > #댓글내용이 들어감</span>
+                                        <span class="text_comment" ></span>
                                     </p>
                                 </div>
                                 <div class="comment_info_box">
-                                    <span class="comment_info_date">#날짜가 들어감</span>
+                                    <span class="comment_info_date"></span>
                                
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </li>
@@ -121,7 +121,7 @@
 				}else{
 					if(vo.getMemberId().equals(vo2.getMemberId())){%>
 					<a href="edit.jsp?id=<%=vo2.getArticles_seq() %>" >수정</a>
-					<%out.print("<a href='review_board.jsp' class='on'>목록</a>");
+					<%out.print("<a href='review_board.jsp' class='on' >목록</a>");
 					}else{
 						out.print("<a href='review_board.jsp' class='on'>목록</a>");
 					}

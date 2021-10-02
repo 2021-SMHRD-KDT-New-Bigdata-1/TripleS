@@ -139,6 +139,23 @@ int cnt = (int)session.getAttribute("cnt");
                     </div>
                 </div>
                  <% } %>
+                   <div class="bt_wrap" id="bt_wrap1">
+                 <%if(vo==null){
+					
+					out.print("<a href='review_board.jsp' class='on'>목록</a>");
+				
+				}else{
+					if(vo.getMemberId().equals(writevo.getMemberId())){%>
+					<a href="edit.jsp?id=<%=writevo.getArticles_seq() %>" >수정</a>
+					<%out.print("<a href='review_board.jsp' class='on' >목록</a>");
+					}else{
+						out.print("<a href='review_board.jsp' class='on'>목록</a>");
+					}
+				}
+
+				%>
+            </div> 
+                 
         </div>
 </form>
     </section>

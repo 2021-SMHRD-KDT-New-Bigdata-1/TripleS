@@ -72,8 +72,9 @@
                     <li class="CommentItem">
                         <div class="comment_area">
                             <div class="comment_box">
-                                <div class="comment_nick_box">
-                                    <div class="comment_nick_info">
+                                
+                                   <!--<div class="comment_nick_box">  
+                                   <div class="comment_nick_info">
                                         <a href="#" role="button" class="comment_nickname"> #댓글 작성자 id가 들어감</a>
                                     </div>
                                     <div class="md">
@@ -90,7 +91,7 @@
                                 <div class="comment_info_box">
                                     <span class="comment_info_date">#날짜가 들어감</span>
                                
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </li>
@@ -117,7 +118,7 @@
               <div class="bt_wrap" id="bt_wrap1">
                  <%if(vo==null){
 					
-					out.print("<a href='review_board.jsp' class='on'>목록</a>");
+					out.print("<a href='community.jsp' class='on'>목록</a>");
 				
 				}else{
 					if(vo.getMemberId().equals(vo2.getMemberId())){%>

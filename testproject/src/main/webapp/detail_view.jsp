@@ -121,7 +121,7 @@ int cnt = (int)session.getAttribute("cnt");
                 <div class="CommentWriter">
                     <div class="comment_inbox"> 
                         <strong class="blind">댓글을 입력하세요</strong>
-                        <em class="comment_inbox_name"><%=vo.getNickname() %></em>
+                        <em class="comment_inbox_name"><%=writevo.getNickname() %></em>
                         <textarea name="reply" placeholder="댓글을 남겨보세요" class="comment_inbox_text" rows="1" style="overflow: hidden; overflow-wrap: break-word; height: 17px;"></textarea>
                     </div>
                     <div class="comment_attach">
@@ -134,12 +134,29 @@ int cnt = (int)session.getAttribute("cnt");
     color: black;
     vertical-align: top;
     margin-top: -19px;
-    margin-left: auto";>
+    margin-left: auto;">
                         </div>
                     </div>
                 </div>
-                 <% } %>
-        </div>
+       <% } %>
+       <div class="bt_wrap" id="bt_wrap1">
+                 <%if(vo==null){
+					
+					out.print("<a href='review_board.jsp' class='on'>목록</a>");
+				
+				}else{
+					if(vo.getMemberId().equals(writevo.getMemberId())){%>
+					<a href="edit.jsp?id=<%=writevo.getArticles_seq() %>" >수정</a>
+					<%out.print("<a href='review_board.jsp' class='on' >목록</a>");
+					}else{
+						out.print("<a href='review_board.jsp' class='on'>목록</a>");
+					}
+				}
+
+				%>
+            </div> 
+
+          </div>
 </form>
     </section>
 	 
@@ -172,7 +189,8 @@ int cnt = (int)session.getAttribute("cnt");
  function like(){
 		
 		var article = <%=writevo.getArticles_seq() %>
-		var like = <%=writevo.getRec_cnt() %>
+		var like = <%=writevo.getRec_cnt()%>
+	
 	<%-- 	alert(like)
 		alert(article)
 		

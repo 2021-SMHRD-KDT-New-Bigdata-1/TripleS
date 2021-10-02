@@ -146,7 +146,8 @@ int cnt = (int)session.getAttribute("cnt");
 				
 				}else{
 					if(vo.getMemberId().equals(writevo.getMemberId())){%>
-					<a href="edit.jsp?id=<%=writevo.getArticles_seq() %>" >수정</a>
+					<a href="deleteservice.do?seq=<%=writevo.getArticles_seq() %>" >삭제</a>
+					<a href="edit1.jsp?id=<%=writevo.getArticles_seq() %>" >수정</a>
 					<%out.print("<a href='review_board.jsp' class='on' >목록</a>");
 					}else{
 						out.print("<a href='review_board.jsp' class='on'>목록</a>");
@@ -204,7 +205,7 @@ int cnt = (int)session.getAttribute("cnt");
 			// dataType : 응답받을 데이터 타입
 			type : "post", 
 			data : {like:like,article:article},
-			url : "likeService",
+			url : "likeService2",
 			dataType : "text",
 			success : function(data){
 				var sp = document.getElementById("like");

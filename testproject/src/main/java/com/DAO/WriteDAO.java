@@ -368,6 +368,23 @@ public class WriteDAO {
 	
 	}
 		
+	public int delete_board(int article_seq) {
+		int cnt = 0;
+		try {
+			conn();
+			String sql = "delete from articles where article_seq=?" ; 
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setInt(1, article_seq);
+
+			 cnt = psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}return cnt;
+	
+	}
 	
 
 

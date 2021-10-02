@@ -51,7 +51,6 @@ Write3VO vo2 = (Write3VO)session.getAttribute("vo2");
 
              ArrayList<Write3VO> list = dao.subjectList();
              
-             
              %>
                 
             	  		<%for(int i = 0; i<list.size(); i++){ %>

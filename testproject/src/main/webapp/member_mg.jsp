@@ -63,7 +63,6 @@
 						<div class="board_list">
 							<div class="top">
 								<div class="num">아이디</div>
-								<div class="title">비밀번호</div>
 								<div class="writer">닉네임</div>
 								<div class="date">핸드폰 번호</div>
 								<div class="good">가입일자</div>
@@ -96,7 +95,6 @@
 							</div>
 								<div class="num"><%=list.get(i).getMemberId()%></div>
 
-								<div class="title"><%=list.get(i).getPassword()%></div>
 								<div class="writer"><%=list.get(i).getNickname()%></div>
 
 

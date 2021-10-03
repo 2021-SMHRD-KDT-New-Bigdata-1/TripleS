@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 .board_list > div.top > div{
-	width:14%;
+	width:16%;
 	display: inline-block;
 	vertical-align: middle;
     padding: 15px 0;
@@ -14,7 +14,7 @@
 .board_list .writer,
 .board_list .date,
 .board_list .good,
-.board_list .count{width:14%;text-align: center;display: inline-block;vertical-align: middle;
+.board_list .count{width:16%;text-align: center;display: inline-block;vertical-align: middle;
     padding: 15px 0;
     font-size: 1.4rem;}
 
@@ -26,7 +26,7 @@
 #bt_wrap1 {
 	display: inline-block;
     font-size: 0px;
-    width:14%;
+    width:16%;
     text-align: center;
     margin-left: 0px;
     transform: translateY(3px);

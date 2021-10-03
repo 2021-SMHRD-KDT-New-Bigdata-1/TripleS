@@ -221,5 +221,26 @@ public class ManagerDAO {
 		}return vo;
 	}
 	
+	public void mileagePlus(String memberId,int mileage,int cnt) {
+		
+		conn();
+
+		mileage+=cnt;
+		try {
+			String sql = "update members set mileage=? where member_id=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, mileage);
+			psmt.setString(2, memberId);
+
+			psmt.executeUpdate();
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+	}
+	
 	
 }

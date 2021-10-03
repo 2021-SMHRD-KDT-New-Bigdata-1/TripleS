@@ -91,7 +91,7 @@
 							</div>
 						</li>
 					</ul>
-					<form action="best_event">
+					
 						<div class="board_list_wrap">
 							<div class="board_list">
 								<div class="top">
@@ -106,13 +106,12 @@
 								ManagerDAO dao = new ManagerDAO();
 								ArrayList<WriteVO> best_1 = dao.select_best1();
 								ArrayList<Write2VO> best_2 = dao.select_best2();
-							 	System.out.println("best_1 : "+best_1.size());
 								MemberVO b_1 =dao.bSelect(best_1.get(1).getMemberId());
 								MemberVO b_2 =dao.bSelect(best_2.get(1).getMemberId());
 								%>
 
 
-								<form action="memberDelete">
+								<form action="mileagePlus">
 									<div>
 										<div class="title">리뷰게시판</div>
 										<div class="num"><%=b_1.getMemberId() %></div>
@@ -123,8 +122,11 @@
 										<div class="writer"><%=b_1.getNickname() %></div>
 										<div class="good"><%=b_1.getEntryDate() %></div>
 										<div class="count"><%=b_1.getMileage() %></div>
+										<div class="id">
+											<input name="mileage" type="text" value="<%=b_1.getMileage() %>"></input>
+										</div>
 										<div class="mileage">
-											<input name="cnt" type="text" value="마일리지"></input>
+											<input name="cnt" type="text" placeholder="마일리지"></input>
 										</div>
 										<div class="bt_wrap" id="bt_wrap1">
 											<button class='on' type="submit">추가</button>
@@ -132,7 +134,7 @@
 
 									</div>
 								</form>
-								<form action="memberDelete">
+								<form action="mileagePlus">
 									<div>
 										<div class="title">자유게시판</div>
 										<div class="num"><%=b_2.getMemberId() %></div>

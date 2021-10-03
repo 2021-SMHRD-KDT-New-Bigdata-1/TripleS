@@ -15,7 +15,7 @@
 	<%
 		//vo 가져옴
 	MemberVO vo = (MemberVO)session.getAttribute("vo");
-	Write3VO vo2 = (Write3VO)session.getAttribute("vo2");
+	Write3VO writevo = (Write3VO)session.getAttribute("write3vo");
 	
 
 	%>
@@ -33,7 +33,7 @@
                <div class="titleview">
                
                <%
-               out.print("제목  "+vo2.getNotice_title());
+               out.print("제목  "+writevo.getNotice_title());
                
 
                %>
@@ -42,24 +42,24 @@
                <div class="info">
                 <dl>
                   <dt>번호</dt>
-                  <dd><%out.print(vo2.getNotice_seq()); %></dd>
+                  <dd><%out.print(writevo.getNotice_seq()); %></dd>
                 </dl>
                 <dl>
                   <dt>작성자</dt>
-                  <dd><%out.print(vo2.getMemberId()); %></dd>
+                  <dd><%out.print(writevo.getMemberId()); %></dd>
                 </dl>
                 <dl>
                   <dt>작성일</dt>
-                  <dd><%out.print(vo2.getInput_date()); %></dd>
+                  <dd><%out.print(writevo.getInput_date()); %></dd>
                 </dl>
                 <dl>
                   <dt>조회</dt>
-                  <dd><%out.print(vo2.getCnt()); %></dd>
+                  <dd><%out.print(writevo.getCnt()); %></dd>
                 </dl>
                </div>
                <div class="cont">
                
-         		<% out.print(vo2.getNotice_content()); %>
+         		<% out.print(writevo.getNotice_content()); %>
          		
                </div>
               </div>
@@ -80,7 +80,7 @@
                 <div class="CommentWriter">
                     <div class="comment_inbox"> 
                         <strong class="blind">댓글을 입력하세요</strong>
-                        <em class="comment_inbox_name"><% out.print(vo2.getMemberId()); %></em>
+                        <em class="comment_inbox_name"><% out.print(writevo.getMemberId()); %></em>
                         <textarea name="reply" placeholder="댓글을 남겨보세요" class="comment_inbox_text" rows="1" style="overflow: hidden; overflow-wrap: break-word; height: 17px;"></textarea>
                     </div>
                     <div class="comment_attach">
@@ -99,14 +99,14 @@
               <div class="bt_wrap" id="bt_wrap1">
                  <%if(vo==null){
 					
-					out.print("<a href='event.jsp' class='on'>목록</a>");
+					out.print("<a href='event_mg.jsp' class='on'>목록</a>");
 				
 				}else{
-					if(vo.getMemberId().equals(vo2.getMemberId())){%>
-					<a href="edit.jsp?id=<%=vo2.getNotice_seq() %>" >수정</a>
-					<%out.print("<a href='evnet_mg.jsp' class='on'>목록</a>");
+					if(vo.getMemberId().equals(writevo.getMemberId())){%>
+					<a href="edit.jsp?id=<%=writevo.getNotice_seq() %>" >수정</a>
+					<%out.print("<a href='event_mg.jsp' class='on'>목록</a>");
 					}else{
-						out.print("<a href='evnet_mg.jsp' class='on'>목록</a>");
+						out.print("<a href='event_mg.jsp' class='on'>목록</a>");
 					}
 				}
 

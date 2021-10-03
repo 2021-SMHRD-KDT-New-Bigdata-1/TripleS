@@ -156,7 +156,7 @@ public class Write3DAO {
 
 		conn();
 
-		String sql = "select * from notice where notice_seq=?";
+		String sql = "select * from notices where notice_seq=?";
 
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -233,7 +233,7 @@ public class Write3DAO {
 		try {
 			conn();
 			cnt+=1;
-			String sql = "update notice set cnt =? where notice_seq=?" ; 
+			String sql = "update notices set cnt =? where notice_seq=?" ; 
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setInt(1, cnt);

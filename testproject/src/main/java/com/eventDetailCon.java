@@ -21,6 +21,7 @@ public class eventDetailCon extends HttpServlet {
 		System.out.println("seq : "+seq);
 		session.setAttribute("seq", seq);
 		Write3DAO dao = new Write3DAO();
+		System.out.println("어디까지 되니"+seq);
 		Write3VO write3vo = dao.subjectList(seq);
 		
 		if (write3vo != null) {
@@ -28,7 +29,7 @@ public class eventDetailCon extends HttpServlet {
 			Write3VO cntvo = (Write3VO)session.getAttribute("write3vo");
 			int cnt = dao.cnt_subject(seq,cntvo.getCnt());
 			session.setAttribute("cnt", cnt);
-			response.sendRedirect("event_view.jsp");
+			response.sendRedirect("detail_view3.jsp");
 			System.out.println("리뷰게시글 불러오기 성공");
 		}
 

@@ -115,7 +115,8 @@ int cnt = (int)session.getAttribute("cnt");
                 
                        <%if(vo==null){
                            
-                        }else{%>
+                        }else{
+                        if(vo.getNickname().equals("관리자")){%>
                 <div class="CommentWriter">
                     <div class="comment_inbox"> 
                         <strong class="blind">댓글을 입력하세요</strong>
@@ -136,7 +137,7 @@ int cnt = (int)session.getAttribute("cnt");
                         </div>
                     </div>
                 </div>
-                 <% } %>
+                 <% }} %>
                    <div class="bt_wrap" id="bt_wrap1">
                  <%if(vo==null){
 					

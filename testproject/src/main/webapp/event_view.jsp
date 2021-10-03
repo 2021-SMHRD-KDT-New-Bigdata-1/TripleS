@@ -145,8 +145,11 @@
 										<div class="writer"><%=b_2.getNickname() %></div>
 										<div class="good"><%=b_2.getEntryDate() %></div>
 										<div class="count"><%=b_2.getMileage() %></div>
+										<div class="id">
+											<input name="mileage" type="text" value="<%=b_2.getMileage() %>"></input>
+										</div>
 										<div class="mileage">
-											<input name="cnt" type="text" value="마일리지"></input>
+											<input name="cnt" type="text" placeholder="마일리지"></input>
 										</div>
 										<div class="bt_wrap" id="bt_wrap1">
 											<button class='on' type="submit">추가</button>

@@ -11,8 +11,8 @@ import javax.servlet.http.HttpSession;
 import com.DAO.Write3DAO;
 import com.VO.Write3VO;
 
-@WebServlet("/eventDetailCon.do")
-public class eventDetailCon extends HttpServlet {
+@WebServlet("/eventDetailCon_mg.do")
+public class eventDetailCon_mg extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -28,7 +28,7 @@ public class eventDetailCon extends HttpServlet {
 			Write3VO cntvo = (Write3VO)session.getAttribute("write3vo");
 			int cnt = dao.cnt_subject(seq,cntvo.getCnt());
 			session.setAttribute("cnt", cnt);
-			response.sendRedirect("detail_view3.jsp");
+			response.sendRedirect("event_view.jsp");
 			System.out.println("리뷰게시글 불러오기 성공");
 		}
 

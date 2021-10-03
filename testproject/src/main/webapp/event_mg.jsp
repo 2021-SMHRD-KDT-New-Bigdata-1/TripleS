@@ -70,7 +70,7 @@ Write3VO vo2 = (Write3VO)session.getAttribute("vo2");
       			
                 <div>
                   <div class="num" ><%=list.get(i).getNotice_seq()%></div>
-                  <div class="title"><a href="eventDetailCon.do?seq=<%=list.get(i).getNotice_seq() %>"><%=list.get(i).getNotice_title()%></a></div>
+                  <div class="title"><a href="eventDetailCon_mg.do?seq=<%=list.get(i).getNotice_seq() %>"><%=list.get(i).getNotice_title()%></a></div>
                   <div class="writer">°ü¸®ÀÚ</div>
                  
                   <div class="date" ><%=list.get(i).getInput_date() %></div>

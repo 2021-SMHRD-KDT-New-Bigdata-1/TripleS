@@ -34,7 +34,7 @@
 			<h1>로그인</h1>
 			<input required="required" name="memberId" type="email" placeholder="이메일" />
 			<input required="required" name="password" type="password" placeholder="비밀번호" />
-			<a href="#">비밀번호를 잊으셨나요?</a>
+			<a href="find.jsp">비밀번호를 잊으셨나요?</a>
 			<button type="submit">로그인</button>
 		</form>
 	</div>

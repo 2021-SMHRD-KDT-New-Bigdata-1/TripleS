@@ -14,16 +14,6 @@
 </head>
 <body>
 	
-		<div id="kakaoHead">
-		<div class="wrap_head">
-			<nav id="kakaoGnb">
-				<ul class="list_gnb">
-					<li><a href="#" class="link_gnb">내정보 관리</a></li>
-					<li><a href="shareAccont_index.jsp" class="link_gnb">공유 계정</a></li>
-				</ul>
-			</nav>
-		</div>
-	</div>
 	
 	<div class="container" id="container">
 		<div class="form-container sign-up-container">

@@ -16,24 +16,24 @@
     
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="JoinService" method="post">
+		<form  action="JoinService" method="post">
 			<h1>회원가입</h1>
-			<input name="memberId" id="email" type="text" placeholder="이메일" />
+			<input required="required" name="memberId" id="email" type="text" placeholder="이메일" />
 			<input type="button" value="이메일 중복체크" onclick="emailCheck()">
 					<span id="sp"></span>
-			<input name="password" type="password" placeholder="비밀번호" />
-			<input name="nickname" id="name" type="text" placeholder="닉네임" />
+			<input required="required" name="password" type="password" placeholder="비밀번호" />
+			<input required="required" name="nickname" id="name" type="text" placeholder="닉네임" />
 			<input type="button" value="닉네임 중복체크" onclick="nicknameCheck()">
 					<span id="nick"></span>
-			<input name="phone" type="tel" placeholder="전화번호" />
+			<input required="required" name="phone" type="tel" placeholder="전화번호" />
 			<button type="submit">회원가입</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
 		<form action="LoginService" method="post">
 			<h1>로그인</h1>
-			<input name="memberId" type="email" placeholder="이메일" />
-			<input name="password" type="password" placeholder="비밀번호" />
+			<input required="required" name="memberId" type="email" placeholder="이메일" />
+			<input required="required" name="password" type="password" placeholder="비밀번호" />
 			<a href="#">비밀번호를 잊으셨나요?</a>
 			<button type="submit">로그인</button>
 		</form>
@@ -127,9 +127,30 @@ function nicknameCheck(){
 		}
 	})
 }
-		
+</script>
+<script>
+    $(function(){
+        $("input[type=submit]").click(function(){
+            var isRight = true;
+            $("#frm").find("input[type=text]").each(function(index, item){
+                // 아무값없이 띄어쓰기만 있을 때도 빈 값으로 체크되도록 trim() 함수 호출
+                if ($(this).val().trim() == '') {
+                    alert($(this).attr("data-name")+" 항목을 입력하세요.");
+                    isRight = false;
+                    return false;
+                }
+            });
 
+            if (!isRight) {
+                return;
+            }
+
+            $(this).prop("disabled", true);
+            $(this).prop("disabled", false);
+        });
+
+    });
+</script>
 	
-	</script>
 </body>
 </html>

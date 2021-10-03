@@ -49,7 +49,7 @@ a.link {
 .portfolio-items > li {
   display: inline-block;
   vertical-align: top;
-  height: 600px;
+  height: 400px;
   width: 700px;
 }
 
@@ -78,7 +78,7 @@ a.link {
 
 .item:hover {
 	width: 690px;
-    height: 590px;
+    height: 400px;
   -webkit-transform: translateY(-68px);
   -ms-transform: translateY(-68px);
   -o-transform: translateY(-68px);
@@ -111,7 +111,7 @@ a.link {
 }
 
 .item:hover .view {
-  height: 590px;
+  height: 400px;
 }
 
 .item:hover .view img {
@@ -138,13 +138,13 @@ figure {
 .view {
   overflow: hidden;
 	width: 690px;
-    height: 590px;
+    height: 400px;
   position: relative
 }
 
 .view img {
     width: 690px;
-    height: 490px;
+    height: 400px;
   -webkit-transition: width .3s ease;
   -o-transition: width .3s ease;
   transition: width .3s ease;

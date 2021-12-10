@@ -18,12 +18,12 @@ import com.VO.PartiesVO;
 public class MatchingNetflex extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		request.setCharacterEncoding("UTF-8");
 		MemberVO vo = null;
-		
+
 		String ottid = request.getParameter("ottid");
 		String ottpw = request.getParameter("ottpw");
 		String bank = request.getParameter("bank");
@@ -33,24 +33,22 @@ public class MatchingNetflex extends HttpServlet {
 		String member2 = null;
 		String member3 = null;
 		int cnt = 0;
-		
+
 		HttpSession session = request.getSession();
-		vo = (MemberVO)session.getAttribute("vo");
+		vo = (MemberVO) session.getAttribute("vo");
 		String memberId = vo.getMemberId();
-		String OTT = (String)session.getAttribute("ott");
-		
-		
+		String OTT = (String) session.getAttribute("ott");
+
 		MatchingDAO dao = new MatchingDAO();
 		cnt = dao.parties(memberId, OTT, ottid, ottpw, account, accountname, bank);
 		ArrayList<String> members = dao.member_check(OTT);
-		
-		
+
 		if (members.size() == 0) {
-		} else if(members.size() == 1) {
+		} else if (members.size() == 1) {
 			member1 = members.get(0);
 			cnt = dao.delete_member1(member1);
 			cnt = dao.change_member1(member1, memberId);
-		} else if(members.size() == 2) {
+		} else if (members.size() == 2) {
 			member1 = members.get(0);
 			member2 = members.get(1);
 			cnt = dao.delete_member2(member1, member2);
@@ -62,15 +60,11 @@ public class MatchingNetflex extends HttpServlet {
 			cnt = dao.delete_member3(member1, member2, member3);
 			cnt = dao.change_member3(member1, member2, member3, memberId);
 		}
-		
-		if(cnt > 0) {
+
+		if (cnt > 0) {
 			response.sendRedirect("success_host.html");
-		} 
-		
-		
-		
-		
-		
+		}
+
 	}
 
 }

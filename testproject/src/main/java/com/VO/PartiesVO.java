@@ -2,6 +2,8 @@ package com.VO;
 
 import java.sql.Date;
 
+/*아래 클래스는 파티매칭과 연관된 테이블들의 정보가 저정된 model 클래스이다 
+ * by 이길환 */
 public class PartiesVO {
 
 
@@ -19,6 +21,8 @@ public class PartiesVO {
 	private String bank;
 	
 	
+	/* 파티장으로 파티매칭이 시작되어 파티방이 형성됬을대 필요한 데이터들을 생성하는 생성자 
+	 * by  이길환  */
 	public PartiesVO(int party_seq, Date open_date, String memberId, String ott, String member1, String member2,
 			String member3, String ottId, String ottPw, String account, String account_name, String bank) {
 		super();
@@ -38,8 +42,10 @@ public class PartiesVO {
 	
 	
 	
+	
 
-
+	/* 파티원으로 파티매칭을 시도하여 파티매칭을 대기중 상태에 필요한 데이터들을 생성하는 생성자
+	 * by 이길환  */
 	public PartiesVO(String memberId, String member1, String member2, String member3) {
 		super();
 		this.memberId = memberId;
